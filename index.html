@@ -1,57 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ===== PROFESSIONAL SEO META TAGS ===== -->
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Link Tour & Travel - WhatsApp Booking</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Title & Description -->
+    <title>World Link Tour & Travel | Best Travel Agency in Bangladesh | 30+ Countries</title>
+    <meta name="title" content="World Link Tour & Travel | Best Travel Agency in Bangladesh | 30+ Countries">
+    <meta name="description" content="World Link Tour & Travel offers premium tour packages to 30+ countries. Book via WhatsApp, best prices, 24/7 support, customized tours since 2008. Visit us in Dhaka, Bangladesh.">
+    <meta name="keywords" content="travel agency, tour packages, world link, bangladesh travel, international tours, umrah package, holiday packages, whatsapp booking, dhaka travel agency, gulshan travel">
+    <meta name="author" content="World Link Tour & Travel">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://worldlinktravel.com">
+    <meta property="og:title" content="World Link Tour & Travel - Your Trusted Travel Partner Since 2008">
+    <meta property="og:description" content="Explore 30+ countries with World Link. Best tour packages, instant WhatsApp booking, and 24/7 customer support.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200">
+    <meta property="og:site_name" content="World Link Tour & Travel">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://worldlinktravel.com">
+    <meta name="twitter:title" content="World Link Tour & Travel - Your Trusted Travel Partner">
+    <meta name="twitter:description" content="Explore 30+ countries with World Link. Best tour packages, instant WhatsApp booking.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="BD">
+    <meta name="geo.placename" content="Dhaka">
+    <meta name="geo.position" content="23.8103;90.4125">
+    <meta name="ICBM" content="23.8103, 90.4125">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://worldlinktravel.com">
+    
+    <!-- Favicon (using Font Awesome as fallback) -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+    
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ===== PROFESSIONAL CSS STYLES ===== -->
     <style>
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        :root {
+            --primary-color: #003b5c;      /* Deep blue - trust & professionalism */
+            --secondary-color: #ffb347;     /* Golden orange - warmth & happiness */
+            --accent-color: #25D366;        /* WhatsApp green */
+            --text-dark: #1e2b37;
+            --text-light: #f5f9fc;
+            --shadow-sm: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.15);
+            --shadow-lg: 0 15px 35px rgba(0,0,0,0.2);
+            --border-radius: 30px;
+            --transition: all 0.3s ease;
+        }
+
         body {
             background-color: #f5f9fc;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-        /* Navbar */
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* ===== NAVBAR ===== */
         .navbar {
-            background-color: #003b5c;
+            background-color: var(--primary-color);
             color: white;
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+
         .logo h1 {
             font-size: 2rem;
             letter-spacing: 1px;
         }
+
         .logo span {
-            color: #ffb347;
+            color: var(--secondary-color);
             font-size: 0.9rem;
             display: block;
         }
+
         .nav-links {
             display: flex;
             align-items: center;
             gap: 2rem;
             flex-wrap: wrap;
         }
+
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
+            transition: var(--transition);
+            position: relative;
         }
-        .nav-links a:hover {
-            color: #ffb347;
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
         }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .lang-switch {
-            background: #ffb347;
-            color: #003b5c;
+            background: var(--secondary-color);
+            color: var(--primary-color);
             border: none;
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
@@ -61,49 +152,64 @@
             align-items: center;
             gap: 8px;
             font-size: 1rem;
+            transition: var(--transition);
         }
+
         .lang-switch:hover {
             background: white;
+            transform: translateY(-2px);
         }
-        /* Container */
+
+        /* ===== CONTAINER ===== */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 5%;
         }
-        /* Hero Section */
+
+        /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 5rem 3rem;
-            border-radius: 30px;
+            padding: 6rem 3rem;
+            border-radius: var(--border-radius);
             margin-bottom: 3rem;
+            text-align: center;
         }
+
         .hero h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
+
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
+
         .rating-badge {
-            background-color: #ffb347;
-            color: #1e2b37;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
             display: inline-block;
             padding: 0.7rem 2rem;
             border-radius: 50px;
             font-weight: bold;
             font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
         }
-        /* WhatsApp Floating Button */
+
+        /* ===== WHATSAPP FLOATING BUTTON ===== */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #25D366;
+            background: var(--accent-color);
             color: white;
             width: 70px;
             height: 70px;
@@ -112,94 +218,113 @@
             justify-content: center;
             align-items: center;
             font-size: 2.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-lg);
             cursor: pointer;
             z-index: 999;
-            transition: 0.3s;
+            transition: var(--transition);
             animation: pulse 2s infinite;
         }
+
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
             background: #128C7E;
         }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
-        /* Company Description */
+
+        /* ===== COMPANY DESCRIPTION ===== */
         .company-description {
             background: white;
-            padding: 2.5rem;
-            border-radius: 30px;
+            padding: 3rem;
+            border-radius: var(--border-radius);
             margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-md);
             text-align: center;
         }
+
         .company-description h3 {
-            color: #003b5c;
-            font-size: 2rem;
+            color: var(--primary-color);
+            font-size: 2.2rem;
             margin-bottom: 1rem;
         }
+
         .company-description p {
             font-size: 1.2rem;
             line-height: 1.8;
             color: #2c3e50;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
-        /* Features Grid */
+
+        /* ===== FEATURES GRID ===== */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
+
         .feature-card {
             background: white;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,59,92,0.1);
         }
+
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary-color);
         }
+
         .feature-card i {
-            font-size: 2.5rem;
-            color: #003b5c;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
         }
+
         .feature-card h3 {
-            margin-bottom: 0.5rem;
-            color: #003b5c;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
         }
+
         .feature-card .detail {
             font-weight: 600;
             color: #2c3e50;
         }
-        /* Payment Section */
+
+        /* ===== PAYMENT SECTION ===== */
         .payment-section {
             background: white;
-            padding: 2.5rem;
-            border-radius: 30px;
+            padding: 3rem;
+            border-radius: var(--border-radius);
             margin: 3rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-md);
         }
+
         .payment-section h2 {
-            color: #003b5c;
+            color: var(--primary-color);
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 2rem;
         }
+
         .payment-options {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
         }
+
         .pay-option {
             background: #eef4f9;
             padding: 0.8rem 2rem;
@@ -208,95 +333,126 @@
             align-items: center;
             gap: 10px;
             font-weight: 600;
-            color: #003b5c;
+            color: var(--primary-color);
             cursor: pointer;
-            transition: 0.2s;
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
+
         .pay-option:hover {
-            background: #ffb347;
+            background: var(--secondary-color);
             transform: scale(1.05);
+            border-color: var(--primary-color);
         }
-        /* Contact Details */
+
+        /* ===== CONTACT DETAILS ===== */
         .contact-details {
-            background: #003b5c;
+            background: var(--primary-color);
             color: white;
-            padding: 2.5rem;
-            border-radius: 30px;
+            padding: 3rem;
+            border-radius: var(--border-radius);
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             gap: 2rem;
             margin: 3rem 0;
         }
+
         .contact-item {
             text-align: center;
+            flex: 1;
+            min-width: 200px;
         }
+
         .contact-item i {
-            font-size: 2rem;
-            background: #ffb347;
-            color: #003b5c;
-            padding: 1rem;
+            font-size: 2.5rem;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 1.2rem;
             border-radius: 50%;
             margin-bottom: 1rem;
+            transition: var(--transition);
         }
+
+        .contact-item:hover i {
+            transform: rotate(360deg);
+        }
+
         .contact-item .value {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: bold;
+            margin-bottom: 0.5rem;
         }
-        /* Countries Gallery */
+
+        /* ===== COUNTRIES GALLERY ===== */
         .countries-section {
             margin: 4rem 0;
         }
+
         .countries-section h2 {
-            color: #003b5c;
-            margin-bottom: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
             font-size: 2.5rem;
             text-align: center;
         }
+
         .countries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
         }
+
         .country-card {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-lg);
             cursor: pointer;
-            transition: 0.3s;
+            transition: var(--transition);
             aspect-ratio: 1/1;
         }
+
         .country-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
+
         .country-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: var(--transition);
         }
+
+        .country-card:hover img {
+            transform: scale(1.1);
+        }
+
         .country-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             color: white;
-            padding: 2rem 1rem 1rem;
+            padding: 2.5rem 1rem 1.5rem;
             text-align: center;
+            transform: translateY(0);
+            transition: var(--transition);
         }
+
+        .country-card:hover .country-overlay {
+            background: linear-gradient(to top, rgba(0,59,92,0.9), transparent);
+        }
+
         .country-overlay h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        .country-overlay p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        /* Modal */
+
+        /* ===== MODAL ===== */
         .modal {
             display: none;
             position: fixed;
@@ -308,76 +464,89 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            backdrop-filter: blur(5px);
         }
+
         .modal-content {
             background: white;
-            padding: 2.5rem;
-            border-radius: 30px;
+            padding: 3rem;
+            border-radius: var(--border-radius);
             max-width: 600px;
             width: 90%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
-            animation: modalPop 0.3s;
+            animation: modalPop 0.4s ease;
+            position: relative;
         }
+
         @keyframes modalPop {
-            from {transform: scale(0.8); opacity: 0;}
-            to {transform: scale(1); opacity: 1;}
+            from {
+                transform: scale(0.8) translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
+
         .modal-content h2 {
-            color: #003b5c;
+            color: var(--primary-color);
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-        .country-flag {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+
         .package-details {
             background: #f0f7fd;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 20px;
             margin: 1.5rem 0;
             line-height: 2;
         }
-        .package-details p {
-            margin: 0.8rem 0;
-        }
+
         .modal-payment-icons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin: 1.5rem 0;
         }
+
         .modal-payment-icons span {
             background: #e1ebf3;
-            padding: 0.5rem 1.2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 30px;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-weight: 500;
         }
+
         .whatsapp-booking {
-            background: #25D366;
+            background: var(--accent-color);
             color: white;
-            padding: 1.2rem;
+            padding: 1.5rem;
             border-radius: 50px;
             text-align: center;
             margin: 1.5rem 0;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            transition: 0.3s;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            border: 2px solid transparent;
         }
+
         .whatsapp-booking:hover {
             background: #128C7E;
             transform: scale(1.02);
+            border-color: var(--primary-color);
         }
+
         .modal-btn {
-            background: #003b5c;
+            background: var(--primary-color);
             color: white;
             border: none;
             padding: 1rem 2rem;
@@ -386,52 +555,64 @@
             font-weight: 600;
             cursor: pointer;
             margin-right: 1rem;
+            transition: var(--transition);
         }
+
         .modal-btn:hover {
-            background: #ffb347;
-            color: #1e2b37;
+            background: var(--secondary-color);
+            color: var(--primary-color);
         }
+
         .close-modal-btn {
-            background: #ccc;
-            color: #333;
+            background: #95a5a6;
         }
-        /* Rating Section */
+
+        /* ===== RATING SECTION ===== */
         .rating-section {
             background: white;
-            padding: 2.5rem;
-            border-radius: 30px;
+            padding: 3rem;
+            border-radius: var(--border-radius);
             margin: 3rem 0;
+            box-shadow: var(--shadow-md);
         }
+
         .rating-container {
             display: flex;
             flex-wrap: wrap;
             gap: 3rem;
             align-items: center;
         }
+
         .current-rating {
             text-align: center;
             background: #ffeed9;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 30px;
             flex: 1;
+            min-width: 250px;
         }
+
         .current-rating .big-star {
-            font-size: 4rem;
-            color: #ffb347;
+            font-size: 4.5rem;
+            color: var(--secondary-color);
         }
+
         .current-rating .avg-number {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
-            color: #003b5c;
+            color: var(--primary-color);
         }
+
         .star-display {
-            font-size: 2rem;
+            font-size: 2.2rem;
             letter-spacing: 5px;
-            color: #ffb347;
+            color: var(--secondary-color);
         }
+
         .rating-input {
             flex: 2;
         }
+
         .star-rating {
             display: flex;
             flex-direction: row-reverse;
@@ -440,20 +621,26 @@
             font-size: 2.2rem;
             margin: 1rem 0;
         }
+
         .star-rating input {
             display: none;
         }
+
         .star-rating label {
             color: #ccc;
             cursor: pointer;
+            transition: var(--transition);
         }
+
         .star-rating label:hover,
         .star-rating label:hover ~ label,
         .star-rating input:checked ~ label {
-            color: #ffb347;
+            color: var(--secondary-color);
+            transform: scale(1.1);
         }
+
         .btn {
-            background: #003b5c;
+            background: var(--primary-color);
             color: white;
             border: none;
             padding: 1rem 2.5rem;
@@ -462,36 +649,44 @@
             font-weight: 600;
             cursor: pointer;
             margin-top: 1rem;
+            transition: var(--transition);
         }
-        /* Prompt Section */
+
+        .btn:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PROMPT/CHAT SECTION ===== */
         .prompt-section {
-            background: linear-gradient(135deg, #003b5c, #1a5f7a);
+            background: linear-gradient(135deg, var(--primary-color), #1a5f7a);
             color: white;
-            padding: 2rem;
-            border-radius: 30px;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
             margin: 3rem 0;
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
         }
+
         .prompt-text {
             flex: 2;
         }
+
         .prompt-text h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
         }
-        .prompt-text p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+
         .prompt-input {
             flex: 1;
             display: flex;
             gap: 0.5rem;
             min-width: 300px;
         }
+
         .prompt-input input {
             flex: 1;
             padding: 1rem 1.5rem;
@@ -500,9 +695,10 @@
             font-size: 1rem;
             outline: none;
         }
+
         .prompt-input button {
-            background: #ffb347;
-            color: #003b5c;
+            background: var(--secondary-color);
+            color: var(--primary-color);
             border: none;
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -512,10 +708,14 @@
             align-items: center;
             gap: 8px;
             font-size: 1rem;
+            transition: var(--transition);
         }
+
         .prompt-input button:hover {
             background: white;
+            transform: translateX(5px);
         }
+
         .chat-messages {
             margin-top: 1.5rem;
             max-height: 200px;
@@ -524,13 +724,27 @@
             background: rgba(255,255,255,0.1);
             border-radius: 20px;
         }
+
         .chat-message {
             margin-bottom: 0.8rem;
             padding: 0.8rem;
             border-radius: 15px;
             background: rgba(255,255,255,0.2);
+            animation: slideIn 0.3s ease;
         }
-        /* Action Buttons */
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== ACTION BUTTONS ===== */
         .action-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -538,10 +752,11 @@
             justify-content: center;
             margin: 3rem 0;
         }
+
         .action-btn {
             background: white;
-            border: 2px solid #003b5c;
-            color: #003b5c;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
             padding: 1rem 2rem;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -550,33 +765,90 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: 0.2s;
+            transition: var(--transition);
         }
+
         .action-btn:hover {
-            background: #003b5c;
+            background: var(--primary-color);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
+
         .whatsapp-btn {
-            background: #25D366;
+            background: var(--accent-color);
             border-color: #128C7E;
             color: white;
         }
+
         .whatsapp-btn:hover {
             background: #128C7E;
         }
-        /* Footer */
+
+        /* ===== FOOTER ===== */
         .footer {
             background: #002b40;
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             border-radius: 30px 30px 0 0;
             margin-top: 4rem;
         }
+
+        .footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .countries-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .modal-content {
+                padding: 2rem;
+            }
+            
+            .rating-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .p-2 { padding: 2rem; }
+        .shadow { box-shadow: var(--shadow-md); }
+        .rounded { border-radius: var(--border-radius); }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- ===== NAVBAR SECTION ===== -->
     <div class="navbar">
         <div class="logo">
             <h1>WORLD LINK <i class="fa-solid fa-globe"></i></h1>
@@ -593,58 +865,62 @@
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
     <div class="whatsapp-float" onclick="openWhatsApp()">
         <i class="fa-brands fa-whatsapp"></i>
     </div>
 
-    <!-- Main Content -->
+    <!-- ===== MAIN CONTENT CONTAINER ===== -->
     <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero">
             <h2 id="heroTitle">Your Dream Journey Starts Here</h2>
             <p id="heroText">Experience the world with World Link</p>
             <div class="rating-badge">
                 <i class="fa-solid fa-star"></i> 4.8 ★ <span id="reviewCount">(12.7k+ reviews)</span>
             </div>
-        </div>
+        </section>
 
-        <!-- Company Description -->
-        <div class="company-description">
+        <!-- ===== COMPANY DESCRIPTION SECTION ===== -->
+        <section class="company-description">
             <h3 id="companyTitle">🌍 World Link Tour & Travel</h3>
             <p id="companyDesc">Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable. Book directly via WhatsApp for instant confirmation!</p>
-        </div>
+        </section>
 
-        <!-- Features -->
-        <div class="features-grid">
+        <!-- ===== FEATURES SECTION ===== -->
+        <section class="features-grid">
+            <!-- Payment Options Card -->
             <div class="feature-card">
                 <i class="fa-regular fa-credit-card"></i>
                 <h3 id="paymentTitle">Payment Options</h3>
                 <div class="detail" id="paymentDetail1">Visa · Mastercard · PayPal</div>
                 <div class="detail" id="paymentDetail2">Crypto · Bank Transfer</div>
             </div>
+            <!-- Phone Number Card -->
             <div class="feature-card">
                 <i class="fa-solid fa-phone"></i>
                 <h3 id="phoneTitle">Phone Number</h3>
                 <div class="detail">+880 1718-834110</div>
                 <div class="detail">+1 (800) 234-9876</div>
             </div>
+            <!-- Location Card -->
             <div class="feature-card">
                 <i class="fa-solid fa-location-dot"></i>
                 <h3 id="locationTitle">Location</h3>
                 <div class="detail" id="locationDetail1">Gulshan Avenue, Dhaka</div>
                 <div class="detail" id="locationDetail2">World Link Tower</div>
             </div>
+            <!-- House Number Card -->
             <div class="feature-card">
                 <i class="fa-solid fa-house"></i>
                 <h3 id="houseTitle">House Number</h3>
                 <div class="detail" id="houseDetail1">House 34, Road 12</div>
                 <div class="detail" id="houseDetail2">Banani, Dhaka</div>
             </div>
-        </div>
+        </section>
 
-        <!-- Payment Section -->
-        <div class="payment-section">
+        <!-- ===== PAYMENT METHODS SECTION ===== -->
+        <section class="payment-section">
             <h2><i class="fa-solid fa-coins"></i> <span id="paymentSectionTitle">Payment Methods</span></h2>
             <div class="payment-options">
                 <span class="pay-option" onclick="alert('Visa payment selected')"><i class="fa-brands fa-cc-visa"></i> Visa</span>
@@ -654,10 +930,10 @@
                 <span class="pay-option" onclick="alert('bKash payment selected')"><i class="fa-brands fa-bkash"></i> bKash</span>
                 <span class="pay-option" onclick="alert('Cash payment selected')"><i class="fa-regular fa-money-bill-1"></i> Cash</span>
             </div>
-        </div>
+        </section>
 
-        <!-- Contact Details -->
-        <div class="contact-details">
+        <!-- ===== CONTACT DETAILS SECTION ===== -->
+        <section class="contact-details">
             <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
                 <div class="value">+880 1718-834110</div>
@@ -673,25 +949,25 @@
                 <div class="value" id="houseValue">House 34, Road 12</div>
                 <div id="areaText">Banani, Dhaka</div>
             </div>
-        </div>
+        </section>
 
-        <!-- 30+ Countries Gallery -->
-        <div class="countries-section">
+        <!-- ===== COUNTRIES GALLERY SECTION ===== -->
+        <section class="countries-section">
             <h2 id="countriesTitle">🌎 Explore 30+ Countries</h2>
             <div class="countries-grid" id="countriesGrid">
-                <!-- Countries will be loaded by JavaScript -->
+                <!-- Countries will be dynamically loaded by JavaScript -->
             </div>
-        </div>
+        </section>
 
-        <!-- Modal -->
+        <!-- ===== MODAL FOR COUNTRY DETAILS ===== -->
         <div id="packageModal" class="modal">
             <div class="modal-content" id="modalContent">
-                <!-- Content will be loaded here -->
+                <!-- Content will be dynamically loaded -->
             </div>
         </div>
 
-        <!-- Prompt Section -->
-        <div class="prompt-section">
+        <!-- ===== TRAVEL ASSISTANT CHAT SECTION ===== -->
+        <section class="prompt-section">
             <div class="prompt-text">
                 <h3 id="promptTitle">🤖 Travel Assistant</h3>
                 <p id="promptDesc">Ask me anything about tours, packages, or payments!</p>
@@ -703,10 +979,10 @@
                 <input type="text" id="promptInput" placeholder="Type your question...">
                 <button onclick="sendPrompt()"><i class="fa-regular fa-paper-plane"></i> <span id="sendBtnText">Send</span></button>
             </div>
-        </div>
+        </section>
 
-        <!-- Rating Section -->
-        <div class="rating-section">
+        <!-- ===== RATING SECTION ===== -->
+        <section class="rating-section">
             <div class="rating-container">
                 <div class="current-rating">
                     <div class="big-star"><i class="fa-solid fa-star"></i></div>
@@ -728,39 +1004,46 @@
                     <p id="ratingMessage" style="margin-top: 1rem;"></p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Action Buttons -->
-        <div class="action-buttons">
+        <!-- ===== ACTION BUTTONS SECTION ===== -->
+        <section class="action-buttons">
             <button class="action-btn" onclick="alert('Calling: +880 1718-834110')"><i class="fa-solid fa-phone"></i> <span class="btnText" id="callBtn">Call Now</span></button>
             <button class="action-btn" onclick="alert('Location: Gulshan Avenue, Dhaka')"><i class="fa-solid fa-location-dot"></i> <span class="btnText" id="locationBtn">Get Direction</span></button>
             <button class="action-btn" onclick="alert('House Number: House 34, Road 12, Banani')"><i class="fa-solid fa-house"></i> <span class="btnText" id="houseBtn">House Number</span></button>
             <button class="action-btn whatsapp-btn" onclick="openWhatsApp()"><i class="fa-brands fa-whatsapp"></i> <span class="btnText" id="whatsappBtn">WhatsApp Booking</span></button>
-        </div>
+        </section>
 
-        <!-- House Number Card -->
-        <div style="background: #e6f0f9; border-radius: 30px; padding: 2rem; text-align: center; margin: 2rem 0;">
-            <i class="fa-solid fa-house-circle-check" style="font-size: 3rem; color: #003b5c;"></i>
+        <!-- ===== HOUSE NUMBER CARD ===== -->
+        <section style="background: #e6f0f9; border-radius: 30px; padding: 2rem; text-align: center; margin: 2rem 0;">
+            <i class="fa-solid fa-house-circle-check" style="font-size: 3rem; color: var(--primary-color);"></i>
             <h3 style="margin: 1rem 0;" id="houseCardTitle">House Number Directory</h3>
             <p style="font-size: 1.3rem;" id="houseAddress">Main Office: House 34, Road 12, Banani, Dhaka</p>
             <button class="action-btn" onclick="copyHouseNumber()" style="margin-top: 1rem;"><i class="fa-regular fa-copy"></i> <span id="copyBtn">Copy House Number</span></button>
-        </div>
+        </section>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
+    <!-- ===== FOOTER SECTION ===== -->
+    <footer class="footer">
         <p><i class="fa-regular fa-copyright"></i> 2025 WORLD LINK TOUR & TRAVEL. <span id="rightsText">All rights reserved.</span></p>
         <p style="margin-top: 1rem;" id="footerContact">📞 +880 1718-834110 | 🏠 House 34, Road 12, Banani, Dhaka</p>
-    </div>
+        <!-- Structured Data for SEO -->
+        <div style="display: none;">
+            <div itemscope itemtype="https://schema.org/TravelAgency">
+                <span itemprop="name">World Link Tour & Travel</span>
+                <span itemprop="telephone">+8801718834110</span>
+                <span itemprop="address">House 34, Road 12, Banani, Dhaka</span>
+            </div>
+        </div>
+    </footer>
 
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // WhatsApp Number
-        const whatsappNumber = "8801718834110"; // Without + sign
+        // ===== CONFIGURATION =====
+        const whatsappNumber = "8801718834110"; // WhatsApp business number
+        let currentLang = 'en'; // Default language
         
-        // Current language
-        let currentLang = 'en';
-        
-        // Countries data with 30+ countries
+        // ===== COUNTRIES DATABASE =====
         const countries = [
             { name: 'Bangladesh', nameBn: 'বাংলাদেশ', flag: '🇧🇩', capital: 'Dhaka', capitalBn: 'ঢাকা', currency: 'BDT', currencyBn: 'টাকা', bestTime: 'Oct-Mar', bestTimeBn: 'অক্টোবর-মার্চ', popular: 'Cox\'s Bazar, Sundarbans', popularBn: 'কক্সবাজার, সুন্দরবন', price: 'From $499', priceBn: 'থেকে $৪৯৯', img: 'https://images.unsplash.com/photo-1523906834658-6e24e2384f88?w=500' },
             { name: 'Thailand', nameBn: 'থাইল্যান্ড', flag: '🇹🇭', capital: 'Bangkok', capitalBn: 'ব্যাংকক', currency: 'THB', currencyBn: 'বাট', bestTime: 'Nov-Feb', bestTimeBn: 'নভেম্বর-ফেব্রুয়ারি', popular: 'Phuket, Bangkok', popularBn: 'ফুকেট, ব্যাংকক', price: 'From $699', priceBn: 'থেকে $৬৯৯', img: 'https://images.unsplash.com/photo-1528181304800-259b08848526?w=500' },
@@ -796,7 +1079,7 @@
             { name: 'China', nameBn: 'চীন', flag: '🇨🇳', capital: 'Beijing', capitalBn: 'বেইজিং', currency: 'CNY', currencyBn: 'ইউয়ান', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Great Wall', popularBn: 'চীনের প্রাচীর', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=500' }
         ];
 
-        // WhatsApp Functions
+        // ===== WHATSAPP FUNCTIONS =====
         window.openWhatsApp = function(message = '') {
             let text = message || (currentLang === 'en' ? 'Hello! I want to book a tour package.' : 'হ্যালো! আমি একটি ট্যুর প্যাকেজ বুক করতে চাই।');
             let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
@@ -810,7 +1093,7 @@
             openWhatsApp(message);
         };
 
-        // Load countries into grid
+        // ===== LOAD COUNTRIES INTO GRID =====
         function loadCountries() {
             const grid = document.getElementById('countriesGrid');
             grid.innerHTML = '';
@@ -821,7 +1104,7 @@
                 card.onclick = () => openCountryModal(index);
                 
                 card.innerHTML = `
-                    <img src="${country.img}" alt="${country.name}">
+                    <img src="${country.img}" alt="${country.name} travel package" loading="lazy">
                     <div class="country-overlay">
                         <h3>${currentLang === 'en' ? country.name : country.nameBn} ${country.flag}</h3>
                         <p>${currentLang === 'en' ? 'Click for details' : 'বিস্তারিত জানতে ক্লিক করুন'}</p>
@@ -832,7 +1115,7 @@
             });
         }
 
-        // Open country modal
+        // ===== OPEN COUNTRY MODAL =====
         window.openCountryModal = function(index) {
             const country = countries[index];
             const modal = document.getElementById('packageModal');
@@ -872,7 +1155,7 @@
             document.getElementById('packageModal').style.display = 'none';
         };
 
-        // Language Toggle
+        // ===== LANGUAGE TOGGLE FUNCTION =====
         window.toggleLanguage = function() {
             if(currentLang === 'en') {
                 currentLang = 'bn';
@@ -969,7 +1252,7 @@
             loadCountries();
         };
 
-        // Prompt function
+        // ===== CHAT/ASSISTANT FUNCTION =====
         window.sendPrompt = function() {
             const input = document.getElementById('promptInput');
             const question = input.value.trim();
@@ -1017,7 +1300,7 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         };
 
-        // Rating system
+        // ===== RATING SYSTEM =====
         let totalRating = 4.7;
         let ratingCount = 2438;
         
@@ -1055,7 +1338,7 @@
             document.querySelectorAll('input[name="userRating"]').forEach(r => r.checked = false);
         };
 
-        // Copy house number
+        // ===== COPY HOUSE NUMBER =====
         window.copyHouseNumber = function() {
             const houseText = 'House 34, Road 12, Banani, Dhaka';
             navigator.clipboard.writeText(houseText).then(() => {
@@ -1063,14 +1346,13 @@
             });
         };
 
-        // Enter key for prompt
+        // ===== EVENT LISTENERS =====
         document.getElementById('promptInput').addEventListener('keypress', function(e) {
             if(e.key === 'Enter') {
                 sendPrompt();
             }
         });
 
-        // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('packageModal');
             if(event.target === modal) {
@@ -1078,8 +1360,11 @@
             }
         };
 
-        // Initialize
-        loadCountries();
+        // ===== INITIALIZE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCountries();
+            console.log('World Link Travel - Professional Version Loaded');
+        });
     </script>
 </body>
     </html>
