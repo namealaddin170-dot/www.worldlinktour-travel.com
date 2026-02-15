@@ -3,429 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Link Tour & Travel - বাংলা</title>
-    <!-- Font Awesome 6 (free) for icons -->
+    <title>World Link Tour & Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, 'Noto Sans Bengali', system-ui, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         body {
-            background: #f4f7fb;
-            color: #1e2b37;
-            line-height: 1.5;
+            background: #f0f5fa;
         }
-        /* header / navigation */
         .navbar {
             background: #003b5c;
             color: white;
+            padding: 1rem 5%;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        .logo h1 {
-            font-size: 1.9rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
         }
         .logo span {
             color: #ffb347;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: block;
-            line-height: 1.2;
         }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: 0.2s;
-            padding: 0.5rem 0.2rem;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-links a:hover {
-            border-bottom-color: #ffb347;
-            color: #ffd966;
-        }
-        /* main container */
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 5%;
         }
-        /* hero / banner */
         .hero {
-            background: linear-gradient(rgba(0, 30, 50, 0.5), rgba(0, 20, 40, 0.6)), 
-                        url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800');
             background-size: cover;
-            background-position: center 30%;
-            border-radius: 28px;
-            padding: 5rem 4rem;
+            background-position: center;
             color: white;
-            margin-bottom: 3rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            text-shadow: 0 4px 10px black;
+            padding: 4rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
         }
-        .hero h2 {
-            font-size: 3.2rem;
-            max-width: 600px;
+        .hero h1 {
+            font-size: 3rem;
         }
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 500px;
-            margin-top: 1rem;
-        }
-        .hero .rating-badge {
-            display: inline-block;
+        .rating-badge {
             background: #ffb347;
-            color: #1e2b37;
+            color: black;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            margin-top: 1rem;
             font-weight: bold;
-            padding: 0.6rem 1.5rem;
-            border-radius: 40px;
-            margin-top: 1.5rem;
-            font-size: 1.3rem;
-            text-shadow: none;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
-        .hero .rating-badge i {
-            color: #222;
-            margin-right: 8px;
-        }
-        /* cards grid for features */
-        .card-grid {
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        .card {
+        .feature-card {
             background: white;
-            padding: 2rem 1.5rem;
-            border-radius: 24px;
+            padding: 1.5rem;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 12px 24px -8px rgba(0, 45, 70, 0.15);
-            transition: all 0.25s;
-            border: 1px solid rgba(255,180,70,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 30px -8px #003b5c33;
-        }
-        .card i {
-            font-size: 2.6rem;
+        .feature-card i {
+            font-size: 2.5rem;
             color: #003b5c;
             margin-bottom: 1rem;
         }
-        .card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.7rem;
+        .phone-number {
+            font-size: 1.3rem;
+            color: #003b5c;
+            font-weight: bold;
         }
-        .card .detail {
-            font-size: 1.1rem;
-            color: #2d4b63;
-            font-weight: 500;
-        }
-        .highlight {
-            background: #e6f0f9;
-            border-left: 5px solid #ffb347;
-        }
-        /* Payment section with options */
         .payment-section {
             background: white;
-            border-radius: 30px;
-            padding: 2rem 2.5rem;
-            margin: 3rem 0;
-            box-shadow: 0 10px 25px rgba(0, 35, 60, 0.1);
-        }
-        .payment-section h2 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 2rem;
-            color: #003b5c;
-            border-bottom: 3px solid #ffb347;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.8rem;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
         }
         .payment-options {
             display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
-            gap: 1.5rem 2.5rem;
-            justify-content: space-around;
+            margin: 1rem 0;
         }
-        .pay-item {
-            background: #f0f6fd;
-            border-radius: 60px;
-            padding: 1rem 2rem;
-            font-size: 1.3rem;
-            font-weight: 600;
+        .payment-btn {
+            background: #e9f0f5;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #003b5c;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-            transition: 0.15s;
-        }
-        .pay-item i {
-            font-size: 1.8rem;
-            color: #1e4a6b;
-        }
-        .pay-item:hover {
-            background: #ffeed9;
-            transform: scale(1.02);
-            cursor: default;
-        }
-        /* contact details row */
-        .contact-details {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            background: #003b5c;
-            color: white;
-            border-radius: 40px;
-            padding: 2.5rem 2rem;
-            margin: 3rem 0;
-            justify-content: space-evenly;
-            text-align: center;
-        }
-        .contact-block {
-            display: flex;
-            flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            min-width: 180px;
+            font-size: 1.1rem;
         }
-        .contact-block i {
-            font-size: 2.4rem;
+        .contact-info {
+            background: #003b5c;
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .contact-item {
+            text-align: center;
+        }
+        .contact-item i {
+            font-size: 2rem;
             background: #ffb347;
             color: #003b5c;
-            padding: 0.8rem;
+            padding: 1rem;
             border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 0.5rem;
         }
-        .contact-block .label {
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-        .contact-block .value {
-            font-size: 1.5rem;
-            font-weight: 600;
-            background: #ffffff20;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-        }
-        /* rating area */
-        .rating-container {
-            background: white;
-            border-radius: 32px;
-            padding: 2rem;
-            box-shadow: 0 12px 28px #bbe4fa40;
-            border: 1px solid #d4e6f5;
-            margin: 2.5rem 0;
-        }
-        .rating-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-        }
-        .current-rating {
-            background: linear-gradient(145deg, #f9c270, #ffb347);
-            padding: 2rem 2.5rem;
-            border-radius: 36px;
-            text-align: center;
-            flex: 1 1 200px;
-            box-shadow: inset 0 -3px 0 #b16200;
-        }
-        .current-rating .big-star {
-            font-size: 3.5rem;
-            color: #1e2b37;
-        }
-        .current-rating .average {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-        .current-rating .stars-display {
-            font-size: 2rem;
-            letter-spacing: 8px;
-            color: #222;
-        }
-        .rating-input-area {
-            flex: 2 1 300px;
-        }
-        .rating-input-area h3 {
-            font-size: 1.9rem;
-            margin-bottom: 1rem;
-            color: #003b5c;
-        }
-        .star-rating {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: flex-end;
-            gap: 0.5rem;
-            font-size: 2.2rem;
-            margin: 1rem 0 1.5rem;
-        }
-        .star-rating input {
-            display: none;
-        }
-        .star-rating label {
-            color: #ccc;
-            cursor: pointer;
-            transition: 0.1s;
-        }
-        .star-rating label:hover,
-        .star-rating label:hover ~ label,
-        .star-rating input:checked ~ label {
-            color: #f5b342;
-        }
-        .btn-rate {
-            background: #003b5c;
-            border: none;
-            color: white;
-            padding: 1rem 2.8rem;
+        .contact-item .value {
             font-size: 1.3rem;
-            border-radius: 60px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            box-shadow: 0 8px 14px #001e30;
-            transition: 0.15s;
-            border: 1px solid #ffb34780;
+            font-weight: bold;
         }
-        .btn-rate:hover {
-            background: #0b4b70;
-            transform: scale(1.02);
-        }
-        .rating-message {
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #1b6b3f;
-        }
-        /* gallery */
         .gallery {
             margin: 3rem 0;
         }
         .gallery h2 {
-            font-size: 2.2rem;
             color: #003b5c;
             margin-bottom: 1.5rem;
-            border-left: 10px solid #ffb347;
-            padding-left: 1.5rem;
+            font-size: 2rem;
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
-        .gallery-item {
-            position: relative;
-            cursor: pointer;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 18px 25px -10px #0b2a40;
-            border: 3px solid white;
-            transition: 0.3s;
-        }
-        .gallery-item:hover {
-            transform: scale(1.02);
-            border-color: #ffb347;
-        }
-        .gallery-item img {
+        .gallery-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            display: block;
+            border-radius: 15px;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
-        /* Modal (পপআপ) styles */
+        .gallery-img:hover {
+            transform: scale(1.05);
+            border-color: #ffb347;
+        }
         .modal {
             display: none;
             position: fixed;
-            z-index: 999;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            backdrop-filter: blur(5px);
-            align-items: center;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
             justify-content: center;
+            align-items: center;
         }
         .modal-content {
             background: white;
             padding: 2rem;
-            border-radius: 40px;
+            border-radius: 20px;
             max-width: 500px;
             width: 90%;
-            box-shadow: 0 30px 50px #00000060;
-            animation: fadeIn 0.3s;
-            border: 3px solid #ffb347;
-        }
-        @keyframes fadeIn {
-            from {transform: scale(0.9); opacity: 0;}
-            to {transform: scale(1); opacity: 1;}
+            position: relative;
         }
         .modal-content h3 {
-            font-size: 2rem;
             color: #003b5c;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
         }
-        .package-desc {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            background: #f0f7ff;
+        .package-details {
+            background: #f0f7fc;
             padding: 1.5rem;
-            border-radius: 24px;
-            line-height: 1.7;
-        }
-        .package-desc i {
-            color: #ffb347;
-            margin-right: 8px;
+            border-radius: 15px;
+            margin: 1rem 0;
+            line-height: 1.8;
         }
         .modal-payment {
-            margin: 1.5rem 0 1rem;
-        }
-        .modal-payment p {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: #003b5c;
-        }
-        .payment-icons {
             display: flex;
             gap: 0.8rem;
             flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 0.5rem;
+            margin: 1.5rem 0;
         }
-        .payment-icons .pay-item {
-            font-size: 1rem;
-            padding: 0.5rem 1.2rem;
-            background: #e0ebf5;
-        }
-        .modal-buttons {
+        .modal-payment span {
+            background: #e0eaf3;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
+            align-items: center;
+            gap: 0.5rem;
         }
         .modal-btn {
             background: #003b5c;
@@ -434,202 +208,191 @@
             padding: 1rem 2rem;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             cursor: pointer;
-            transition: 0.15s;
-            flex: 1 1 auto;
-            justify-content: center;
+            margin-right: 1rem;
         }
         .modal-btn:hover {
             background: #ffb347;
-            color: #1e2b37;
-        }
-        .close-btn {
-            background: #bbb;
             color: black;
         }
-        .close-btn:hover {
-            background: #999;
+        .close-btn {
+            background: #ddd;
+            color: black;
         }
-        /* action buttons */
+        .rating-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+        .stars {
+            font-size: 2rem;
+            color: #ffb347;
+            margin: 1rem 0;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            font-size: 2rem;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            color: #ddd;
+            cursor: pointer;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #ffb347;
+        }
         .action-buttons {
             display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
-            gap: 1.2rem;
             justify-content: center;
-            margin: 2.5rem 0;
+            margin: 2rem 0;
         }
         .action-btn {
-            background: #f1f9ff;
+            background: white;
             border: 2px solid #003b5c;
             color: #003b5c;
-            padding: 0.8rem 2.2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .action-btn:hover {
             background: #003b5c;
             color: white;
-            border-color: #ffb347;
         }
-        .action-btn i {
-            font-size: 1.3rem;
-        }
-        /* footer */
         .footer {
             background: #002b40;
-            color: #eef6fb;
+            color: white;
             text-align: center;
             padding: 2rem;
-            border-radius: 40px 40px 0 0;
-            margin-top: 4rem;
-            font-size: 1rem;
+            border-radius: 20px 20px 0 0;
         }
-        .house-special {
-            background: #fffae6;
+        @media (max-width: 768px) {
+            .features, .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
+    <div class="navbar">
         <div class="logo">
-            <h1>WORLD LINK <i class="fa-solid fa-globe"></i></h1>
-            <span>tour & travel · বিশ্বজুড়ে ভ্রমণ</span>
+            WORLD LINK <i class="fa-solid fa-globe"></i>
+            <span>tour & travel</span>
         </div>
-        <div class="nav-links">
-            <a href="#">হোম</a>
-            <a href="#">ট্যুর</a>
-            <a href="#">গন্তব্য</a>
-            <a href="#">যোগাযোগ</a>
+        <div>
+            <a href="#" style="color: white; margin: 0 1rem;">হোম</a>
+            <a href="#" style="color: white; margin: 0 1rem;">ট্যুর</a>
+            <a href="#" style="color: white; margin: 0 1rem;">যোগাযোগ</a>
         </div>
-    </header>
+    </div>
 
-    <main class="container">
-        <!-- HERO -->
+    <div class="container">
+        <!-- Hero Section -->
         <div class="hero">
-            <h2>আপনার স্বপ্নের ভ্রমণ আমাদের সাথে</h2>
-            <p>নিশ্চিন্তে ভ্রমণের অভিজ্ঞতা</p>
+            <h1>আপনার স্বপ্নের ভ্রমণ</h1>
+            <p style="font-size: 1.3rem; margin: 1rem 0;">আমাদের সাথে নিশ্চিন্তে ভ্রমণ করুন</p>
             <div class="rating-badge">
-                <i class="fa-solid fa-star"></i> ৪.৮ ★ (১২.৭হাজার রিভিউ)
+                <i class="fa-solid fa-star"></i> ৪.৮ ★ (১২,৫০০+ রিভিউ)
             </div>
         </div>
 
-        <!-- ফিচার কার্ড -->
-        <div class="card-grid">
-            <div class="card">
+        <!-- Feature Cards -->
+        <div class="features">
+            <div class="feature-card">
                 <i class="fa-regular fa-credit-card"></i>
                 <h3>পেমেন্ট অপশন</h3>
-                <div class="detail">ভিসা · মাস্টারকার্ড · পেপ্যাল</div>
-                <div class="detail">ক্রিপ্টো · ব্যাংক ট্রান্সফার</div>
+                <p>ভিসা, মাস্টারকার্ড, বিকাশ</p>
             </div>
-            <div class="card highlight">
+            <div class="feature-card">
                 <i class="fa-solid fa-phone"></i>
-                <h3>ফোন</h3>
-                <div class="detail"><i class="fa-brands fa-whatsapp"></i> ০১৭১৮৮৩৪১১০</div>
-                <div class="detail">📞 +৮৮০ ১৭১৮৮৩৪১১০</div>
+                <h3>ফোন নাম্বার</h3>
+                <p class="phone-number">০১৭১৮৮৩৪১১০</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
                 <i class="fa-solid fa-location-dot"></i>
                 <h3>লোকেশন</h3>
-                <div class="detail">গুলশান, ঢাকা, বাংলাদেশ</div>
-                <div class="detail">ওয়ার্ল্ড লিংক টাওয়ার</div>
+                <p>গুলশান, ঢাকা</p>
             </div>
-            <div class="card house-special">
-                <i class="fa-solid fa-house-chimney"></i>
+            <div class="feature-card">
+                <i class="fa-solid fa-house"></i>
                 <h3>হাউস নাম্বার</h3>
-                <div class="detail">🏠 ৪২, ভ্রমণকারী সড়ক</div>
-                <div class="detail">রোড ১২, বাড়ি ৩৪, ঢাকা</div>
+                <p>বাড়ি ৩৪, রোড ১২</p>
             </div>
         </div>
 
-        <!-- পেমেন্ট অপশন বিস্তারিত -->
-        <section class="payment-section">
-            <h2><i class="fa-solid fa-coins"></i> আপনার পেমেন্ট পদ্ধতি বেছে নিন</h2>
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <h2 style="color: #003b5c;"><i class="fa-solid fa-coins"></i> পেমেন্ট অপশন</h2>
             <div class="payment-options">
-                <span class="pay-item"><i class="fa-brands fa-cc-visa"></i> ভিসা</span>
-                <span class="pay-item"><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</span>
-                <span class="pay-item"><i class="fa-brands fa-cc-paypal"></i> পেপ্যাল</span>
-                <span class="pay-item"><i class="fa-brands fa-bitcoin"></i> বিটকয়েন</span>
-                <span class="pay-item"><i class="fa-regular fa-money-bill-1"></i> নগদ / ব্যাংক</span>
-            </div>
-            <div class="action-buttons" style="margin-top: 2rem; justify-content: space-evenly;">
-                <button class="action-btn" onclick="alert('ভিসা পেমেন্ট গেটওয়েতে রিডাইরেক্ট (ডেমো)')"><i class="fa-brands fa-cc-visa"></i> ভিসা দিয়ে পে করুন</button>
-                <button class="action-btn" onclick="alert('মাস্টারকার্ড সুরক্ষিত পেমেন্ট (ডেমো)')"><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</button>
-                <button class="action-btn" onclick="alert('পেপ্যাল এক্সপ্রেস চেকআউট (ডেমো)')"><i class="fa-brands fa-paypal"></i> পেপ্যাল</button>
-                <button class="action-btn" onclick="alert('ক্রিপ্টো পেমেন্ট কিউআর (ডেমো)')"><i class="fa-brands fa-bitcoin"></i> ক্রিপ্টো</button>
-            </div>
-        </section>
-
-        <!-- ফোন, লোকেশন, হাউস নাম্বার (আপনার দেওয়া নাম্বার সহ) -->
-        <div class="contact-details">
-            <div class="contact-block">
-                <i class="fa-solid fa-phone-volume"></i>
-                <span class="label">ফোন (২৪/৭)</span>
-                <span class="value">০১৭১৮৮৩৪১১০</span>
-                <span class="value">+৮৮০ ১৭১৮৮৩৪১১০</span>
-            </div>
-            <div class="contact-block">
-                <i class="fa-solid fa-map-pin"></i>
-                <span class="label">অফিস লোকেশন</span>
-                <span class="value">গুলশান এভিনিউ, ঢাকা</span>
-                <span class="value">ওয়ার্ল্ড লিংক টাওয়ার</span>
-            </div>
-            <div class="contact-block">
-                <i class="fa-solid fa-door-open"></i>
-                <span class="label">হাউস নাম্বার</span>
-                <span class="value">বাড়ি ৩৪, রোড ১২</span>
-                <span class="value">বনানী, ঢাকা</span>
+                <div class="payment-btn"><i class="fa-brands fa-cc-visa"></i> ভিসা</div>
+                <div class="payment-btn"><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</div>
+                <div class="payment-btn"><i class="fa-brands fa-cc-paypal"></i> পেপ্যাল</div>
+                <div class="payment-btn"><i class="fa-brands fa-bitcoin"></i> বিটকয়েন</div>
+                <div class="payment-btn"><i class="fa-brands fa-bkash"></i> বিকাশ</div>
+                <div class="payment-btn"><i class="fa-regular fa-money-bill-1"></i> নগদ</div>
             </div>
         </div>
 
-        <!-- গ্যালারি: ছবিতে ক্লিক করলে অপশন ও পেমেন্ট - এখন কাজ করবে! -->
+        <!-- Contact Details -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <div class="value">০১৭১৮৮৩৪১১০</div>
+                <div>২৪/৭ সেবা</div>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="value">গুলশান এভিনিউ</div>
+                <div>ঢাকা, বাংলাদেশ</div>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-house"></i>
+                <div class="value">বাড়ি ৩৪, রোড ১২</div>
+                <div>বনানী, ঢাকা</div>
+            </div>
+        </div>
+
+        <!-- Gallery - এখন ১০০% কাজ করবে -->
         <div class="gallery">
-            <h2><i class="fa-regular fa-image"></i> আমাদের জনপ্রিয় প্যাকেজ (ছবিতে ক্লিক করুন)</h2>
+            <h2><i class="fa-regular fa-image"></i> আমাদের প্যাকেজ (ছবিতে ক্লিক করুন)</h2>
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="openPackage('sajek')">
-                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?q=80&w=2070&auto=format&fit=crop" alt="সাজেক ভ্যালি" loading="lazy">
-                </div>
-                <div class="gallery-item" onclick="openPackage('cox')">
-                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop" alt="কক্সবাজার সমুদ্র সৈকত" loading="lazy">
-                </div>
-                <div class="gallery-item" onclick="openPackage('sundarban')">
-                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=1931&auto=format&fit=crop" alt="সুন্দরবন" loading="lazy">
-                </div>
-                <div class="gallery-item" onclick="openPackage('bandarban')">
-                    <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?q=80&w=2083&auto=format&fit=crop" alt="বান্দরবান" loading="lazy">
-                </div>
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=500" class="gallery-img" onclick="openModal('sajek')" alt="সাজেক">
+                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500" class="gallery-img" onclick="openModal('cox')" alt="কক্সবাজার">
+                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500" class="gallery-img" onclick="openModal('sundarban')" alt="সুন্দরবন">
+                <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?w=500" class="gallery-img" onclick="openModal('bandarban')" alt="বান্দরবান">
             </div>
         </div>
 
-        <!-- মডেল (পপআপ) - ছবিতে ক্লিক করলে দেখাবে -->
-        <div id="packageModal" class="modal">
+        <!-- Modal -->
+        <div id="myModal" class="modal">
             <div class="modal-content" id="modalContent">
-                <!-- ডাইনামিক কন্টেন্ট জাভাস্ক্রিপ্ট দিয়ে বসবে -->
+                <!-- Content will be loaded here -->
             </div>
         </div>
 
-        <!-- রেটিং সিস্টেম -->
-        <div class="rating-container" id="ratingWidget">
-            <div class="rating-flex">
-                <div class="current-rating">
-                    <div class="big-star"><i class="fa-solid fa-star"></i></div>
-                    <div class="average" id="globalAvg">৪.৭</div>
-                    <div class="stars-display" id="globalStars">★★★★☆</div>
-                    <div style="font-size: 1.3rem; margin-top: 0.3rem;">২.৪হাজার+ রেটিং এর ভিত্তিতে</div>
+        <!-- Rating Section -->
+        <div class="rating-section">
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <div style="flex: 1; text-align: center;">
+                    <div style="font-size: 4rem; color: #ffb347;">★★★★☆</div>
+                    <div style="font-size: 2rem; font-weight: bold;">৪.৭</div>
+                    <div>২,৪৩৮ টি রেটিং</div>
                 </div>
-                <div class="rating-input-area">
-                    <h3>আপনার অভিজ্ঞতা রেট দিন</h3>
-                    <p>সবাই রেট দিতে পারেন — স্টার সিলেক্ট করে সাবমিট করুন</p>
+                <div style="flex: 2;">
+                    <h3>আপনার রেটিং দিন</h3>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="star5" value="5"><label for="star5" class="fa-solid fa-star"></label>
                         <input type="radio" name="rating" id="star4" value="4"><label for="star4" class="fa-solid fa-star"></label>
@@ -637,156 +400,124 @@
                         <input type="radio" name="rating" id="star2" value="2"><label for="star2" class="fa-solid fa-star"></label>
                         <input type="radio" name="rating" id="star1" value="1"><label for="star1" class="fa-solid fa-star"></label>
                     </div>
-                    <button class="btn-rate" id="submitRatingBtn"><i class="fa-regular fa-paper-plane"></i> রেট সাবমিট</button>
-                    <div class="rating-message" id="ratingFeedback"></div>
+                    <button class="action-btn" style="margin-top: 1rem;" onclick="submitRating()">রেটিং সাবমিট</button>
+                    <div id="ratingMessage" style="margin-top: 1rem; color: green;"></div>
                 </div>
             </div>
         </div>
 
-        <!-- সব বাটন কাজ করে -->
+        <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="action-btn" onclick="alert('📞 কল করা হচ্ছে ০১৭১৮৮৩৪১১০ (ডেমো)')"><i class="fa-solid fa-headset"></i> এখনই কল করুন</button>
-            <button class="action-btn" onclick="alert('📍 গুগল ম্যাপে লোকেশন খোলা (ডেমো)')"><i class="fa-solid fa-map"></i> দিকনির্দেশ</button>
-            <button class="action-btn" onclick="alert('🏠 হাউস নাম্বার সেভ করা হয়েছে (ডেমো)')"><i class="fa-solid fa-address-card"></i> হাউস নাম্বার সেভ</button>
-            <button class="action-btn" onclick="document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'});"><i class="fa-regular fa-credit-card"></i> পেমেন্ট</button>
-            <button class="action-btn" onclick="window.location.href='#ratingWidget'"><i class="fa-regular fa-star"></i> রেট দিন</button>
+            <button class="action-btn" onclick="alert('কল করা হচ্ছে: ০১৭১৮৮৩৪১১০')"><i class="fa-solid fa-phone"></i> কল করুন</button>
+            <button class="action-btn" onclick="alert('লোকেশন: গুলশান, ঢাকা')"><i class="fa-solid fa-location-dot"></i> লোকেশন</button>
+            <button class="action-btn" onclick="alert('হাউস নাম্বার: বাড়ি ৩৪, রোড ১২')"><i class="fa-solid fa-house"></i> হাউস নাম্বার</button>
+            <button class="action-btn" onclick="alert('পেমেন্ট অপশন ওপেন হয়েছে')"><i class="fa-regular fa-credit-card"></i> পেমেন্ট</button>
         </div>
 
-        <!-- হাউস নাম্বার বিশেষ কার্ড -->
-        <div style="background:#edf5fc; border-radius: 30px; padding: 1.8rem; text-align: center; margin: 2rem 0;">
-            <i class="fa-solid fa-house-circle-check" style="font-size: 3rem; color: #003b5c;"></i>
-            <h3 style="margin: 0.5rem 0;">হাউস নাম্বার ডিরেক্টরি</h3>
-            <p style="font-size: 1.2rem;"><strong>মেইন অফিস:</strong> বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা · <strong>ব্রাঞ্চ:</strong> ৪২ ভ্রমণকারী সড়ক</p>
-            <button class="action-btn" onclick="alert('হাউস নাম্বার কপি: বাড়ি ৩৪, রোড ১২')" style="margin-top: 0.5rem;"><i class="fa-regular fa-copy"></i> হাউস নাম্বার কপি</button>
+        <!-- House Number Card -->
+        <div style="background: #e6f0f9; padding: 2rem; border-radius: 20px; text-align: center; margin: 2rem 0;">
+            <i class="fa-solid fa-house" style="font-size: 3rem; color: #003b5c;"></i>
+            <h3>হাউস নাম্বার</h3>
+            <p style="font-size: 1.3rem;">বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা</p>
+            <button class="action-btn" onclick="copyHouseNumber()"><i class="fa-regular fa-copy"></i> কপি করুন</button>
         </div>
-    </main>
+    </div>
 
-    <footer class="footer">
-        <p><i class="fa-regular fa-copyright"></i> ২০২৫ WORLD LINK TOUR & TRAVEL — সব বাটন কাজ করে, প্রতিটি খুঁটিনাটি গুরুত্বপূর্ণ।</p>
-        <p style="margin-top: 0.8rem;">📍 লোকেশন যাচাইকৃত · 📞 ০১৭১৮৮৩৪১১০  ·  🏠 বাড়ি ৩৪, রোড ১২</p>
-    </footer>
+    <div class="footer">
+        <p>© ২০২৫ WORLD LINK TOUR & TRAVEL</p>
+        <p>ফোন: ০১৭১৮৮৩৪১১০ | হাউস: বাড়ি ৩৪, রোড ১২</p>
+    </div>
 
     <script>
-        // মডেল ও প্যাকেজ ডাটা
-        const modal = document.getElementById('packageModal');
-        const modalContent = document.getElementById('modalContent');
-
-        // প্যাকেজের তথ্য (গ্রুপ বিবরণ সহ)
-        const packages = {
-            sajek: {
-                title: '🇧🇩 সাজেক ভ্যালি ট্যুর প্যাকেজ',
-                desc: '৩ দিন ২ রাতের সাজেক ভ্রমণ। থাকা-খাওয়া, গাইড, ক্যাম্প ফায়ার সহ।',
-                details: '☕ সকালের নাস্তা অন্তর্ভুক্ত। 🏕️ রিসোর্টে থাকা। 🚐 পরিবহন এসি মাইক্রো।',
-                price: 'মূল্য: ৭,৫০০ টাকা (প্রতি জন)'
-            },
-            cox: {
-                title: '🏖️ কক্সবাজার সমুদ্র স্পেশাল',
-                desc: '৪ দিন ৩ রাত কক্সবাজার, ইনানি, সেন্ট মার্টিন।',
-                details: '🍽️ ৩ বেলা খাবার। 🌊 বিচ ভিউ হোটেল। 🚤 সেন্ট মার্টিন ট্যুর।',
-                price: 'মূল্য: ১২,৯০০ টাকা (প্রতি জন)'
-            },
-            sundarban: {
-                title: '🌳 সুন্দরবন অ্যাডভেঞ্চার',
-                desc: '২ দিন ১ রাত রয়েল বেঙ্গল ট্যুর, বনজ প্রাণী দেখাসহ।',
-                details: '🛶 নৌকা ভ্রমণ, গভীর বনে ক্যাম্পিং, স্থানীয় গাইড।',
-                price: 'মূল্য: ৯,৯৯৯ টাকা (প্রতি জন)'
-            },
-            bandarban: {
-                title: '⛰️ বান্দরবান পাহাড়ি ট্রেক',
-                desc: '৩ দিন ২ রাত চিম্বুক, বগা লেক, নীলাচল।',
-                details: '🥾 ট্রেকিং, আদিবাসী গ্রাম ভিজিট, থাকা খাওয়া সহ।',
-                price: 'মূল্য: ৮,২৫০ টাকা (প্রতি জন)'
+        // Modal functions
+        const modal = document.getElementById('myModal');
+        
+        window.openModal = function(packageName) {
+            console.log('Clicked on:', packageName); // দেখুন ক্লিক হচ্ছে কিনা
+            
+            let title, desc, details, price;
+            
+            if(packageName === 'sajek') {
+                title = '🇧🇩 সাজেক ভ্যালি';
+                desc = '৩ দিন ২ রাতের প্যাকেজ';
+                details = '☕ সকালের নাস্তা, 🏕️ রিসোর্ট, 🚐 পরিবহন';
+                price = '৭,৫০০ টাকা';
             }
-        };
-
-        // মডেল খোলার ফাংশন - এখন গ্লোবালি অ্যাক্সেসযোগ্য
-        window.openPackage = function(pkgKey) {
-            console.log('Opening package:', pkgKey); // ডিবাগ করার জন্য
-            const pkg = packages[pkgKey];
-            if (!pkg) return;
-
-            modalContent.innerHTML = `
-                <h3>${pkg.title}</h3>
-                <div class="package-desc">
-                    <p>📝 ${pkg.desc}</p>
-                    <p><i class="fa-regular fa-circle-check"></i> ${pkg.details}</p>
-                    <p style="font-size:1.5rem; color:#003b5c; margin-top:0.8rem;">💰 ${pkg.price}</p>
+            else if(packageName === 'cox') {
+                title = '🏖️ কক্সবাজার';
+                desc = '৪ দিন ৩ রাত';
+                details = '🍽️ ৩ বেলা খাবার, 🌊 বিচ ভিউ হোটেল';
+                price = '১২,৯০০ টাকা';
+            }
+            else if(packageName === 'sundarban') {
+                title = '🌳 সুন্দরবন';
+                desc = '২ দিন ১ রাত';
+                details = '🛶 নৌকা ভ্রমণ, 🐅 বন্য প্রাণী দেখা';
+                price = '৯,৯৯৯ টাকা';
+            }
+            else if(packageName === 'bandarban') {
+                title = '⛰️ বান্দরবান';
+                desc = '৩ দিন ২ রাত';
+                details = '🥾 ট্রেকিং, 🏞️ নীলাচল, বগা লেক';
+                price = '৮,২৫০ টাকা';
+            }
+            
+            document.getElementById('modalContent').innerHTML = `
+                <h3>${title}</h3>
+                <div class="package-details">
+                    <p><strong>📝 বিবরণ:</strong> ${desc}</p>
+                    <p><strong>✅ সুবিধা:</strong> ${details}</p>
+                    <p style="font-size: 1.5rem; color: #003b5c;"><strong>💰 মূল্য:</strong> ${price}</p>
                 </div>
-                <div class="modal-payment">
-                    <p>পেমেন্ট অপশন</p>
-                    <div class="payment-icons">
-                        <span class="pay-item"><i class="fa-brands fa-cc-visa"></i> ভিসা</span>
-                        <span class="pay-item"><i class="fa-brands fa-cc-mastercard"></i> মাস্টার</span>
-                        <span class="pay-item"><i class="fa-brands fa-bkash"></i> বিকাশ</span>
-                        <span class="pay-item"><i class="fa-regular fa-money-bill-1"></i> নগদ</span>
+                <div>
+                    <p><strong>পেমেন্ট অপশন:</strong></p>
+                    <div class="modal-payment">
+                        <span><i class="fa-brands fa-cc-visa"></i> ভিসা</span>
+                        <span><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</span>
+                        <span><i class="fa-brands fa-bkash"></i> বিকাশ</span>
+                        <span><i class="fa-regular fa-money-bill-1"></i> নগদ</span>
                     </div>
                 </div>
-                <div class="modal-buttons">
-                    <button class="modal-btn" onclick="alert('পেমেন্ট গেটওয়ে: ${pkg.title} - ডেমো পেমেন্ট'); closeModal();"><i class="fa-regular fa-credit-card"></i> এখনই বুক করুন</button>
+                <div style="margin-top: 2rem;">
+                    <button class="modal-btn" onclick="alert('বুকিং কনফার্মড! (ডেমো)'); closeModal()"><i class="fa-regular fa-credit-card"></i> এখনই বুক করুন</button>
                     <button class="modal-btn close-btn" onclick="closeModal()"><i class="fa-regular fa-circle-xmark"></i> বন্ধ করুন</button>
                 </div>
             `;
+            
             modal.style.display = 'flex';
-        };
-
+        }
+        
         window.closeModal = function() {
             modal.style.display = 'none';
-        };
-
-        // মডেলের বাইরে ক্লিক করলে বন্ধ
+        }
+        
         window.onclick = function(event) {
-            if (event.target === modal) {
+            if(event.target === modal) {
                 modal.style.display = 'none';
             }
-        };
-
-        // রেটিং সিস্টেম
-        (function() {
-            let totalRating = 4.7;
-            let ratingCount = 2438;
-
-            const avgSpan = document.getElementById('globalAvg');
-            const starsSpan = document.getElementById('globalStars');
-            const feedbackDiv = document.getElementById('ratingFeedback');
-            const submitBtn = document.getElementById('submitRatingBtn');
-            const ratingBadge = document.querySelector('.hero .rating-badge');
-
-            function updateGlobalDisplay() {
-                avgSpan.innerText = totalRating.toFixed(1);
-                const full = Math.floor(totalRating);
-                const half = (totalRating - full) >= 0.5 ? 1 : 0;
-                let starStr = '';
-                for (let i = 0; i < full; i++) starStr += '★';
-                if (half) starStr += '½';
-                while (starStr.length < 5) starStr += '☆';
-                starsSpan.innerText = starStr;
+        }
+        
+        // Rating function
+        window.submitRating = function() {
+            const selected = document.querySelector('input[name="rating"]:checked');
+            if(selected) {
+                document.getElementById('ratingMessage').innerHTML = '✅ আপনার রেটিং দেওয়া হয়েছে: ' + selected.value + ' স্টার';
+            } else {
+                document.getElementById('ratingMessage').innerHTML = '⛔ দয়া করে একটি রেটিং দিন';
+                document.getElementById('ratingMessage').style.color = 'red';
             }
-
-            submitBtn.addEventListener('click', function() {
-                const selected = document.querySelector('input[name="rating"]:checked');
-                if (!selected) {
-                    feedbackDiv.innerText = '⛔ দয়া করে একটি স্টার রেট দিন।';
-                    feedbackDiv.style.color = '#b33';
-                    return;
-                }
-                const userRating = parseFloat(selected.value);
-                const oldSum = totalRating * ratingCount;
-                ratingCount++;
-                const newAvg = (oldSum + userRating) / ratingCount;
-                totalRating = Math.round(newAvg * 10) / 10;
-
-                updateGlobalDisplay();
-                document.querySelectorAll('input[name="rating"]').forEach(r => r.checked = false);
-                feedbackDiv.innerText = '✅ ধন্যবাদ! আপনার রেটিং দেওয়া হয়েছে। নতুন গড়: ' + totalRating;
-                feedbackDiv.style.color = '#1d7a46';
-
-                if (ratingBadge) {
-                    ratingBadge.innerHTML = `<i class="fa-solid fa-star"></i> ${totalRating} ★ (${ratingCount.toLocaleString()} টি রিভিউ)`;
-                }
-            });
-
-            updateGlobalDisplay();
-        })();
+        }
+        
+        // Copy house number
+        window.copyHouseNumber = function() {
+            navigator.clipboard.writeText('বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা');
+            alert('হাউস নাম্বার কপি হয়েছে!');
+        }
+        
+        // ডকুমেন্ট লোড হয়েছে কিনা চেক করুন
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('পেজ লোড হয়েছে। এখন ছবিতে ক্লিক করুন!');
+        });
     </script>
 </body>
-                                           </html>
+    </html>
