@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Link Tour & Travel</title>
+    <title>World Link Tour & Travel - বাংলা</title>
     <!-- Font Awesome 6 (free) for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Noto Sans Bengali', system-ui, sans-serif;
         }
         body {
             background: #f4f7fb;
@@ -63,7 +63,7 @@
             margin: 0 auto;
             padding: 2rem 5%;
         }
-        /* hero / banner with external pictures (via unsplash) */
+        /* hero / banner */
         .hero {
             background: linear-gradient(rgba(0, 30, 50, 0.5), rgba(0, 20, 40, 0.6)), 
                         url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop');
@@ -185,7 +185,7 @@
             transform: scale(1.02);
             cursor: default;
         }
-        /* contact details row (phone, location, house) */
+        /* contact details row */
         .contact-details {
             display: flex;
             flex-wrap: wrap;
@@ -229,7 +229,7 @@
             padding: 0.3rem 1rem;
             border-radius: 40px;
         }
-        /* rating area: give rating & display */
+        /* rating area */
         .rating-container {
             background: white;
             border-radius: 32px;
@@ -337,6 +337,10 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+        }
         .gallery-grid img {
             width: 100%;
             height: 200px;
@@ -351,7 +355,93 @@
             filter: brightness(1.05);
             border-color: #ffb347;
         }
-        /* every button works (functional) */
+        /* Modal (পপআপ) styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 30px 50px #00000060;
+            animation: fadeIn 0.3s;
+            border: 3px solid #ffb347;
+        }
+        @keyframes fadeIn {
+            from {transform: scale(0.9); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+        .modal-content h3 {
+            font-size: 2rem;
+            color: #003b5c;
+            margin-bottom: 0.5rem;
+        }
+        .modal-content .package-desc {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            background: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 24px;
+            line-height: 1.7;
+        }
+        .modal-content .package-desc i {
+            color: #ffb347;
+            margin-right: 8px;
+        }
+        .modal-payment {
+            margin: 1.5rem 0 1rem;
+        }
+        .modal-payment p {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #003b5c;
+        }
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .modal-btn {
+            background: #003b5c;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.15s;
+            flex: 1 1 auto;
+            justify-content: center;
+        }
+        .modal-btn:hover {
+            background: #ffb347;
+            color: #1e2b37;
+        }
+        .close-btn {
+            background: #bbb;
+            color: black;
+        }
+        .close-btn:hover {
+            background: #999;
+        }
+        /* action buttons */
         .action-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -392,7 +482,6 @@
             margin-top: 4rem;
             font-size: 1rem;
         }
-        /* utility */
         .house-special {
             background: #fffae6;
         }
@@ -402,119 +491,132 @@
     <header class="navbar">
         <div class="logo">
             <h1>WORLD LINK <i class="fa-solid fa-globe"></i></h1>
-            <span>tour & travel · since 2008</span>
+            <span>tour & travel · বিশ্বজুড়ে ভ্রমণ</span>
         </div>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Tours</a>
-            <a href="#">Destinations</a>
-            <a href="#">Contact</a>
+            <a href="#">হোম</a>
+            <a href="#">ট্যুর</a>
+            <a href="#">গন্তব্য</a>
+            <a href="#">যোগাযোগ</a>
         </div>
     </header>
 
     <main class="container">
-        <!-- HERO with good picture from internet & rating badge -->
+        <!-- HERO -->
         <div class="hero">
-            <h2>Unforgettable journeys, one link.</h2>
-            <p>Your passport to worry‑free adventures</p>
+            <h2>আপনার স্বপ্নের ভ্রমণ আমাদের সাথে</h2>
+            <p>নিশ্চিন্তে ভ্রমণের অভিজ্ঞতা</p>
             <div class="rating-badge">
-                <i class="fa-solid fa-star"></i> 4.8 ★ (12.7k reviews)
+                <i class="fa-solid fa-star"></i> ৪.৮ ★ (১২.৭হাজার রিভিউ)
             </div>
         </div>
 
-        <!-- FEATURE CARDS: payment, phone, location, house, systems -->
+        <!-- ফিচার কার্ড -->
         <div class="card-grid">
             <div class="card">
                 <i class="fa-regular fa-credit-card"></i>
-                <h3>Payment options</h3>
-                <div class="detail">Visa · Mastercard · PayPal</div>
-                <div class="detail"> crypto · bank transfer</div>
+                <h3>পেমেন্ট অপশন</h3>
+                <div class="detail">ভিসা · মাস্টারকার্ড · পেপ্যাল</div>
+                <div class="detail">ক্রিপ্টো · ব্যাংক ট্রান্সফার</div>
             </div>
             <div class="card highlight">
                 <i class="fa-solid fa-phone"></i>
-                <h3>Phone</h3>
-                <div class="detail"><i class="fa-brands fa-whatsapp"></i> +1 (800) 234‑9876</div>
-                <div class="detail">📞 +44 20 7946 0138</div>
+                <h3>ফোন</h3>
+                <div class="detail"><i class="fa-brands fa-whatsapp"></i> ০১৭১৮৮৩৪১১০</div>
+                <div class="detail">📞 +৮৮০ ১৭১৮৮৩৪১১০</div>
             </div>
             <div class="card">
                 <i class="fa-solid fa-location-dot"></i>
-                <h3>Location</h3>
-                <div class="detail">7th Ave, Manhattan, NY</div>
-                <div class="detail"> World Link HQ</div>
+                <h3>লোকেশন</h3>
+                <div class="detail">গুলশান, ঢাকা, বাংলাদেশ</div>
+                <div class="detail">ওয়ার্ল্ড লিংক টাওয়ার</div>
             </div>
             <div class="card house-special">
                 <i class="fa-solid fa-house-chimney"></i>
-                <h3>House number</h3>
-                <div class="detail">🏠 No. 42, Travelers Street</div>
-                <div class="detail">Suite 200, London, UK</div>
+                <h3>হাউস নাম্বার</h3>
+                <div class="detail">🏠 ৪২, ভ্রমণকারী সড়ক</div>
+                <div class="detail">রোড ১২, বাড়ি ৩৪, ঢাকা</div>
             </div>
         </div>
 
-        <!-- PAYMENT OPTIONS detailed section (every button works) -->
+        <!-- পেমেন্ট অপশন বিস্তারিত -->
         <section class="payment-section">
-            <h2><i class="fa-solid fa-coins"></i> Choose your payment method</h2>
+            <h2><i class="fa-solid fa-coins"></i> আপনার পেমেন্ট পদ্ধতি বেছে নিন</h2>
             <div class="payment-options">
-                <span class="pay-item"><i class="fa-brands fa-cc-visa"></i> Visa</span>
-                <span class="pay-item"><i class="fa-brands fa-cc-mastercard"></i> MasterCard</span>
-                <span class="pay-item"><i class="fa-brands fa-cc-paypal"></i> PayPal</span>
-                <span class="pay-item"><i class="fa-brands fa-bitcoin"></i> Bitcoin</span>
-                <span class="pay-item"><i class="fa-regular fa-money-bill-1"></i> Cash / Bank</span>
+                <span class="pay-item"><i class="fa-brands fa-cc-visa"></i> ভিসা</span>
+                <span class="pay-item"><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</span>
+                <span class="pay-item"><i class="fa-brands fa-cc-paypal"></i> পেপ্যাল</span>
+                <span class="pay-item"><i class="fa-brands fa-bitcoin"></i> বিটকয়েন</span>
+                <span class="pay-item"><i class="fa-regular fa-money-bill-1"></i> নগদ / ব্যাংক</span>
             </div>
-            <!-- functional buttons for each payment option (every button works) -->
             <div class="action-buttons" style="margin-top: 2rem; justify-content: space-evenly;">
-                <button class="action-btn" onclick="alert('VISA: redirect to payment gateway (demo)')"><i class="fa-brands fa-cc-visa"></i> Pay with Visa</button>
-                <button class="action-btn" onclick="alert('MasterCard: secure payment (demo)')"><i class="fa-brands fa-cc-mastercard"></i> MasterCard</button>
-                <button class="action-btn" onclick="alert('PayPal express checkout (demo)')"><i class="fa-brands fa-paypal"></i> PayPal</button>
-                <button class="action-btn" onclick="alert('Crypto payment QR (demo)')"><i class="fa-brands fa-bitcoin"></i> Crypto</button>
+                <button class="action-btn" onclick="alert('ভিসা পেমেন্ট গেটওয়েতে রিডাইরেক্ট (ডেমো)')"><i class="fa-brands fa-cc-visa"></i> ভিসা দিয়ে পে করুন</button>
+                <button class="action-btn" onclick="alert('মাস্টারকার্ড সুরক্ষিত পেমেন্ট (ডেমো)')"><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</button>
+                <button class="action-btn" onclick="alert('পেপ্যাল এক্সপ্রেস চেকআউট (ডেমো)')"><i class="fa-brands fa-paypal"></i> পেপ্যাল</button>
+                <button class="action-btn" onclick="alert('ক্রিপ্টো পেমেন্ট কিউআর (ডেমো)')"><i class="fa-brands fa-bitcoin"></i> ক্রিপ্টো</button>
             </div>
         </section>
 
-        <!-- PHONE, LOCATION, HOUSE NUMBER consolidated with extra style -->
+        <!-- ফোন, লোকেশন, হাউস নাম্বার (আপনার দেওয়া নাম্বার সহ) -->
         <div class="contact-details">
             <div class="contact-block">
                 <i class="fa-solid fa-phone-volume"></i>
-                <span class="label">phone (24/7)</span>
-                <span class="value">+1 (800) 555-0199</span>
-                <span class="value">+44 20 7993 7234</span>
+                <span class="label">ফোন (২৪/৭)</span>
+                <span class="value">০১৭১৮৮৩৪১১০</span>
+                <span class="value">+৮৮০ ১৭১৮৮৩৪১১০</span>
             </div>
             <div class="contact-block">
                 <i class="fa-solid fa-map-pin"></i>
-                <span class="label">location</span>
-                <span class="value">405 Lexington Ave, NY</span>
-                <span class="value">floor 51 · World Link</span>
+                <span class="label">অফিস লোকেশন</span>
+                <span class="value">গুলশান এভিনিউ, ঢাকা</span>
+                <span class="value">ওয়ার্ল্ড লিংক টাওয়ার</span>
             </div>
             <div class="contact-block">
                 <i class="fa-solid fa-door-open"></i>
-                <span class="label">house number</span>
-                <span class="value">#221B, Baker Street</span>
-                <span class="value">London NW1 6XE</span>
+                <span class="label">হাউস নাম্বার</span>
+                <span class="value">বাড়ি ৩৪, রোড ১২</span>
+                <span class="value">বনানী, ঢাকা</span>
             </div>
         </div>
 
-        <!-- GOOD PICTURES FROM INTERNET (gallery) -->
+        <!-- গ্যালারি: ছবিতে ক্লিক করলে অপশন ও পেমেন্ট -->
         <div class="gallery">
-            <h2><i class="fa-regular fa-image"></i>  breathtaking destinations</h2>
+            <h2><i class="fa-regular fa-image"></i> আমাদের জনপ্রিয় প্যাকেজ (ছবিতে ক্লিক করুন)</h2>
             <div class="gallery-grid">
-                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?q=80&w=2070&auto=format&fit=crop" alt="travel photography" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop" alt="plane wing sunset" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=1931&auto=format&fit=crop" alt="airport departure" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?q=80&w=2083&auto=format&fit=crop" alt="venice canal" loading="lazy">
+                <div class="gallery-item" onclick="openPackage('sajek')">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?q=80&w=2070&auto=format&fit=crop" alt="সাজেক ভ্যালি" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openPackage('cox')">
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop" alt="কক্সবাজার সমুদ্র সৈকত" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openPackage('sundarban')">
+                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=1931&auto=format&fit=crop" alt="সুন্দরবন" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openPackage('bandarban')">
+                    <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?q=80&w=2083&auto=format&fit=crop" alt="বান্দরবান" loading="lazy">
+                </div>
             </div>
         </div>
 
-        <!-- RATING SYSTEM: DISPLAY + GIVE RATING (everyone can give) -->
+        <!-- মডেল (পপআপ) - ছবিতে ক্লিক করলে দেখাবে -->
+        <div id="packageModal" class="modal">
+            <div class="modal-content" id="modalContent">
+                <!-- ডাইনামিক কন্টেন্ট জাভাস্ক্রিপ্ট দিয়ে বসবে -->
+            </div>
+        </div>
+
+        <!-- রেটিং সিস্টেম -->
         <div class="rating-container" id="ratingWidget">
             <div class="rating-flex">
                 <div class="current-rating">
                     <div class="big-star"><i class="fa-solid fa-star"></i></div>
-                    <div class="average" id="globalAvg">4.7</div>
+                    <div class="average" id="globalAvg">৪.৭</div>
                     <div class="stars-display" id="globalStars">★★★★☆</div>
-                    <div style="font-size: 1.3rem; margin-top: 0.3rem;">based on 2.4k+ ratings</div>
+                    <div style="font-size: 1.3rem; margin-top: 0.3rem;">২.৪হাজার+ রেটিং এর ভিত্তিতে</div>
                 </div>
                 <div class="rating-input-area">
-                    <h3>Rate your experience</h3>
-                    <p>everyone can give a rating — click stars and submit</p>
-                    <!-- star rating widget (interactive) -->
+                    <h3>আপনার অভিজ্ঞতা রেট দিন</h3>
+                    <p>সবাই রেট দিতে পারেন — স্টার সিলেক্ট করে সাবমিট করুন</p>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="star5" value="5"><label for="star5" class="fa-solid fa-star"></label>
                         <input type="radio" name="rating" id="star4" value="4"><label for="star4" class="fa-solid fa-star"></label>
@@ -522,51 +624,121 @@
                         <input type="radio" name="rating" id="star2" value="2"><label for="star2" class="fa-solid fa-star"></label>
                         <input type="radio" name="rating" id="star1" value="1"><label for="star1" class="fa-solid fa-star"></label>
                     </div>
-                    <button class="btn-rate" id="submitRatingBtn"><i class="fa-regular fa-paper-plane"></i> Submit rating</button>
+                    <button class="btn-rate" id="submitRatingBtn"><i class="fa-regular fa-paper-plane"></i> রেট সাবমিট</button>
                     <div class="rating-message" id="ratingFeedback"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Every button works: extra call-to-action buttons (functional) -->
+        <!-- সব বাটন কাজ করে -->
         <div class="action-buttons">
-            <button class="action-btn" onclick="alert('📞 Calling World Link support (demo)')"><i class="fa-solid fa-headset"></i> Call now</button>
-            <button class="action-btn" onclick="alert('📍 Open location in maps (demo)')"><i class="fa-solid fa-map"></i> Directions</button>
-            <button class="action-btn" onclick="alert('🏠 House number saved to profile (demo)')"><i class="fa-solid fa-address-card"></i> Save my house</button>
-            <button class="action-btn" onclick="document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'});"><i class="fa-regular fa-credit-card"></i> Payment</button>
-            <button class="action-btn" onclick="window.location.href='#ratingWidget'"><i class="fa-regular fa-star"></i> Rate us</button>
+            <button class="action-btn" onclick="alert('📞 কল করা হচ্ছে ০১৭১৮৮৩৪১১০ (ডেমো)')"><i class="fa-solid fa-headset"></i> এখনই কল করুন</button>
+            <button class="action-btn" onclick="alert('📍 গুগল ম্যাপে লোকেশন খোলা (ডেমো)')"><i class="fa-solid fa-map"></i> দিকনির্দেশ</button>
+            <button class="action-btn" onclick="alert('🏠 হাউস নাম্বার সেভ করা হয়েছে (ডেমো)')"><i class="fa-solid fa-address-card"></i> হাউস নাম্বার সেভ</button>
+            <button class="action-btn" onclick="document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'});"><i class="fa-regular fa-credit-card"></i> পেমেন্ট</button>
+            <button class="action-btn" onclick="window.location.href='#ratingWidget'"><i class="fa-regular fa-star"></i> রেট দিন</button>
         </div>
 
-        <!-- extra house number detail card (every button) -->
+        <!-- হাউস নাম্বার বিশেষ কার্ড -->
         <div style="background:#edf5fc; border-radius: 30px; padding: 1.8rem; text-align: center; margin: 2rem 0;">
             <i class="fa-solid fa-house-circle-check" style="font-size: 3rem; color: #003b5c;"></i>
-            <h3 style="margin: 0.5rem 0;">house number directory</h3>
-            <p style="font-size: 1.2rem;"><strong>Main office:</strong> 221B Baker Street (house) · <strong>Branch:</strong> 10 Downing House, London</p>
-            <button class="action-btn" onclick="alert('House number copied: 221B Baker Street')" style="margin-top: 0.5rem;"><i class="fa-regular fa-copy"></i> copy house number</button>
+            <h3 style="margin: 0.5rem 0;">হাউস নাম্বার ডিরেক্টরি</h3>
+            <p style="font-size: 1.2rem;"><strong>মেইন অফিস:</strong> বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা · <strong>ব্রাঞ্চ:</strong> ৪২ ভ্রমণকারী সড়ক</p>
+            <button class="action-btn" onclick="alert('হাউস নাম্বার কপি: বাড়ি ৩৪, রোড ১২')" style="margin-top: 0.5rem;"><i class="fa-regular fa-copy"></i> হাউস নাম্বার কপি</button>
         </div>
     </main>
 
     <footer class="footer">
-        <p><i class="fa-regular fa-copyright"></i> 2025 WORLD LINK TOUR & TRAVEL — all buttons work, every detail matters.</p>
-        <p style="margin-top: 0.8rem;">📍 location verified · 📞 +1 (212) 555 0987  ·  🏠 house 221B</p>
+        <p><i class="fa-regular fa-copyright"></i> ২০২৫ WORLD LINK TOUR & TRAVEL — সব বাটন কাজ করে, প্রতিটি খুঁটিনাটি গুরুত্বপূর্ণ।</p>
+        <p style="margin-top: 0.8rem;">📍 লোকেশন যাচাইকৃত · 📞 ০১৭১৮৮৩৪১১০  ·  🏠 বাড়ি ৩৪, রোড ১২</p>
     </footer>
 
-    <!-- simple javascript to handle rating submission (everyone can rate) and update display -->
     <script>
+        // মডেল ও প্যাকেজ ডাটা
+        const modal = document.getElementById('packageModal');
+        const modalContent = document.getElementById('modalContent');
+
+        // প্যাকেজের তথ্য (গ্রুপ বিবরণ সহ)
+        const packages = {
+            sajek: {
+                title: '🇧🇩 সাজেক ভ্যালি ট্যুর প্যাকেজ',
+                desc: '৩ দিন ২ রাতের সাজেক ভ্রমণ। থাকা-খাওয়া, গাইড, ক্যাম্প ফায়ার সহ।',
+                details: '☕ সকালের নাস্তা অন্তর্ভুক্ত। 🏕️ রিসোর্টে থাকা। 🚐 পরিবহন এসি মাইক্রো।',
+                price: 'মূল্য: ৭,৫০০ টাকা (প্রতি জন)'
+            },
+            cox: {
+                title: '🏖️ কক্সবাজার সমুদ্র স্পেশাল',
+                desc: '৪ দিন ৩ রাত কক্সবাজার, ইনানি, সেন্ট মার্টিন।',
+                details: '🍽️ ৩ বেলা খাবার। 🌊 বিচ ভিউ হোটেল। 🚤 সেন্ট মার্টিন ট্যুর।',
+                price: 'মূল্য: ১২,৯০০ টাকা (প্রতি জন)'
+            },
+            sundarban: {
+                title: '🌳 সুন্দরবন অ্যাডভেঞ্চার',
+                desc: '২ দিন ১ রাত রয়েল বেঙ্গল ট্যুর, বনজ প্রাণী দেখাসহ।',
+                details: '🛶 নৌকা ভ্রমণ, গভীর বনে ক্যাম্পিং, স্থানীয় গাইড।',
+                price: 'মূল্য: ৯,৯৯৯ টাকা (প্রতি জন)'
+            },
+            bandarban: {
+                title: '⛰️ বান্দরবান পাহাড়ি ট্রেক',
+                desc: '৩ দিন ২ রাত চিম্বুক, বগা লেক, নীলাচল।',
+                details: '🥾 ট্রেকিং, আদিবী গ্রাম ভিজিট, থাকা খাওয়া সহ।',
+                price: 'মূল্য: ৮,২৫০ টাকা (প্রতি জন)'
+            }
+        };
+
+        // মডেল খোলার ফাংশন
+        window.openPackage = function(pkgKey) {
+            const pkg = packages[pkgKey];
+            if (!pkg) return;
+
+            modalContent.innerHTML = `
+                <h3>${pkg.title}</h3>
+                <div class="package-desc">
+                    <p>📝 ${pkg.desc}</p>
+                    <p><i class="fa-regular fa-circle-check"></i> ${pkg.details}</p>
+                    <p style="font-size:1.5rem; color:#003b5c; margin-top:0.8rem;">💰 ${pkg.price}</p>
+                </div>
+                <div class="modal-payment">
+                    <p>পেমেন্ট অপশন</p>
+                    <div style="display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center;">
+                        <span class="pay-item" style="font-size:1rem; padding:0.5rem 1.2rem;"><i class="fa-brands fa-cc-visa"></i> ভিসা</span>
+                        <span class="pay-item" style="font-size:1rem; padding:0.5rem 1.2rem;"><i class="fa-brands fa-cc-mastercard"></i> মাস্টার</span>
+                        <span class="pay-item" style="font-size:1rem; padding:0.5rem 1.2rem;"><i class="fa-brands fa-bkash"></i> বিকাশ</span>
+                        <span class="pay-item" style="font-size:1rem; padding:0.5rem 1.2rem;"><i class="fa-regular fa-money-bill-1"></i> নগদ</span>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-btn" onclick="alert('পেমেন্ট গেটওয়ে: ${pkg.title} - ডেমো পেমেন্ট'); closeModal();"><i class="fa-regular fa-credit-card"></i> এখনই বুক করুন</button>
+                    <button class="modal-btn close-btn" onclick="closeModal()"><i class="fa-regular fa-circle-xmark"></i> বন্ধ করুন</button>
+                </div>
+            `;
+            modal.style.display = 'flex';
+        };
+
+        window.closeModal = function() {
+            modal.style.display = 'none';
+        };
+
+        // মডেলের বাইরে ক্লিক করলে বন্ধ
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // রেটিং সিস্টেম
         (function() {
-            // Simulate a global rating average (in real app would be backend)
-            let totalRating = 4.7;       // initial average
-            let ratingCount = 2438;       // number of ratings
+            let totalRating = 4.7;
+            let ratingCount = 2438;
 
             const avgSpan = document.getElementById('globalAvg');
             const starsSpan = document.getElementById('globalStars');
             const feedbackDiv = document.getElementById('ratingFeedback');
             const submitBtn = document.getElementById('submitRatingBtn');
+            const ratingBadge = document.querySelector('.hero .rating-badge');
 
-            // Helper to update displayed average & stars
             function updateGlobalDisplay() {
                 avgSpan.innerText = totalRating.toFixed(1);
-                // convert to star string (full/half)
                 const full = Math.floor(totalRating);
                 const half = (totalRating - full) >= 0.5 ? 1 : 0;
                 let starStr = '';
@@ -576,41 +748,31 @@
                 starsSpan.innerText = starStr;
             }
 
-            // submit rating
             submitBtn.addEventListener('click', function() {
                 const selected = document.querySelector('input[name="rating"]:checked');
                 if (!selected) {
-                    feedbackDiv.innerText = '⛔ Please select a star rating.';
+                    feedbackDiv.innerText = '⛔ দয়া করে একটি স্টার রেট দিন।';
                     feedbackDiv.style.color = '#b33';
                     return;
                 }
                 const userRating = parseFloat(selected.value);
-                // new average = (totalRating * ratingCount + userRating) / (ratingCount+1)
                 const oldSum = totalRating * ratingCount;
                 ratingCount++;
                 const newAvg = (oldSum + userRating) / ratingCount;
-                totalRating = Math.round(newAvg * 10) / 10; // keep one decimal
+                totalRating = Math.round(newAvg * 10) / 10;
 
-                // update display
                 updateGlobalDisplay();
-
-                // clear radio
                 document.querySelectorAll('input[name="rating"]').forEach(r => r.checked = false);
-                feedbackDiv.innerText = `✅ Thank you! You rated ${userRating} ★. New average: ${totalRating}`;
+                feedbackDiv.innerText = '✅ ধন্যবাদ! আপনার রেটিং দেওয়া হয়েছে। নতুন গড়: ' + totalRating;
                 feedbackDiv.style.color = '#1d7a46';
 
-                // tiny bonus: change badge slightly
-                document.querySelector('.hero .rating-badge').innerHTML = `<i class="fa-solid fa-star"></i> ${totalRating} ★ (${ratingCount.toLocaleString()} reviews)`;
+                if (ratingBadge) {
+                    ratingBadge.innerHTML = `<i class="fa-solid fa-star"></i> ${totalRating} ★ (${ratingCount.toLocaleString()} টি রিভিউ)`;
+                }
             });
 
-            // also simulate initial stars from google-font images (already set in html)
-            updateGlobalDisplay(); // ensure consistency
-
-            // extra: every button works — we already have inline alerts.
-            // also smooth rating after submit.
+            updateGlobalDisplay();
         })();
     </script>
-
-    <!-- ensure that all interactive buttons have pointer cursor -->
 </body>
-  </html>
+    </html>
