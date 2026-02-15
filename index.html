@@ -1,117 +1,204 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Link Tour & Travel</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background: #f0f5fa;
+            background-color: #f5f9fc;
         }
+        /* Navbar */
         .navbar {
-            background: #003b5c;
+            background-color: #003b5c;
             color: white;
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
+        .logo h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
         .logo span {
             color: #ffb347;
             font-size: 0.9rem;
             display: block;
         }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: #ffb347;
+        }
+        /* Language Switch Button */
+        .lang-switch {
+            background: #ffb347;
+            color: #003b5c;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        .lang-switch:hover {
+            background: white;
+        }
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 5%;
         }
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 4rem;
-            border-radius: 20px;
-            margin-bottom: 2rem;
+            padding: 5rem 3rem;
+            border-radius: 30px;
+            margin-bottom: 3rem;
         }
-        .hero h1 {
+        .hero h2 {
             font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
         }
         .rating-badge {
-            background: #ffb347;
-            color: black;
+            background-color: #ffb347;
+            color: #1e2b37;
             display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            margin-top: 1rem;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+        /* Company Description */
+        .company-description {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
             margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .company-description h3 {
+            color: #003b5c;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .company-description p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
         .feature-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
         .feature-card i {
             font-size: 2.5rem;
             color: #003b5c;
             margin-bottom: 1rem;
         }
-        .phone-number {
-            font-size: 1.3rem;
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
             color: #003b5c;
-            font-weight: bold;
         }
+        .feature-card .detail {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        /* Payment Section */
         .payment-section {
             background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 30px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .payment-section h2 {
+            color: #003b5c;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .payment-options {
             display: flex;
-            gap: 1rem;
             flex-wrap: wrap;
-            margin: 1rem 0;
+            gap: 1rem;
+            justify-content: center;
         }
-        .payment-btn {
-            background: #e9f0f5;
-            padding: 0.8rem 1.5rem;
+        .pay-option {
+            background: #eef4f9;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1.1rem;
+            gap: 10px;
+            font-weight: 600;
+            color: #003b5c;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        .contact-info {
+        .pay-option:hover {
+            background: #ffb347;
+            transform: scale(1.05);
+        }
+        /* Contact Details */
+        .contact-details {
             background: #003b5c;
             color: white;
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 2.5rem;
+            border-radius: 30px;
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
+            justify-content: space-around;
+            gap: 2rem;
+            margin: 3rem 0;
         }
         .contact-item {
             text-align: center;
@@ -122,39 +209,45 @@
             color: #003b5c;
             padding: 1rem;
             border-radius: 50%;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
         .contact-item .value {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
         }
+        /* Gallery */
         .gallery {
             margin: 3rem 0;
         }
         .gallery h2 {
             color: #003b5c;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 2rem;
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
         }
-        .gallery-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
+        .gallery-item {
             cursor: pointer;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
             border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: 0.3s;
         }
-        .gallery-img:hover {
-            transform: scale(1.05);
+        .gallery-item:hover {
+            transform: scale(1.03);
             border-color: #ffb347;
         }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -169,37 +262,41 @@
         }
         .modal-content {
             background: white;
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 2.5rem;
+            border-radius: 30px;
             max-width: 500px;
             width: 90%;
-            position: relative;
+            animation: modalPop 0.3s;
+        }
+        @keyframes modalPop {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
         }
         .modal-content h3 {
             color: #003b5c;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
-        .package-details {
-            background: #f0f7fc;
+        .package-info {
+            background: #f0f7fd;
             padding: 1.5rem;
-            border-radius: 15px;
-            margin: 1rem 0;
+            border-radius: 20px;
+            margin: 1.5rem 0;
             line-height: 1.8;
         }
-        .modal-payment {
+        .modal-payment-icons {
             display: flex;
-            gap: 0.8rem;
+            gap: 1rem;
             flex-wrap: wrap;
             margin: 1.5rem 0;
         }
-        .modal-payment span {
-            background: #e0eaf3;
-            padding: 0.5rem 1rem;
+        .modal-payment-icons span {
+            background: #e1ebf3;
+            padding: 0.5rem 1.2rem;
             border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
         }
         .modal-btn {
             background: #003b5c;
@@ -208,40 +305,68 @@
             padding: 1rem 2rem;
             border-radius: 50px;
             font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             margin-right: 1rem;
         }
         .modal-btn:hover {
             background: #ffb347;
-            color: black;
+            color: #1e2b37;
         }
-        .close-btn {
-            background: #ddd;
-            color: black;
+        .close-modal-btn {
+            background: #ccc;
+            color: #333;
         }
+        /* Rating Section */
         .rating-section {
             background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 30px;
+            margin: 3rem 0;
         }
-        .stars {
-            font-size: 2rem;
+        .rating-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+        .current-rating {
+            text-align: center;
+            background: #ffeed9;
+            padding: 2rem;
+            border-radius: 30px;
+            flex: 1;
+        }
+        .current-rating .big-star {
+            font-size: 4rem;
             color: #ffb347;
-            margin: 1rem 0;
+        }
+        .current-rating .avg-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #003b5c;
+        }
+        .star-display {
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: #ffb347;
+        }
+        .rating-input {
+            flex: 2;
         }
         .star-rating {
             display: flex;
             flex-direction: row-reverse;
             justify-content: flex-end;
             gap: 0.5rem;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            margin: 1rem 0;
         }
         .star-rating input {
             display: none;
         }
         .star-rating label {
-            color: #ddd;
+            color: #ccc;
             cursor: pointer;
         }
         .star-rating label:hover,
@@ -249,246 +374,511 @@
         .star-rating input:checked ~ label {
             color: #ffb347;
         }
+        .btn {
+            background: #003b5c;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        /* Prompt/Chat Section */
+        .prompt-section {
+            background: linear-gradient(135deg, #003b5c, #1a5f7a);
+            color: white;
+            padding: 2rem;
+            border-radius: 30px;
+            margin: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        .prompt-text {
+            flex: 2;
+        }
+        .prompt-text h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prompt-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .prompt-input {
+            flex: 1;
+            display: flex;
+            gap: 0.5rem;
+            min-width: 300px;
+        }
+        .prompt-input input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        .prompt-input button {
+            background: #ffb347;
+            color: #003b5c;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        .prompt-input button:hover {
+            background: white;
+        }
+        .chat-messages {
+            margin-top: 1.5rem;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+        }
+        .chat-message {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+        }
+        /* Action Buttons */
         .action-buttons {
             display: flex;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 1rem;
             justify-content: center;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
         .action-btn {
             background: white;
             border: 2px solid #003b5c;
             color: #003b5c;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+            transition: 0.2s;
         }
         .action-btn:hover {
             background: #003b5c;
             color: white;
         }
+        /* Footer */
         .footer {
             background: #002b40;
             color: white;
             text-align: center;
             padding: 2rem;
-            border-radius: 20px 20px 0 0;
+            border-radius: 30px 30px 0 0;
+            margin-top: 4rem;
         }
-        @media (max-width: 768px) {
-            .features, .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* Language specific */
+        [lang="bn"] .english-only {
+            display: none;
         }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
-            WORLD LINK <i class="fa-solid fa-globe"></i>
-            <span>tour & travel</span>
+            <h1>WORLD LINK <i class="fa-solid fa-globe"></i></h1>
+            <span id="tagline">tour & travel · since 2008</span>
         </div>
-        <div>
-            <a href="#" style="color: white; margin: 0 1rem;">হোম</a>
-            <a href="#" style="color: white; margin: 0 1rem;">ট্যুর</a>
-            <a href="#" style="color: white; margin: 0 1rem;">যোগাযোগ</a>
+        <div class="nav-links">
+            <a href="#" id="homeLink">Home</a>
+            <a href="#" id="toursLink">Tours</a>
+            <a href="#" id="contactLink">Contact</a>
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <i class="fa-solid fa-language"></i>
+                <span id="langBtnText">বাংলা</span>
+            </button>
         </div>
     </div>
 
+    <!-- Main Content -->
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
-            <h1>আপনার স্বপ্নের ভ্রমণ</h1>
-            <p style="font-size: 1.3rem; margin: 1rem 0;">আমাদের সাথে নিশ্চিন্তে ভ্রমণ করুন</p>
+            <h2 id="heroTitle">Your Dream Journey Starts Here</h2>
+            <p id="heroText">Experience the world with World Link</p>
             <div class="rating-badge">
-                <i class="fa-solid fa-star"></i> ৪.৮ ★ (১২,৫০০+ রিভিউ)
+                <i class="fa-solid fa-star"></i> 4.8 ★ <span id="reviewCount">(12.7k+ reviews)</span>
             </div>
         </div>
 
-        <!-- Feature Cards -->
-        <div class="features">
+        <!-- Company Description -->
+        <div class="company-description">
+            <h3 id="companyTitle">🌍 World Link Tour & Travel</h3>
+            <p id="companyDesc">Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. Our mission is to make every journey memorable with top-notch service, comfortable accommodations, and expert guides. With over 15 years of experience, thousands of happy travelers trust us for their dream vacations.</p>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
             <div class="feature-card">
                 <i class="fa-regular fa-credit-card"></i>
-                <h3>পেমেন্ট অপশন</h3>
-                <p>ভিসা, মাস্টারকার্ড, বিকাশ</p>
+                <h3 id="paymentTitle">Payment Options</h3>
+                <div class="detail" id="paymentDetail1">Visa · Mastercard · PayPal</div>
+                <div class="detail" id="paymentDetail2">Crypto · Bank Transfer</div>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-phone"></i>
-                <h3>ফোন নাম্বার</h3>
-                <p class="phone-number">০১৭১৮৮৩৪১১০</p>
+                <h3 id="phoneTitle">Phone Number</h3>
+                <div class="detail">+880 1718-834110</div>
+                <div class="detail">+1 (800) 234-9876</div>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-location-dot"></i>
-                <h3>লোকেশন</h3>
-                <p>গুলশান, ঢাকা</p>
+                <h3 id="locationTitle">Location</h3>
+                <div class="detail" id="locationDetail1">Gulshan Avenue, Dhaka</div>
+                <div class="detail" id="locationDetail2">World Link Tower</div>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-house"></i>
-                <h3>হাউস নাম্বার</h3>
-                <p>বাড়ি ৩৪, রোড ১২</p>
+                <h3 id="houseTitle">House Number</h3>
+                <div class="detail" id="houseDetail1">House 34, Road 12</div>
+                <div class="detail" id="houseDetail2">Banani, Dhaka</div>
             </div>
         </div>
 
         <!-- Payment Section -->
         <div class="payment-section">
-            <h2 style="color: #003b5c;"><i class="fa-solid fa-coins"></i> পেমেন্ট অপশন</h2>
+            <h2><i class="fa-solid fa-coins"></i> <span id="paymentSectionTitle">Payment Methods</span></h2>
             <div class="payment-options">
-                <div class="payment-btn"><i class="fa-brands fa-cc-visa"></i> ভিসা</div>
-                <div class="payment-btn"><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</div>
-                <div class="payment-btn"><i class="fa-brands fa-cc-paypal"></i> পেপ্যাল</div>
-                <div class="payment-btn"><i class="fa-brands fa-bitcoin"></i> বিটকয়েন</div>
-                <div class="payment-btn"><i class="fa-brands fa-bkash"></i> বিকাশ</div>
-                <div class="payment-btn"><i class="fa-regular fa-money-bill-1"></i> নগদ</div>
+                <span class="pay-option" onclick="alert('Visa payment selected')"><i class="fa-brands fa-cc-visa"></i> Visa</span>
+                <span class="pay-option" onclick="alert('Mastercard payment selected')"><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
+                <span class="pay-option" onclick="alert('PayPal payment selected')"><i class="fa-brands fa-cc-paypal"></i> PayPal</span>
+                <span class="pay-option" onclick="alert('Bitcoin payment selected')"><i class="fa-brands fa-bitcoin"></i> Bitcoin</span>
+                <span class="pay-option" onclick="alert('bKash payment selected')"><i class="fa-brands fa-bkash"></i> bKash</span>
+                <span class="pay-option" onclick="alert('Cash payment selected')"><i class="fa-regular fa-money-bill-1"></i> Cash</span>
             </div>
         </div>
 
         <!-- Contact Details -->
-        <div class="contact-info">
+        <div class="contact-details">
             <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
-                <div class="value">০১৭১৮৮৩৪১১০</div>
-                <div>২৪/৭ সেবা</div>
+                <div class="value">+880 1718-834110</div>
+                <div id="supportText">24/7 Support</div>
             </div>
             <div class="contact-item">
                 <i class="fa-solid fa-location-dot"></i>
-                <div class="value">গুলশান এভিনিউ</div>
-                <div>ঢাকা, বাংলাদেশ</div>
+                <div class="value" id="locationValue">Gulshan, Dhaka</div>
+                <div id="countryText">Bangladesh</div>
             </div>
             <div class="contact-item">
                 <i class="fa-solid fa-house"></i>
-                <div class="value">বাড়ি ৩৪, রোড ১২</div>
-                <div>বনানী, ঢাকা</div>
+                <div class="value" id="houseValue">House 34, Road 12</div>
+                <div id="areaText">Banani, Dhaka</div>
             </div>
         </div>
 
-        <!-- Gallery - এখন ১০০% কাজ করবে -->
+        <!-- Gallery -->
         <div class="gallery">
-            <h2><i class="fa-regular fa-image"></i> আমাদের প্যাকেজ (ছবিতে ক্লিক করুন)</h2>
+            <h2><i class="fa-regular fa-image"></i> <span id="galleryTitle">Popular Tour Packages (Click on Images)</span></h2>
             <div class="gallery-grid">
-                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=500" class="gallery-img" onclick="openModal('sajek')" alt="সাজেক">
-                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500" class="gallery-img" onclick="openModal('cox')" alt="কক্সবাজার">
-                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500" class="gallery-img" onclick="openModal('sundarban')" alt="সুন্দরবন">
-                <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?w=500" class="gallery-img" onclick="openModal('bandarban')" alt="বান্দরবান">
+                <div class="gallery-item" onclick="openPackageModal('sajek')">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=500" alt="Sajek Valley">
+                </div>
+                <div class="gallery-item" onclick="openPackageModal('cox')">
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500" alt="Cox's Bazar">
+                </div>
+                <div class="gallery-item" onclick="openPackageModal('sundarban')">
+                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500" alt="Sundarbans">
+                </div>
+                <div class="gallery-item" onclick="openPackageModal('bandarban')">
+                    <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?w=500" alt="Bandarban">
+                </div>
             </div>
         </div>
 
         <!-- Modal -->
-        <div id="myModal" class="modal">
+        <div id="packageModal" class="modal">
             <div class="modal-content" id="modalContent">
                 <!-- Content will be loaded here -->
             </div>
         </div>
 
+        <!-- Prompt/Chat Section -->
+        <div class="prompt-section">
+            <div class="prompt-text">
+                <h3 id="promptTitle">🤖 Travel Assistant</h3>
+                <p id="promptDesc">Ask me anything about tours, packages, or payments!</p>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message">👋 Hello! How can I help you today?</div>
+                </div>
+            </div>
+            <div class="prompt-input">
+                <input type="text" id="promptInput" placeholder="Type your question...">
+                <button onclick="sendPrompt()"><i class="fa-regular fa-paper-plane"></i> <span id="sendBtnText">Send</span></button>
+            </div>
+        </div>
+
         <!-- Rating Section -->
         <div class="rating-section">
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-                <div style="flex: 1; text-align: center;">
-                    <div style="font-size: 4rem; color: #ffb347;">★★★★☆</div>
-                    <div style="font-size: 2rem; font-weight: bold;">৪.৭</div>
-                    <div>২,৪৩৮ টি রেটিং</div>
+            <div class="rating-container">
+                <div class="current-rating">
+                    <div class="big-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="avg-number" id="averageRating">4.7</div>
+                    <div class="star-display" id="starDisplay">★★★★☆</div>
+                    <div id="ratingCount">Based on 2,438 ratings</div>
                 </div>
-                <div style="flex: 2;">
-                    <h3>আপনার রেটিং দিন</h3>
+                <div class="rating-input">
+                    <h3 id="rateTitle">Rate Your Experience</h3>
+                    <p id="rateDesc">Everyone can give a rating</p>
                     <div class="star-rating">
-                        <input type="radio" name="rating" id="star5" value="5"><label for="star5" class="fa-solid fa-star"></label>
-                        <input type="radio" name="rating" id="star4" value="4"><label for="star4" class="fa-solid fa-star"></label>
-                        <input type="radio" name="rating" id="star3" value="3"><label for="star3" class="fa-solid fa-star"></label>
-                        <input type="radio" name="rating" id="star2" value="2"><label for="star2" class="fa-solid fa-star"></label>
-                        <input type="radio" name="rating" id="star1" value="1"><label for="star1" class="fa-solid fa-star"></label>
+                        <input type="radio" name="userRating" id="star5" value="5"><label for="star5" class="fa-solid fa-star"></label>
+                        <input type="radio" name="userRating" id="star4" value="4"><label for="star4" class="fa-solid fa-star"></label>
+                        <input type="radio" name="userRating" id="star3" value="3"><label for="star3" class="fa-solid fa-star"></label>
+                        <input type="radio" name="userRating" id="star2" value="2"><label for="star2" class="fa-solid fa-star"></label>
+                        <input type="radio" name="userRating" id="star1" value="1"><label for="star1" class="fa-solid fa-star"></label>
                     </div>
-                    <button class="action-btn" style="margin-top: 1rem;" onclick="submitRating()">রেটিং সাবমিট</button>
-                    <div id="ratingMessage" style="margin-top: 1rem; color: green;"></div>
+                    <button class="btn" onclick="submitUserRating()" id="submitBtn">Submit Rating</button>
+                    <p id="ratingMessage" style="margin-top: 1rem;"></p>
                 </div>
             </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="action-btn" onclick="alert('কল করা হচ্ছে: ০১৭১৮৮৩৪১১০')"><i class="fa-solid fa-phone"></i> কল করুন</button>
-            <button class="action-btn" onclick="alert('লোকেশন: গুলশান, ঢাকা')"><i class="fa-solid fa-location-dot"></i> লোকেশন</button>
-            <button class="action-btn" onclick="alert('হাউস নাম্বার: বাড়ি ৩৪, রোড ১২')"><i class="fa-solid fa-house"></i> হাউস নাম্বার</button>
-            <button class="action-btn" onclick="alert('পেমেন্ট অপশন ওপেন হয়েছে')"><i class="fa-regular fa-credit-card"></i> পেমেন্ট</button>
+            <button class="action-btn" onclick="alert('Calling: +880 1718-834110')"><i class="fa-solid fa-phone"></i> <span class="btnText" id="callBtn">Call Now</span></button>
+            <button class="action-btn" onclick="alert('Location: Gulshan Avenue, Dhaka')"><i class="fa-solid fa-location-dot"></i> <span class="btnText" id="locationBtn">Get Direction</span></button>
+            <button class="action-btn" onclick="alert('House Number: House 34, Road 12, Banani')"><i class="fa-solid fa-house"></i> <span class="btnText" id="houseBtn">House Number</span></button>
+            <button class="action-btn" onclick="document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'})"><i class="fa-regular fa-credit-card"></i> <span class="btnText" id="paymentBtn">Payment</span></button>
         </div>
 
         <!-- House Number Card -->
-        <div style="background: #e6f0f9; padding: 2rem; border-radius: 20px; text-align: center; margin: 2rem 0;">
-            <i class="fa-solid fa-house" style="font-size: 3rem; color: #003b5c;"></i>
-            <h3>হাউস নাম্বার</h3>
-            <p style="font-size: 1.3rem;">বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা</p>
-            <button class="action-btn" onclick="copyHouseNumber()"><i class="fa-regular fa-copy"></i> কপি করুন</button>
+        <div style="background: #e6f0f9; border-radius: 30px; padding: 2rem; text-align: center; margin: 2rem 0;">
+            <i class="fa-solid fa-house-circle-check" style="font-size: 3rem; color: #003b5c;"></i>
+            <h3 style="margin: 1rem 0;" id="houseCardTitle">House Number Directory</h3>
+            <p style="font-size: 1.3rem;" id="houseAddress">Main Office: House 34, Road 12, Banani, Dhaka</p>
+            <button class="action-btn" onclick="copyHouseNumber()" style="margin-top: 1rem;"><i class="fa-regular fa-copy"></i> <span id="copyBtn">Copy House Number</span></button>
         </div>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
-        <p>© ২০২৫ WORLD LINK TOUR & TRAVEL</p>
-        <p>ফোন: ০১৭১৮৮৩৪১১০ | হাউস: বাড়ি ৩৪, রোড ১২</p>
+        <p><i class="fa-regular fa-copyright"></i> 2025 WORLD LINK TOUR & TRAVEL. <span id="rightsText">All rights reserved.</span></p>
+        <p style="margin-top: 1rem;" id="footerContact">📞 +880 1718-834110 | 🏠 House 34, Road 12, Banani, Dhaka</p>
     </div>
 
     <script>
-        // Modal functions
-        const modal = document.getElementById('myModal');
+        // Language Toggle Function
+        let currentLang = 'en';
         
-        window.openModal = function(packageName) {
-            console.log('Clicked on:', packageName); // দেখুন ক্লিক হচ্ছে কিনা
+        function toggleLanguage() {
+            if(currentLang === 'en') {
+                setBengali();
+                currentLang = 'bn';
+            } else {
+                setEnglish();
+                currentLang = 'en';
+            }
+        }
+        
+        function setEnglish() {
+            document.getElementById('langBtnText').innerText = 'বাংলা';
+            document.getElementById('tagline').innerText = 'tour & travel · since 2008';
+            document.getElementById('homeLink').innerText = 'Home';
+            document.getElementById('toursLink').innerText = 'Tours';
+            document.getElementById('contactLink').innerText = 'Contact';
+            document.getElementById('heroTitle').innerText = 'Your Dream Journey Starts Here';
+            document.getElementById('heroText').innerText = 'Experience the world with World Link';
+            document.getElementById('reviewCount').innerText = '(12.7k+ reviews)';
+            document.getElementById('companyTitle').innerText = '🌍 World Link Tour & Travel';
+            document.getElementById('companyDesc').innerText = 'Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. Our mission is to make every journey memorable with top-notch service, comfortable accommodations, and expert guides. With over 15 years of experience, thousands of happy travelers trust us for their dream vacations.';
+            document.getElementById('paymentTitle').innerText = 'Payment Options';
+            document.getElementById('paymentDetail1').innerText = 'Visa · Mastercard · PayPal';
+            document.getElementById('paymentDetail2').innerText = 'Crypto · Bank Transfer';
+            document.getElementById('phoneTitle').innerText = 'Phone Number';
+            document.getElementById('locationTitle').innerText = 'Location';
+            document.getElementById('locationDetail1').innerText = 'Gulshan Avenue, Dhaka';
+            document.getElementById('locationDetail2').innerText = 'World Link Tower';
+            document.getElementById('houseTitle').innerText = 'House Number';
+            document.getElementById('houseDetail1').innerText = 'House 34, Road 12';
+            document.getElementById('houseDetail2').innerText = 'Banani, Dhaka';
+            document.getElementById('paymentSectionTitle').innerText = 'Payment Methods';
+            document.getElementById('supportText').innerText = '24/7 Support';
+            document.getElementById('locationValue').innerText = 'Gulshan, Dhaka';
+            document.getElementById('countryText').innerText = 'Bangladesh';
+            document.getElementById('houseValue').innerText = 'House 34, Road 12';
+            document.getElementById('areaText').innerText = 'Banani, Dhaka';
+            document.getElementById('galleryTitle').innerText = 'Popular Tour Packages (Click on Images)';
+            document.getElementById('promptTitle').innerText = '🤖 Travel Assistant';
+            document.getElementById('promptDesc').innerText = 'Ask me anything about tours, packages, or payments!';
+            document.getElementById('sendBtnText').innerText = 'Send';
+            document.getElementById('rateTitle').innerText = 'Rate Your Experience';
+            document.getElementById('rateDesc').innerText = 'Everyone can give a rating';
+            document.getElementById('submitBtn').innerText = 'Submit Rating';
+            document.getElementById('ratingCount').innerText = 'Based on 2,438 ratings';
+            document.getElementById('callBtn').innerText = 'Call Now';
+            document.getElementById('locationBtn').innerText = 'Get Direction';
+            document.getElementById('houseBtn').innerText = 'House Number';
+            document.getElementById('paymentBtn').innerText = 'Payment';
+            document.getElementById('houseCardTitle').innerText = 'House Number Directory';
+            document.getElementById('houseAddress').innerText = 'Main Office: House 34, Road 12, Banani, Dhaka';
+            document.getElementById('copyBtn').innerText = 'Copy House Number';
+            document.getElementById('rightsText').innerText = 'All rights reserved.';
+            document.getElementById('footerContact').innerHTML = '📞 +880 1718-834110 | 🏠 House 34, Road 12, Banani, Dhaka';
+        }
+        
+        function setBengali() {
+            document.getElementById('langBtnText').innerText = 'English';
+            document.getElementById('tagline').innerText = 'ট্যুর এন্ড ট্রাভেল · ২০০৮ থেকে';
+            document.getElementById('homeLink').innerText = 'হোম';
+            document.getElementById('toursLink').innerText = 'ট্যুর';
+            document.getElementById('contactLink').innerText = 'যোগাযোগ';
+            document.getElementById('heroTitle').innerText = 'আপনার স্বপ্নের যাত্রা শুরু হোক এখানে';
+            document.getElementById('heroText').innerText = 'ওয়ার্ল্ড লিংকের সাথে বিশ্ব অভিজ্ঞতা';
+            document.getElementById('reviewCount').innerText = '(১২.৭হাজার+ রিভিউ)';
+            document.getElementById('companyTitle').innerText = '🌍 ওয়ার্ল্ড লিংক ট্যুর এন্ড ট্রাভেল';
+            document.getElementById('companyDesc').innerText = '২০০৮ সাল থেকে ওয়ার্ল্ড লিংক বিশ্বব্যাপী অস্মরণীয় ভ্রমণ অভিজ্ঞতা প্রদান করে আসছে। আমরা কাস্টমাইজড ট্যুর প্যাকেজ, গ্রুপ ট্রাভেল এবং অ্যাডভেঞ্চার ট্যুরিজমে বিশেষজ্ঞ। আমাদের লক্ষ্য হল শীর্ষস্থানীয় সেবা, আরামদায়ক থাকার ব্যবস্থা এবং অভিজ্ঞ গাইডের মাধ্যমে প্রতিটি ভ্রমণ স্মরণীয় করে তোলা। ১৫ বছরের বেশি অভিজ্ঞতা সহ হাজার হাজার happy traveler আমাদের বিশ্বাস করে তাদের স্বপ্নের ছুটির জন্য।';
+            document.getElementById('paymentTitle').innerText = 'পেমেন্ট অপশন';
+            document.getElementById('paymentDetail1').innerText = 'ভিসা · মাস্টারকার্ড · পেপ্যাল';
+            document.getElementById('paymentDetail2').innerText = 'ক্রিপ্টো · ব্যাংক ট্রান্সফার';
+            document.getElementById('phoneTitle').innerText = 'ফোন নাম্বার';
+            document.getElementById('locationTitle').innerText = 'লোকেশন';
+            document.getElementById('locationDetail1').innerText = 'গুলশান এভিনিউ, ঢাকা';
+            document.getElementById('locationDetail2').innerText = 'ওয়ার্ল্ড লিংক টাওয়ার';
+            document.getElementById('houseTitle').innerText = 'হাউস নাম্বার';
+            document.getElementById('houseDetail1').innerText = 'বাড়ি ৩৪, রোড ১২';
+            document.getElementById('houseDetail2').innerText = 'বনানী, ঢাকা';
+            document.getElementById('paymentSectionTitle').innerText = 'পেমেন্ট মেথড';
+            document.getElementById('supportText').innerText = '২৪/৭ সাপোর্ট';
+            document.getElementById('locationValue').innerText = 'গুলশান, ঢাকা';
+            document.getElementById('countryText').innerText = 'বাংলাদেশ';
+            document.getElementById('houseValue').innerText = 'বাড়ি ৩৪, রোড ১২';
+            document.getElementById('areaText').innerText = 'বনানী, ঢাকা';
+            document.getElementById('galleryTitle').innerText = 'জনপ্রিয় ট্যুর প্যাকেজ (ছবিতে ক্লিক করুন)';
+            document.getElementById('promptTitle').innerText = '🤖 ট্রাভেল অ্যাসিস্ট্যান্ট';
+            document.getElementById('promptDesc').innerText = 'ট্যুর, প্যাকেজ বা পেমেন্ট নিয়ে প্রশ্ন করুন!';
+            document.getElementById('sendBtnText').innerText = 'পাঠান';
+            document.getElementById('rateTitle').innerText = 'আপনার অভিজ্ঞতা রেট দিন';
+            document.getElementById('rateDesc').innerText = 'সবাই রেট দিতে পারেন';
+            document.getElementById('submitBtn').innerText = 'রেটিং সাবমিট';
+            document.getElementById('ratingCount').innerText = '২,৪৩৮ টি রেটিং এর ভিত্তিতে';
+            document.getElementById('callBtn').innerText = 'কল করুন';
+            document.getElementById('locationBtn').innerText = 'দিকনির্দেশ';
+            document.getElementById('houseBtn').innerText = 'হাউস নাম্বার';
+            document.getElementById('paymentBtn').innerText = 'পেমেন্ট';
+            document.getElementById('houseCardTitle').innerText = 'হাউস নাম্বার ডিরেক্টরি';
+            document.getElementById('houseAddress').innerText = 'মেইন অফিস: বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
+            document.getElementById('copyBtn').innerText = 'হাউস নাম্বার কপি';
+            document.getElementById('rightsText').innerText = 'সর্বস্বত্ব সংরক্ষিত';
+            document.getElementById('footerContact').innerHTML = '📞 +৮৮০ ১৭১৮-৮৩৪১১০ | 🏠 বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
+        }
+
+        // Modal Function
+        const modal = document.getElementById('packageModal');
+        
+        window.openPackageModal = function(packageName) {
+            console.log('Opening package:', packageName);
             
-            let title, desc, details, price;
+            let packageTitle, description, includes, price;
             
-            if(packageName === 'sajek') {
-                title = '🇧🇩 সাজেক ভ্যালি';
-                desc = '৩ দিন ২ রাতের প্যাকেজ';
-                details = '☕ সকালের নাস্তা, 🏕️ রিসোর্ট, 🚐 পরিবহন';
-                price = '৭,৫০০ টাকা';
-            }
-            else if(packageName === 'cox') {
-                title = '🏖️ কক্সবাজার';
-                desc = '৪ দিন ৩ রাত';
-                details = '🍽️ ৩ বেলা খাবার, 🌊 বিচ ভিউ হোটেল';
-                price = '১২,৯০০ টাকা';
-            }
-            else if(packageName === 'sundarban') {
-                title = '🌳 সুন্দরবন';
-                desc = '২ দিন ১ রাত';
-                details = '🛶 নৌকা ভ্রমণ, 🐅 বন্য প্রাণী দেখা';
-                price = '৯,৯৯৯ টাকা';
-            }
-            else if(packageName === 'bandarban') {
-                title = '⛰️ বান্দরবান';
-                desc = '৩ দিন ২ রাত';
-                details = '🥾 ট্রেকিং, 🏞️ নীলাচল, বগা লেক';
-                price = '৮,২৫০ টাকা';
+            if(currentLang === 'en') {
+                switch(packageName) {
+                    case 'sajek':
+                        packageTitle = '🏞️ Sajek Valley Package';
+                        description = '3 days 2 nights tour to Sajek Valley';
+                        includes = 'Breakfast, Resort stay, AC Transport, Camp Fire';
+                        price = 'BDT 7,500 per person';
+                        break;
+                    case 'cox':
+                        packageTitle = '🏖️ Cox\'s Bazar Special';
+                        description = '4 days 3 nights at the longest sea beach';
+                        includes = '3 meals daily, Beach view hotel, Saint Martin trip';
+                        price = 'BDT 12,900 per person';
+                        break;
+                    case 'sundarban':
+                        packageTitle = '🌳 Sundarban Adventure';
+                        description = '2 days 1 night in the mangrove forest';
+                        includes = 'Boat safari, Wildlife spotting, Guide, Meals';
+                        price = 'BDT 9,999 per person';
+                        break;
+                    case 'bandarban':
+                        packageTitle = '⛰️ Bandarban Hill Trek';
+                        description = '3 days 2 nights in the hills';
+                        includes = 'Trekking, Nilachal, Buddha Dhatu Jadi, Meals';
+                        price = 'BDT 8,250 per person';
+                        break;
+                }
+            } else {
+                switch(packageName) {
+                    case 'sajek':
+                        packageTitle = '🏞️ সাজেক ভ্যালি প্যাকেজ';
+                        description = '৩ দিন ২ রাত সাজেক ভ্রমণ';
+                        includes = 'সকালের নাস্তা, রিসোর্টে থাকা, এসি পরিবহন, ক্যাম্প ফায়ার';
+                        price = '৭,৫০০ টাকা (প্রতি জন)';
+                        break;
+                    case 'cox':
+                        packageTitle = '🏖️ কক্সবাজার স্পেশাল';
+                        description = '৪ দিন ৩ রাত বিশ্বের দীর্ঘতম সমুদ্র সৈকতে';
+                        includes = '৩ বেলা খাবার, বিচ ভিউ হোটেল, সেন্ট মার্টিন ট্রিপ';
+                        price = '১২,৯০০ টাকা (প্রতি জন)';
+                        break;
+                    case 'sundarban':
+                        packageTitle = '🌳 সুন্দরবন অ্যাডভেঞ্চার';
+                        description = '২ দিন ১ রাত ম্যানগ্রোভ বনে';
+                        includes = 'নৌকা সাফারি, বন্যপ্রাণী দেখা, গাইড, খাবার';
+                        price = '৯,৯৯৯ টাকা (প্রতি জন)';
+                        break;
+                    case 'bandarban':
+                        packageTitle = '⛰️ বান্দরবান হিল ট্রেক';
+                        description = '৩ দিন ২ রাত পাহাড়ে';
+                        includes = 'ট্রেকিং, নীলাচল, বুদ্ধ ধাতু জাদি, খাবার';
+                        price = '৮,২৫০ টাকা (প্রতি জন)';
+                        break;
+                }
             }
             
             document.getElementById('modalContent').innerHTML = `
-                <h3>${title}</h3>
-                <div class="package-details">
-                    <p><strong>📝 বিবরণ:</strong> ${desc}</p>
-                    <p><strong>✅ সুবিধা:</strong> ${details}</p>
-                    <p style="font-size: 1.5rem; color: #003b5c;"><strong>💰 মূল্য:</strong> ${price}</p>
+                <h3>${packageTitle}</h3>
+                <div class="package-info">
+                    <p><strong>📝 ${currentLang === 'en' ? 'Description:' : 'বিবরণ:'}</strong> ${description}</p>
+                    <p><strong>✅ ${currentLang === 'en' ? 'Includes:' : 'সুবিধা:'}</strong> ${includes}</p>
+                    <p style="font-size: 1.5rem; color: #003b5c; margin-top: 1rem;"><strong>💰 ${price}</strong></p>
                 </div>
                 <div>
-                    <p><strong>পেমেন্ট অপশন:</strong></p>
-                    <div class="modal-payment">
-                        <span><i class="fa-brands fa-cc-visa"></i> ভিসা</span>
-                        <span><i class="fa-brands fa-cc-mastercard"></i> মাস্টারকার্ড</span>
-                        <span><i class="fa-brands fa-bkash"></i> বিকাশ</span>
-                        <span><i class="fa-regular fa-money-bill-1"></i> নগদ</span>
+                    <p><strong>${currentLang === 'en' ? 'Payment Options:' : 'পেমেন্ট অপশন:'}</strong></p>
+                    <div class="modal-payment-icons">
+                        <span><i class="fa-brands fa-cc-visa"></i> Visa</span>
+                        <span><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
+                        <span><i class="fa-brands fa-bkash"></i> bKash</span>
+                        <span><i class="fa-regular fa-money-bill-1"></i> ${currentLang === 'en' ? 'Cash' : 'নগদ'}</span>
                     </div>
                 </div>
                 <div style="margin-top: 2rem;">
-                    <button class="modal-btn" onclick="alert('বুকিং কনফার্মড! (ডেমো)'); closeModal()"><i class="fa-regular fa-credit-card"></i> এখনই বুক করুন</button>
-                    <button class="modal-btn close-btn" onclick="closeModal()"><i class="fa-regular fa-circle-xmark"></i> বন্ধ করুন</button>
+                    <button class="modal-btn" onclick="bookNow()"><i class="fa-regular fa-credit-card"></i> ${currentLang === 'en' ? 'Book Now' : 'বুক করুন'}</button>
+                    <button class="modal-btn close-modal-btn" onclick="closePackageModal()"><i class="fa-regular fa-circle-xmark"></i> ${currentLang === 'en' ? 'Close' : 'বন্ধ করুন'}</button>
                 </div>
             `;
             
             modal.style.display = 'flex';
         }
         
-        window.closeModal = function() {
+        window.closePackageModal = function() {
             modal.style.display = 'none';
+        }
+        
+        window.bookNow = function() {
+            alert(currentLang === 'en' ? 'Thank you for booking! (Demo - Payment gateway would open here)' : 'বুকিংয়ের জন্য ধন্যবাদ! (ডেমো - পেমেন্ট গেটওয়ে খুলবে)');
+            closePackageModal();
         }
         
         window.onclick = function(event) {
@@ -497,26 +887,108 @@
             }
         }
         
-        // Rating function
-        window.submitRating = function() {
-            const selected = document.querySelector('input[name="rating"]:checked');
-            if(selected) {
-                document.getElementById('ratingMessage').innerHTML = '✅ আপনার রেটিং দেওয়া হয়েছে: ' + selected.value + ' স্টার';
-            } else {
-                document.getElementById('ratingMessage').innerHTML = '⛔ দয়া করে একটি রেটিং দিন';
-                document.getElementById('ratingMessage').style.color = 'red';
+        // Rating System
+        let totalRating = 4.7;
+        let ratingCount = 2438;
+        
+        window.submitUserRating = function() {
+            const selected = document.querySelector('input[name="userRating"]:checked');
+            const messageEl = document.getElementById('ratingMessage');
+            
+            if(!selected) {
+                messageEl.innerHTML = currentLang === 'en' ? '❌ Please select a rating' : '❌ দয়া করে একটি রেটিং দিন';
+                messageEl.style.color = 'red';
+                return;
             }
+            
+            const userRating = parseInt(selected.value);
+            
+            const currentSum = totalRating * ratingCount;
+            ratingCount++;
+            const newAvg = (currentSum + userRating) / ratingCount;
+            totalRating = Math.round(newAvg * 10) / 10;
+            
+            document.getElementById('averageRating').innerHTML = totalRating.toFixed(1);
+            
+            const fullStars = Math.floor(totalRating);
+            const halfStar = (totalRating - fullStars) >= 0.5 ? 1 : 0;
+            let starString = '';
+            for(let i = 0; i < fullStars; i++) starString += '★';
+            if(halfStar) starString += '½';
+            while(starString.length < 5) starString += '☆';
+            document.getElementById('starDisplay').innerHTML = starString;
+            
+            document.querySelector('.rating-badge').innerHTML = `<i class="fa-solid fa-star"></i> ${totalRating} ★ (${ratingCount.toLocaleString()}+ ${currentLang === 'en' ? 'reviews' : 'রিভিউ'})`;
+            
+            messageEl.innerHTML = currentLang === 'en' ? '✅ Thank you for your rating!' : '✅ আপনার রেটিং দেওয়ার জন্য ধন্যবাদ!';
+            messageEl.style.color = 'green';
+            
+            document.querySelectorAll('input[name="userRating"]').forEach(r => r.checked = false);
         }
         
         // Copy house number
         window.copyHouseNumber = function() {
-            navigator.clipboard.writeText('বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা');
-            alert('হাউস নাম্বার কপি হয়েছে!');
+            const houseText = 'House 34, Road 12, Banani, Dhaka';
+            navigator.clipboard.writeText(houseText).then(() => {
+                alert(currentLang === 'en' ? 'House number copied to clipboard!' : 'হাউস নাম্বার কপি হয়েছে!');
+            });
         }
         
-        // ডকুমেন্ট লোড হয়েছে কিনা চেক করুন
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('পেজ লোড হয়েছে। এখন ছবিতে ক্লিক করুন!');
+        // Prompt/Chat Function
+        window.sendPrompt = function() {
+            const input = document.getElementById('promptInput');
+            const question = input.value.trim();
+            const chatMessages = document.getElementById('chatMessages');
+            
+            if(question === '') return;
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message';
+            userMsg.style.background = '#ffb347';
+            userMsg.style.color = '#003b5c';
+            userMsg.innerHTML = `<strong>${currentLang === 'en' ? 'You:' : 'আপনি:'}</strong> ${question}`;
+            chatMessages.appendChild(userMsg);
+            
+            // Simulate bot response
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-message';
+                botMsg.style.background = 'rgba(255,255,255,0.3)';
+                let response;
+                
+                if(question.toLowerCase().includes('price') || question.toLowerCase().includes('cost') || question.includes('মূল্য')) {
+                    response = currentLang === 'en' ? 
+                        'Our packages start from BDT 7,500. Which destination are you interested in?' : 
+                        'আমাদের প্যাকেজ শুরু ৭,৫০০ টাকা থেকে। আপনি কোন গন্তব্যে আগ্রহী?';
+                } else if(question.toLowerCase().includes('payment') || question.includes('পেমেন্ট')) {
+                    response = currentLang === 'en' ?
+                        'We accept Visa, Mastercard, PayPal, bKash, and cash. You can also pay in installments!' :
+                        'আমরা ভিসা, মাস্টারকার্ড, পেপ্যাল, বিকাশ এবং নগদ গ্রহণ করি। আপনি কিস্তিতেও পেমেন্ট করতে পারেন!';
+                } else if(question.toLowerCase().includes('sajek') || question.includes('কক্স')) {
+                    response = currentLang === 'en' ?
+                        'Great choice! Click on the images above to see package details.' :
+                        'চমৎকার পছন্দ! বিস্তারিত জানতে উপরের ছবিতে ক্লিক করুন।';
+                } else {
+                    response = currentLang === 'en' ?
+                        'Thanks for your question! Our team will get back to you soon. You can also call us at +880 1718-834110' :
+                        'আপনার প্রশ্নের জন্য ধন্যবাদ! আমাদের টিম শীঘ্রই যোগাযোগ করবে। আপনি +৮৮০ ১৭১৮-৮৩৪১১০ নম্বরেও কল করতে পারেন।';
+                }
+                
+                botMsg.innerHTML = `<strong>🤖 ${currentLang === 'en' ? 'Assistant:' : 'অ্যাসিস্ট্যান্ট:'}</strong> ${response}`;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+            
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Enter key for prompt
+        document.getElementById('promptInput').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') {
+                sendPrompt();
+            }
         });
     </script>
 </body>
