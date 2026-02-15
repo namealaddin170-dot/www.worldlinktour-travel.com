@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Link Tour & Travel</title>
+    <title>World Link Tour & Travel - 30+ Countries</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -49,7 +49,6 @@
         .nav-links a:hover {
             color: #ffb347;
         }
-        /* Language Switch Button */
         .lang-switch {
             background: #ffb347;
             color: #003b5c;
@@ -68,7 +67,7 @@
         }
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 5%;
         }
@@ -215,37 +214,58 @@
             font-size: 1.4rem;
             font-weight: bold;
         }
-        /* Gallery */
-        .gallery {
-            margin: 3rem 0;
+        /* Countries Gallery */
+        .countries-section {
+            margin: 4rem 0;
         }
-        .gallery h2 {
+        .countries-section h2 {
             color: #003b5c;
             margin-bottom: 2rem;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
         }
-        .gallery-grid {
+        .countries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
         }
-        .gallery-item {
-            cursor: pointer;
+        .country-card {
+            position: relative;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            border: 3px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
             transition: 0.3s;
+            aspect-ratio: 1/1;
         }
-        .gallery-item:hover {
-            transform: scale(1.03);
-            border-color: #ffb347;
+        .country-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .gallery-item img {
+        .country-card img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
             display: block;
+        }
+        .country-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+        }
+        .country-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .country-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
         }
         /* Modal */
         .modal {
@@ -264,25 +284,34 @@
             background: white;
             padding: 2.5rem;
             border-radius: 30px;
-            max-width: 500px;
+            max-width: 600px;
             width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
             animation: modalPop 0.3s;
         }
         @keyframes modalPop {
             from {transform: scale(0.8); opacity: 0;}
             to {transform: scale(1); opacity: 1;}
         }
-        .modal-content h3 {
+        .modal-content h2 {
             color: #003b5c;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-        .package-info {
+        .country-flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .package-details {
             background: #f0f7fd;
             padding: 1.5rem;
             border-radius: 20px;
             margin: 1.5rem 0;
-            line-height: 1.8;
+            line-height: 2;
+        }
+        .package-details p {
+            margin: 0.8rem 0;
         }
         .modal-payment-icons {
             display: flex;
@@ -385,7 +414,7 @@
             cursor: pointer;
             margin-top: 1rem;
         }
-        /* Prompt/Chat Section */
+        /* Prompt Section */
         .prompt-section {
             background: linear-gradient(135deg, #003b5c, #1a5f7a);
             color: white;
@@ -487,10 +516,6 @@
             border-radius: 30px 30px 0 0;
             margin-top: 4rem;
         }
-        /* Language specific */
-        [lang="bn"] .english-only {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -525,7 +550,7 @@
         <!-- Company Description -->
         <div class="company-description">
             <h3 id="companyTitle">🌍 World Link Tour & Travel</h3>
-            <p id="companyDesc">Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. Our mission is to make every journey memorable with top-notch service, comfortable accommodations, and expert guides. With over 15 years of experience, thousands of happy travelers trust us for their dream vacations.</p>
+            <p id="companyDesc">Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable.</p>
         </div>
 
         <!-- Features -->
@@ -588,22 +613,11 @@
             </div>
         </div>
 
-        <!-- Gallery -->
-        <div class="gallery">
-            <h2><i class="fa-regular fa-image"></i> <span id="galleryTitle">Popular Tour Packages (Click on Images)</span></h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openPackageModal('sajek')">
-                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=500" alt="Sajek Valley">
-                </div>
-                <div class="gallery-item" onclick="openPackageModal('cox')">
-                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500" alt="Cox's Bazar">
-                </div>
-                <div class="gallery-item" onclick="openPackageModal('sundarban')">
-                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500" alt="Sundarbans">
-                </div>
-                <div class="gallery-item" onclick="openPackageModal('bandarban')">
-                    <img src="https://images.unsplash.com/photo-1523906834658-6e24e2384f88?w=500" alt="Bandarban">
-                </div>
+        <!-- 30+ Countries Gallery -->
+        <div class="countries-section">
+            <h2 id="countriesTitle">🌎 Explore 30+ Countries</h2>
+            <div class="countries-grid" id="countriesGrid">
+                <!-- Countries will be loaded by JavaScript -->
             </div>
         </div>
 
@@ -614,7 +628,7 @@
             </div>
         </div>
 
-        <!-- Prompt/Chat Section -->
+        <!-- Prompt Section -->
         <div class="prompt-section">
             <div class="prompt-text">
                 <h3 id="promptTitle">🤖 Travel Assistant</h3>
@@ -678,181 +692,81 @@
     </div>
 
     <script>
-        // Language Toggle Function
+        // Current language
         let currentLang = 'en';
         
-        function toggleLanguage() {
-            if(currentLang === 'en') {
-                setBengali();
-                currentLang = 'bn';
-            } else {
-                setEnglish();
-                currentLang = 'en';
-            }
-        }
-        
-        function setEnglish() {
-            document.getElementById('langBtnText').innerText = 'বাংলা';
-            document.getElementById('tagline').innerText = 'tour & travel · since 2008';
-            document.getElementById('homeLink').innerText = 'Home';
-            document.getElementById('toursLink').innerText = 'Tours';
-            document.getElementById('contactLink').innerText = 'Contact';
-            document.getElementById('heroTitle').innerText = 'Your Dream Journey Starts Here';
-            document.getElementById('heroText').innerText = 'Experience the world with World Link';
-            document.getElementById('reviewCount').innerText = '(12.7k+ reviews)';
-            document.getElementById('companyTitle').innerText = '🌍 World Link Tour & Travel';
-            document.getElementById('companyDesc').innerText = 'Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. Our mission is to make every journey memorable with top-notch service, comfortable accommodations, and expert guides. With over 15 years of experience, thousands of happy travelers trust us for their dream vacations.';
-            document.getElementById('paymentTitle').innerText = 'Payment Options';
-            document.getElementById('paymentDetail1').innerText = 'Visa · Mastercard · PayPal';
-            document.getElementById('paymentDetail2').innerText = 'Crypto · Bank Transfer';
-            document.getElementById('phoneTitle').innerText = 'Phone Number';
-            document.getElementById('locationTitle').innerText = 'Location';
-            document.getElementById('locationDetail1').innerText = 'Gulshan Avenue, Dhaka';
-            document.getElementById('locationDetail2').innerText = 'World Link Tower';
-            document.getElementById('houseTitle').innerText = 'House Number';
-            document.getElementById('houseDetail1').innerText = 'House 34, Road 12';
-            document.getElementById('houseDetail2').innerText = 'Banani, Dhaka';
-            document.getElementById('paymentSectionTitle').innerText = 'Payment Methods';
-            document.getElementById('supportText').innerText = '24/7 Support';
-            document.getElementById('locationValue').innerText = 'Gulshan, Dhaka';
-            document.getElementById('countryText').innerText = 'Bangladesh';
-            document.getElementById('houseValue').innerText = 'House 34, Road 12';
-            document.getElementById('areaText').innerText = 'Banani, Dhaka';
-            document.getElementById('galleryTitle').innerText = 'Popular Tour Packages (Click on Images)';
-            document.getElementById('promptTitle').innerText = '🤖 Travel Assistant';
-            document.getElementById('promptDesc').innerText = 'Ask me anything about tours, packages, or payments!';
-            document.getElementById('sendBtnText').innerText = 'Send';
-            document.getElementById('rateTitle').innerText = 'Rate Your Experience';
-            document.getElementById('rateDesc').innerText = 'Everyone can give a rating';
-            document.getElementById('submitBtn').innerText = 'Submit Rating';
-            document.getElementById('ratingCount').innerText = 'Based on 2,438 ratings';
-            document.getElementById('callBtn').innerText = 'Call Now';
-            document.getElementById('locationBtn').innerText = 'Get Direction';
-            document.getElementById('houseBtn').innerText = 'House Number';
-            document.getElementById('paymentBtn').innerText = 'Payment';
-            document.getElementById('houseCardTitle').innerText = 'House Number Directory';
-            document.getElementById('houseAddress').innerText = 'Main Office: House 34, Road 12, Banani, Dhaka';
-            document.getElementById('copyBtn').innerText = 'Copy House Number';
-            document.getElementById('rightsText').innerText = 'All rights reserved.';
-            document.getElementById('footerContact').innerHTML = '📞 +880 1718-834110 | 🏠 House 34, Road 12, Banani, Dhaka';
-        }
-        
-        function setBengali() {
-            document.getElementById('langBtnText').innerText = 'English';
-            document.getElementById('tagline').innerText = 'ট্যুর এন্ড ট্রাভেল · ২০০৮ থেকে';
-            document.getElementById('homeLink').innerText = 'হোম';
-            document.getElementById('toursLink').innerText = 'ট্যুর';
-            document.getElementById('contactLink').innerText = 'যোগাযোগ';
-            document.getElementById('heroTitle').innerText = 'আপনার স্বপ্নের যাত্রা শুরু হোক এখানে';
-            document.getElementById('heroText').innerText = 'ওয়ার্ল্ড লিংকের সাথে বিশ্ব অভিজ্ঞতা';
-            document.getElementById('reviewCount').innerText = '(১২.৭হাজার+ রিভিউ)';
-            document.getElementById('companyTitle').innerText = '🌍 ওয়ার্ল্ড লিংক ট্যুর এন্ড ট্রাভেল';
-            document.getElementById('companyDesc').innerText = '২০০৮ সাল থেকে ওয়ার্ল্ড লিংক বিশ্বব্যাপী অস্মরণীয় ভ্রমণ অভিজ্ঞতা প্রদান করে আসছে। আমরা কাস্টমাইজড ট্যুর প্যাকেজ, গ্রুপ ট্রাভেল এবং অ্যাডভেঞ্চার ট্যুরিজমে বিশেষজ্ঞ। আমাদের লক্ষ্য হল শীর্ষস্থানীয় সেবা, আরামদায়ক থাকার ব্যবস্থা এবং অভিজ্ঞ গাইডের মাধ্যমে প্রতিটি ভ্রমণ স্মরণীয় করে তোলা। ১৫ বছরের বেশি অভিজ্ঞতা সহ হাজার হাজার happy traveler আমাদের বিশ্বাস করে তাদের স্বপ্নের ছুটির জন্য।';
-            document.getElementById('paymentTitle').innerText = 'পেমেন্ট অপশন';
-            document.getElementById('paymentDetail1').innerText = 'ভিসা · মাস্টারকার্ড · পেপ্যাল';
-            document.getElementById('paymentDetail2').innerText = 'ক্রিপ্টো · ব্যাংক ট্রান্সফার';
-            document.getElementById('phoneTitle').innerText = 'ফোন নাম্বার';
-            document.getElementById('locationTitle').innerText = 'লোকেশন';
-            document.getElementById('locationDetail1').innerText = 'গুলশান এভিনিউ, ঢাকা';
-            document.getElementById('locationDetail2').innerText = 'ওয়ার্ল্ড লিংক টাওয়ার';
-            document.getElementById('houseTitle').innerText = 'হাউস নাম্বার';
-            document.getElementById('houseDetail1').innerText = 'বাড়ি ৩৪, রোড ১২';
-            document.getElementById('houseDetail2').innerText = 'বনানী, ঢাকা';
-            document.getElementById('paymentSectionTitle').innerText = 'পেমেন্ট মেথড';
-            document.getElementById('supportText').innerText = '২৪/৭ সাপোর্ট';
-            document.getElementById('locationValue').innerText = 'গুলশান, ঢাকা';
-            document.getElementById('countryText').innerText = 'বাংলাদেশ';
-            document.getElementById('houseValue').innerText = 'বাড়ি ৩৪, রোড ১২';
-            document.getElementById('areaText').innerText = 'বনানী, ঢাকা';
-            document.getElementById('galleryTitle').innerText = 'জনপ্রিয় ট্যুর প্যাকেজ (ছবিতে ক্লিক করুন)';
-            document.getElementById('promptTitle').innerText = '🤖 ট্রাভেল অ্যাসিস্ট্যান্ট';
-            document.getElementById('promptDesc').innerText = 'ট্যুর, প্যাকেজ বা পেমেন্ট নিয়ে প্রশ্ন করুন!';
-            document.getElementById('sendBtnText').innerText = 'পাঠান';
-            document.getElementById('rateTitle').innerText = 'আপনার অভিজ্ঞতা রেট দিন';
-            document.getElementById('rateDesc').innerText = 'সবাই রেট দিতে পারেন';
-            document.getElementById('submitBtn').innerText = 'রেটিং সাবমিট';
-            document.getElementById('ratingCount').innerText = '২,৪৩৮ টি রেটিং এর ভিত্তিতে';
-            document.getElementById('callBtn').innerText = 'কল করুন';
-            document.getElementById('locationBtn').innerText = 'দিকনির্দেশ';
-            document.getElementById('houseBtn').innerText = 'হাউস নাম্বার';
-            document.getElementById('paymentBtn').innerText = 'পেমেন্ট';
-            document.getElementById('houseCardTitle').innerText = 'হাউস নাম্বার ডিরেক্টরি';
-            document.getElementById('houseAddress').innerText = 'মেইন অফিস: বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
-            document.getElementById('copyBtn').innerText = 'হাউস নাম্বার কপি';
-            document.getElementById('rightsText').innerText = 'সর্বস্বত্ব সংরক্ষিত';
-            document.getElementById('footerContact').innerHTML = '📞 +৮৮০ ১৭১৮-৮৩৪১১০ | 🏠 বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
+        // Countries data with 30+ countries
+        const countries = [
+            { name: 'Bangladesh', nameBn: 'বাংলাদেশ', flag: '🇧🇩', capital: 'Dhaka', capitalBn: 'ঢাকা', currency: 'BDT', currencyBn: 'টাকা', bestTime: 'Oct-Mar', bestTimeBn: 'অক্টোবর-মার্চ', popular: 'Cox\'s Bazar, Sundarbans', popularBn: 'কক্সবাজার, সুন্দরবন', price: 'From $499', priceBn: 'থেকে $৪৯৯', img: 'https://images.unsplash.com/photo-1523906834658-6e24e2384f88?w=500' },
+            { name: 'Thailand', nameBn: 'থাইল্যান্ড', flag: '🇹🇭', capital: 'Bangkok', capitalBn: 'ব্যাংকক', currency: 'THB', currencyBn: 'বাট', bestTime: 'Nov-Feb', bestTimeBn: 'নভেম্বর-ফেব্রুয়ারি', popular: 'Phuket, Bangkok', popularBn: 'ফুকেট, ব্যাংকক', price: 'From $699', priceBn: 'থেকে $৬৯৯', img: 'https://images.unsplash.com/photo-1528181304800-259b08848526?w=500' },
+            { name: 'Malaysia', nameBn: 'মালয়েশিয়া', flag: '🇲🇾', capital: 'Kuala Lumpur', capitalBn: 'কুয়ালালামপুর', currency: 'MYR', currencyBn: 'রিঙ্গিত', bestTime: 'Dec-Feb', bestTimeBn: 'ডিসেম্বর-ফেব্রুয়ারি', popular: 'Kuala Lumpur, Langkawi', popularBn: 'কুয়ালালামপুর, লাংকাওয়ি', price: 'From $649', priceBn: 'থেকে $৬৪৯', img: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=500' },
+            { name: 'Singapore', nameBn: 'সিঙ্গাপুর', flag: '🇸🇬', capital: 'Singapore', capitalBn: 'সিঙ্গাপুর', currency: 'SGD', currencyBn: 'ডলার', bestTime: 'Year round', bestTimeBn: 'সারা বছর', popular: 'Marina Bay, Sentosa', popularBn: 'মেরিনা বে, সেন্টোসা', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=500' },
+            { name: 'Indonesia', nameBn: 'ইন্দোনেশিয়া', flag: '🇮🇩', capital: 'Jakarta', capitalBn: 'জাকার্তা', currency: 'IDR', currencyBn: 'রুপিয়াহ', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Bali, Jakarta', popularBn: 'বালি, জাকার্তা', price: 'From $749', priceBn: 'থেকে $৭৪৯', img: 'https://images.unsplash.com/photo-1537996194471-e657df0ab2f6?w=500' },
+            { name: 'Vietnam', nameBn: 'ভিয়েতনাম', flag: '🇻🇳', capital: 'Hanoi', capitalBn: 'হ্যানয়', currency: 'VND', currencyBn: 'ডং', bestTime: 'Feb-Apr', bestTimeBn: 'ফেব্রুয়ারি-এপ্রিল', popular: 'Ha Long Bay, Hanoi', popularBn: 'হা লং বে, হ্যানয়', price: 'From $599', priceBn: 'থেকে $৫৯৯', img: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=500' },
+            { name: 'Cambodia', nameBn: 'কম্বোডিয়া', flag: '🇰🇭', capital: 'Phnom Penh', capitalBn: 'নম পেন', currency: 'KHR', currencyBn: 'রিয়েল', bestTime: 'Nov-Apr', bestTimeBn: 'নভেম্বর-এপ্রিল', popular: 'Angkor Wat', popularBn: 'আঙ্কোর ওয়াট', price: 'From $549', priceBn: 'থেকে $৫৪৯', img: 'https://images.unsplash.com/photo-1571907507697-a7f5e57547d0?w=500' },
+            { name: 'India', nameBn: 'ভারত', flag: '🇮🇳', capital: 'New Delhi', capitalBn: 'নয়াদিল্লি', currency: 'INR', currencyBn: 'রুপি', bestTime: 'Oct-Mar', bestTimeBn: 'অক্টোবর-মার্চ', popular: 'Taj Mahal, Goa', popularBn: 'তাজমহল, গোয়া', price: 'From $449', priceBn: 'থেকে $৪৪৯', img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500' },
+            { name: 'Nepal', nameBn: 'নেপাল', flag: '🇳🇵', capital: 'Kathmandu', capitalBn: 'কাঠমান্ডু', currency: 'NPR', currencyBn: 'রুপি', bestTime: 'Oct-Dec', bestTimeBn: 'অক্টোবর-ডিসেম্বর', popular: 'Mount Everest', popularBn: 'মাউন্ট এভারেস্ট', price: 'From $599', priceBn: 'থেকে $৫৯৯', img: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500' },
+            { name: 'Bhutan', nameBn: 'ভুটান', flag: '🇧🇹', capital: 'Thimphu', capitalBn: 'থিম্পু', currency: 'BTN', currencyBn: 'নগুলট্রাম', bestTime: 'Mar-May', bestTimeBn: 'মার্চ-মে', popular: 'Paro Taktsang', popularBn: 'পারো তাকসাং', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1572210665793-11cf75e5b405?w=500' },
+            { name: 'Sri Lanka', nameBn: 'শ্রীলঙ্কা', flag: '🇱🇰', capital: 'Colombo', capitalBn: 'কলম্বো', currency: 'LKR', currencyBn: 'রুপি', bestTime: 'Jan-Mar', bestTimeBn: 'জানুয়ারি-মার্চ', popular: 'Sigiriya', popularBn: 'সিগিরিয়া', price: 'From $549', priceBn: 'থেকে $৫৪৯', img: 'https://images.unsplash.com/photo-1586297098710-0382a496c814?w=500' },
+            { name: 'Maldives', nameBn: 'মালদ্বীপ', flag: '🇲🇻', capital: 'Malé', capitalBn: 'মালে', currency: 'MVR', currencyBn: 'রুফিয়া', bestTime: 'Nov-Apr', bestTimeBn: 'নভেম্বর-এপ্রিল', popular: 'Resorts', popularBn: 'রিসোর্ট', price: 'From $1299', priceBn: 'থেকে $১২৯৯', img: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=500' },
+            { name: 'UAE', nameBn: 'সংযুক্ত আরব', flag: '🇦🇪', capital: 'Abu Dhabi', capitalBn: 'আবুধাবি', currency: 'AED', currencyBn: 'দিরহাম', bestTime: 'Nov-Mar', bestTimeBn: 'নভেম্বর-মার্চ', popular: 'Burj Khalifa', popularBn: 'বুর্জ খলিফা', price: 'From $999', priceBn: 'থেকে $৯৯৯', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500' },
+            { name: 'Turkey', nameBn: 'তুরস্ক', flag: '🇹🇷', capital: 'Ankara', capitalBn: 'আঙ্কারা', currency: 'TRY', currencyBn: 'লিরা', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Cappadocia', popularBn: 'কাপাডোসিয়া', price: 'From $799', priceBn: 'থেকে $৭৯৯', img: 'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500' },
+            { name: 'Egypt', nameBn: 'মিশর', flag: '🇪🇬', capital: 'Cairo', capitalBn: 'কায়রো', currency: 'EGP', currencyBn: 'পাউন্ড', bestTime: 'Oct-Apr', bestTimeBn: 'অক্টোবর-এপ্রিল', popular: 'Pyramids', popularBn: 'পিরামিড', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1539769572893-49a8e2f36205?w=500' },
+            { name: 'Morocco', nameBn: 'মরক্কো', flag: '🇲🇦', capital: 'Rabat', capitalBn: 'রাবাত', currency: 'MAD', currencyBn: 'দিরহাম', bestTime: 'Mar-May', bestTimeBn: 'মার্চ-মে', popular: 'Marrakech', popularBn: 'মারাকেশ', price: 'From $749', priceBn: 'থেকে $৭৪৯', img: 'https://images.unsplash.com/photo-1539020146192-8d6adf3f4a9f?w=500' },
+            { name: 'South Africa', nameBn: 'দক্ষিণ আফ্রিকা', flag: '🇿🇦', capital: 'Pretoria', capitalBn: 'প্রিটোরিয়া', currency: 'ZAR', currencyBn: 'র্যান্ড', bestTime: 'May-Sep', bestTimeBn: 'মে-সেপ্টেম্বর', popular: 'Cape Town', popularBn: 'কেপ টাউন', price: 'From $1099', priceBn: 'থেকে $১০৯৯', img: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=500' },
+            { name: 'Kenya', nameBn: 'কেনিয়া', flag: '🇰🇪', capital: 'Nairobi', capitalBn: 'নাইরোবি', currency: 'KES', currencyBn: 'শিলিং', bestTime: 'Jun-Oct', bestTimeBn: 'জুন-অক্টোবর', popular: 'Masai Mara', popularBn: 'মাসাই মারা', price: 'From $1199', priceBn: 'থেকে $১১৯৯', img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500' },
+            { name: 'Italy', nameBn: 'ইতালি', flag: '🇮🇹', capital: 'Rome', capitalBn: 'রোম', currency: 'EUR', currencyBn: 'ইউরো', bestTime: 'Apr-Jun', bestTimeBn: 'এপ্রিল-জুন', popular: 'Colosseum', popularBn: 'কলোসিয়াম', price: 'From $999', priceBn: 'থেকে $৯৯৯', img: 'https://images.unsplash.com/photo-1529260830199-42c24126f198?w=500' },
+            { name: 'France', nameBn: 'ফ্রান্স', flag: '🇫🇷', capital: 'Paris', capitalBn: 'প্যারিস', currency: 'EUR', currencyBn: 'ইউরো', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Eiffel Tower', popularBn: 'আইফেল টাওয়ার', price: 'From $1099', priceBn: 'থেকে $১০৯৯', img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500' },
+            { name: 'Spain', nameBn: 'স্পেন', flag: '🇪🇸', capital: 'Madrid', capitalBn: 'মাদ্রিদ', currency: 'EUR', currencyBn: 'ইউরো', bestTime: 'Mar-May', bestTimeBn: 'মার্চ-মে', popular: 'Barcelona', popularBn: 'বার্সেলোনা', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1523531294919-4bcd22c3f7b1?w=500' },
+            { name: 'UK', nameBn: 'যুক্তরাজ্য', flag: '🇬🇧', capital: 'London', capitalBn: 'লন্ডন', currency: 'GBP', currencyBn: 'পাউন্ড', bestTime: 'May-Sep', bestTimeBn: 'মে-সেপ্টেম্বর', popular: 'London Eye', popularBn: 'লন্ডন আই', price: 'From $1199', priceBn: 'থেকে $১১৯৯', img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500' },
+            { name: 'USA', nameBn: 'মার্কিন যুক্তরাষ্ট্র', flag: '🇺🇸', capital: 'Washington DC', capitalBn: 'ওয়াশিংটন ডিসি', currency: 'USD', currencyBn: 'ডলার', bestTime: 'May-Oct', bestTimeBn: 'মে-অক্টোবর', popular: 'New York', popularBn: 'নিউ ইয়র্ক', price: 'From $1299', priceBn: 'থেকে $১২৯৯', img: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500' },
+            { name: 'Canada', nameBn: 'কানাডা', flag: '🇨🇦', capital: 'Ottawa', capitalBn: 'অটোয়া', currency: 'CAD', currencyBn: 'ডলার', bestTime: 'Jun-Sep', bestTimeBn: 'জুন-সেপ্টেম্বর', popular: 'Niagara Falls', popularBn: 'নায়াগ্রা জলপ্রপাত', price: 'From $1199', priceBn: 'থেকে $১১৯৯', img: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=500' },
+            { name: 'Mexico', nameBn: 'মেক্সিকো', flag: '🇲🇽', capital: 'Mexico City', capitalBn: 'মেক্সিকো সিটি', currency: 'MXN', currencyBn: 'পেসো', bestTime: 'Dec-Apr', bestTimeBn: 'ডিসেম্বর-এপ্রিল', popular: 'Cancun', popularBn: 'কানকুন', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=500' },
+            { name: 'Brazil', nameBn: 'ব্রাজিল', flag: '🇧🇷', capital: 'Brasília', capitalBn: 'ব্রাসিলিয়া', currency: 'BRL', currencyBn: 'রিয়েল', bestTime: 'Dec-Mar', bestTimeBn: 'ডিসেম্বর-মার্চ', popular: 'Christ Redeemer', popularBn: 'ক্রাইস্ট দ্য রিডিমার', price: 'From $1099', priceBn: 'থেকে $১০৯৯', img: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=500' },
+            { name: 'Argentina', nameBn: 'আর্জেন্টিনা', flag: '🇦🇷', capital: 'Buenos Aires', capitalBn: 'বুয়েনস আইরেস', currency: 'ARS', currencyBn: 'পেসো', bestTime: 'Oct-Mar', bestTimeBn: 'অক্টোবর-মার্চ', popular: 'Patagonia', popularBn: 'প্যাটাগোনিয়া', price: 'From $999', priceBn: 'থেকে $৯৯৯', img: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=500' },
+            { name: 'Australia', nameBn: 'অস্ট্রেলিয়া', flag: '🇦🇺', capital: 'Canberra', capitalBn: 'ক্যানবেরা', currency: 'AUD', currencyBn: 'ডলার', bestTime: 'Sep-Nov', bestTimeBn: 'সেপ্টেম্বর-নভেম্বর', popular: 'Sydney Opera', popularBn: 'সিডনি অপেরা', price: 'From $1499', priceBn: 'থেকে $১৪৯৯', img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=500' },
+            { name: 'New Zealand', nameBn: 'নিউজিল্যান্ড', flag: '🇳🇿', capital: 'Wellington', capitalBn: 'ওয়েলিংটন', currency: 'NZD', currencyBn: 'ডলার', bestTime: 'Dec-Feb', bestTimeBn: 'ডিসেম্বর-ফেব্রুয়ারি', popular: 'Milford Sound', popularBn: 'মিলফোর্ড সাউন্ড', price: 'From $1399', priceBn: 'থেকে $১৩৯৯', img: 'https://images.unsplash.com/photo-1469796466635-455e940cbeda?w=500' },
+            { name: 'Japan', nameBn: 'জাপান', flag: '🇯🇵', capital: 'Tokyo', capitalBn: 'টোকিও', currency: 'JPY', currencyBn: 'ইয়েন', bestTime: 'Mar-May', bestTimeBn: 'মার্চ-মে', popular: 'Mount Fuji', popularBn: 'মাউন্ট ফুজি', price: 'From $1299', priceBn: 'থেকে $১২৯৯', img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=500' },
+            { name: 'South Korea', nameBn: 'দক্ষিণ কোরিয়া', flag: '🇰🇷', capital: 'Seoul', capitalBn: 'সিউল', currency: 'KRW', currencyBn: 'ওয়ান', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Gyeongbokgung', popularBn: 'গিয়ংবকগুং', price: 'From $999', priceBn: 'থেকে $৯৯৯', img: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=500' },
+            { name: 'China', nameBn: 'চীন', flag: '🇨🇳', capital: 'Beijing', capitalBn: 'বেইজিং', currency: 'CNY', currencyBn: 'ইউয়ান', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Great Wall', popularBn: 'চীনের প্রাচীর', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=500' }
+        ];
+
+        // Load countries into grid
+        function loadCountries() {
+            const grid = document.getElementById('countriesGrid');
+            grid.innerHTML = '';
+            
+            countries.forEach((country, index) => {
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.onclick = () => openCountryModal(index);
+                
+                card.innerHTML = `
+                    <img src="${country.img}" alt="${country.name}">
+                    <div class="country-overlay">
+                        <h3>${currentLang === 'en' ? country.name : country.nameBn} ${country.flag}</h3>
+                        <p>${currentLang === 'en' ? 'Click for details' : 'বিস্তারিত জানতে ক্লিক করুন'}</p>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
         }
 
-        // Modal Function
-        const modal = document.getElementById('packageModal');
-        
-        window.openPackageModal = function(packageName) {
-            console.log('Opening package:', packageName);
+        // Open country modal
+        window.openCountryModal = function(index) {
+            const country = countries[index];
+            const modal = document.getElementById('packageModal');
+            const modalContent = document.getElementById('modalContent');
             
-            let packageTitle, description, includes, price;
-            
-            if(currentLang === 'en') {
-                switch(packageName) {
-                    case 'sajek':
-                        packageTitle = '🏞️ Sajek Valley Package';
-                        description = '3 days 2 nights tour to Sajek Valley';
-                        includes = 'Breakfast, Resort stay, AC Transport, Camp Fire';
-                        price = 'BDT 7,500 per person';
-                        break;
-                    case 'cox':
-                        packageTitle = '🏖️ Cox\'s Bazar Special';
-                        description = '4 days 3 nights at the longest sea beach';
-                        includes = '3 meals daily, Beach view hotel, Saint Martin trip';
-                        price = 'BDT 12,900 per person';
-                        break;
-                    case 'sundarban':
-                        packageTitle = '🌳 Sundarban Adventure';
-                        description = '2 days 1 night in the mangrove forest';
-                        includes = 'Boat safari, Wildlife spotting, Guide, Meals';
-                        price = 'BDT 9,999 per person';
-                        break;
-                    case 'bandarban':
-                        packageTitle = '⛰️ Bandarban Hill Trek';
-                        description = '3 days 2 nights in the hills';
-                        includes = 'Trekking, Nilachal, Buddha Dhatu Jadi, Meals';
-                        price = 'BDT 8,250 per person';
-                        break;
-                }
-            } else {
-                switch(packageName) {
-                    case 'sajek':
-                        packageTitle = '🏞️ সাজেক ভ্যালি প্যাকেজ';
-                        description = '৩ দিন ২ রাত সাজেক ভ্রমণ';
-                        includes = 'সকালের নাস্তা, রিসোর্টে থাকা, এসি পরিবহন, ক্যাম্প ফায়ার';
-                        price = '৭,৫০০ টাকা (প্রতি জন)';
-                        break;
-                    case 'cox':
-                        packageTitle = '🏖️ কক্সবাজার স্পেশাল';
-                        description = '৪ দিন ৩ রাত বিশ্বের দীর্ঘতম সমুদ্র সৈকতে';
-                        includes = '৩ বেলা খাবার, বিচ ভিউ হোটেল, সেন্ট মার্টিন ট্রিপ';
-                        price = '১২,৯০০ টাকা (প্রতি জন)';
-                        break;
-                    case 'sundarban':
-                        packageTitle = '🌳 সুন্দরবন অ্যাডভেঞ্চার';
-                        description = '২ দিন ১ রাত ম্যানগ্রোভ বনে';
-                        includes = 'নৌকা সাফারি, বন্যপ্রাণী দেখা, গাইড, খাবার';
-                        price = '৯,৯৯৯ টাকা (প্রতি জন)';
-                        break;
-                    case 'bandarban':
-                        packageTitle = '⛰️ বান্দরবান হিল ট্রেক';
-                        description = '৩ দিন ২ রাত পাহাড়ে';
-                        includes = 'ট্রেকিং, নীলাচল, বুদ্ধ ধাতু জাদি, খাবার';
-                        price = '৮,২৫০ টাকা (প্রতি জন)';
-                        break;
-                }
-            }
-            
-            document.getElementById('modalContent').innerHTML = `
-                <h3>${packageTitle}</h3>
-                <div class="package-info">
-                    <p><strong>📝 ${currentLang === 'en' ? 'Description:' : 'বিবরণ:'}</strong> ${description}</p>
-                    <p><strong>✅ ${currentLang === 'en' ? 'Includes:' : 'সুবিধা:'}</strong> ${includes}</p>
-                    <p style="font-size: 1.5rem; color: #003b5c; margin-top: 1rem;"><strong>💰 ${price}</strong></p>
+            modalContent.innerHTML = `
+                <h2>${country.flag} ${currentLang === 'en' ? country.name : country.nameBn}</h2>
+                <div class="package-details">
+                    <p><strong>📍 ${currentLang === 'en' ? 'Capital:' : 'রাজধানী:'}</strong> ${currentLang === 'en' ? country.capital : country.capitalBn}</p>
+                    <p><strong>💰 ${currentLang === 'en' ? 'Currency:' : 'মুদ্রা:'}</strong> ${currentLang === 'en' ? country.currency : country.currencyBn}</p>
+                    <p><strong>🌤️ ${currentLang === 'en' ? 'Best Time:' : 'ভ্রমণের উপযুক্ত সময়:'}</strong> ${currentLang === 'en' ? country.bestTime : country.bestTimeBn}</p>
+                    <p><strong>🏆 ${currentLang === 'en' ? 'Popular:' : 'জনপ্রিয়:'}</strong> ${currentLang === 'en' ? country.popular : country.popularBn}</p>
+                    <p style="font-size: 1.5rem; color: #003b5c; margin-top: 1rem;"><strong>💰 ${currentLang === 'en' ? 'Package Price:' : 'প্যাকেজ মূল্য:'}</strong> ${currentLang === 'en' ? country.price : country.priceBn}</p>
                 </div>
                 <div>
                     <p><strong>${currentLang === 'en' ? 'Payment Options:' : 'পেমেন্ট অপশন:'}</strong></p>
@@ -864,30 +778,165 @@
                     </div>
                 </div>
                 <div style="margin-top: 2rem;">
-                    <button class="modal-btn" onclick="bookNow()"><i class="fa-regular fa-credit-card"></i> ${currentLang === 'en' ? 'Book Now' : 'বুক করুন'}</button>
-                    <button class="modal-btn close-modal-btn" onclick="closePackageModal()"><i class="fa-regular fa-circle-xmark"></i> ${currentLang === 'en' ? 'Close' : 'বন্ধ করুন'}</button>
+                    <button class="modal-btn" onclick="bookNow('${country.name}')"><i class="fa-regular fa-credit-card"></i> ${currentLang === 'en' ? 'Book Now' : 'বুক করুন'}</button>
+                    <button class="modal-btn close-modal-btn" onclick="closeModal()"><i class="fa-regular fa-circle-xmark"></i> ${currentLang === 'en' ? 'Close' : 'বন্ধ করুন'}</button>
                 </div>
             `;
             
             modal.style.display = 'flex';
-        }
-        
-        window.closePackageModal = function() {
-            modal.style.display = 'none';
-        }
-        
-        window.bookNow = function() {
-            alert(currentLang === 'en' ? 'Thank you for booking! (Demo - Payment gateway would open here)' : 'বুকিংয়ের জন্য ধন্যবাদ! (ডেমো - পেমেন্ট গেটওয়ে খুলবে)');
-            closePackageModal();
-        }
-        
-        window.onclick = function(event) {
-            if(event.target === modal) {
-                modal.style.display = 'none';
+        };
+
+        window.closeModal = function() {
+            document.getElementById('packageModal').style.display = 'none';
+        };
+
+        window.bookNow = function(countryName) {
+            alert(currentLang === 'en' ? `Thank you for booking ${countryName}! (Demo)` : `${countryName} বুকিংয়ের জন্য ধন্যবাদ! (ডেমো)`);
+            closeModal();
+        };
+
+        // Language Toggle
+        window.toggleLanguage = function() {
+            if(currentLang === 'en') {
+                currentLang = 'bn';
+                document.getElementById('langBtnText').innerText = 'English';
+                document.getElementById('tagline').innerText = 'ট্যুর এন্ড ট্রাভেল · ২০০৮ থেকে';
+                document.getElementById('homeLink').innerText = 'হোম';
+                document.getElementById('toursLink').innerText = 'ট্যুর';
+                document.getElementById('contactLink').innerText = 'যোগাযোগ';
+                document.getElementById('heroTitle').innerText = 'আপনার স্বপ্নের যাত্রা শুরু হোক এখানে';
+                document.getElementById('heroText').innerText = 'ওয়ার্ল্ড লিংকের সাথে বিশ্ব অভিজ্ঞতা';
+                document.getElementById('reviewCount').innerText = '(১২.৭হাজার+ রিভিউ)';
+                document.getElementById('companyTitle').innerText = '🌍 ওয়ার্ল্ড লিংক ট্যুর এন্ড ট্রাভেল';
+                document.getElementById('companyDesc').innerText = '২০০৮ সাল থেকে ওয়ার্ল্ড লিংক বিশ্বব্যাপী অস্মরণীয় ভ্রমণ অভিজ্ঞতা প্রদান করে আসছে। আমরা কাস্টমাইজড ট্যুর প্যাকেজ, গ্রুপ ট্রাভেল এবং অ্যাডভেঞ্চার ট্যুরিজমে বিশেষজ্ঞ। ৩০+ দেশ এবং ১০০+ গন্তব্য নিয়ে আমরা প্রতিটি ভ্রমণ স্মরণীয় করে তুলি।';
+                document.getElementById('paymentTitle').innerText = 'পেমেন্ট অপশন';
+                document.getElementById('paymentDetail1').innerText = 'ভিসা · মাস্টারকার্ড · পেপ্যাল';
+                document.getElementById('paymentDetail2').innerText = 'ক্রিপ্টো · ব্যাংক ট্রান্সফার';
+                document.getElementById('phoneTitle').innerText = 'ফোন নাম্বার';
+                document.getElementById('locationTitle').innerText = 'লোকেশন';
+                document.getElementById('locationDetail1').innerText = 'গুলশান এভিনিউ, ঢাকা';
+                document.getElementById('locationDetail2').innerText = 'ওয়ার্ল্ড লিংক টাওয়ার';
+                document.getElementById('houseTitle').innerText = 'হাউস নাম্বার';
+                document.getElementById('houseDetail1').innerText = 'বাড়ি ৩৪, রোড ১২';
+                document.getElementById('houseDetail2').innerText = 'বনানী, ঢাকা';
+                document.getElementById('paymentSectionTitle').innerText = 'পেমেন্ট মেথড';
+                document.getElementById('supportText').innerText = '২৪/৭ সাপোর্ট';
+                document.getElementById('locationValue').innerText = 'গুলশান, ঢাকা';
+                document.getElementById('countryText').innerText = 'বাংলাদেশ';
+                document.getElementById('houseValue').innerText = 'বাড়ি ৩৪, রোড ১২';
+                document.getElementById('areaText').innerText = 'বনানী, ঢাকা';
+                document.getElementById('countriesTitle').innerText = '🌎 এক্সপ্লোর করুন ৩০+ দেশ';
+                document.getElementById('promptTitle').innerText = '🤖 ট্রাভেল অ্যাসিস্ট্যান্ট';
+                document.getElementById('promptDesc').innerText = 'ট্যুর, প্যাকেজ বা পেমেন্ট নিয়ে প্রশ্ন করুন!';
+                document.getElementById('sendBtnText').innerText = 'পাঠান';
+                document.getElementById('rateTitle').innerText = 'আপনার অভিজ্ঞতা রেট দিন';
+                document.getElementById('rateDesc').innerText = 'সবাই রেট দিতে পারেন';
+                document.getElementById('submitBtn').innerText = 'রেটিং সাবমিট';
+                document.getElementById('ratingCount').innerText = '২,৪৩৮ টি রেটিং এর ভিত্তিতে';
+                document.getElementById('callBtn').innerText = 'কল করুন';
+                document.getElementById('locationBtn').innerText = 'দিকনির্দেশ';
+                document.getElementById('houseBtn').innerText = 'হাউস নাম্বার';
+                document.getElementById('paymentBtn').innerText = 'পেমেন্ট';
+                document.getElementById('houseCardTitle').innerText = 'হাউস নাম্বার ডিরেক্টরি';
+                document.getElementById('houseAddress').innerText = 'মেইন অফিস: বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
+                document.getElementById('copyBtn').innerText = 'হাউস নাম্বার কপি';
+                document.getElementById('rightsText').innerText = 'সর্বস্বত্ব সংরক্ষিত';
+                document.getElementById('footerContact').innerHTML = '📞 +৮৮০ ১৭১৮-৮৩৪১১০ | 🏠 বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
+            } else {
+                currentLang = 'en';
+                document.getElementById('langBtnText').innerText = 'বাংলা';
+                document.getElementById('tagline').innerText = 'tour & travel · since 2008';
+                document.getElementById('homeLink').innerText = 'Home';
+                document.getElementById('toursLink').innerText = 'Tours';
+                document.getElementById('contactLink').innerText = 'Contact';
+                document.getElementById('heroTitle').innerText = 'Your Dream Journey Starts Here';
+                document.getElementById('heroText').innerText = 'Experience the world with World Link';
+                document.getElementById('reviewCount').innerText = '(12.7k+ reviews)';
+                document.getElementById('companyTitle').innerText = '🌍 World Link Tour & Travel';
+                document.getElementById('companyDesc').innerText = 'Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable.';
+                document.getElementById('paymentTitle').innerText = 'Payment Options';
+                document.getElementById('paymentDetail1').innerText = 'Visa · Mastercard · PayPal';
+                document.getElementById('paymentDetail2').innerText = 'Crypto · Bank Transfer';
+                document.getElementById('phoneTitle').innerText = 'Phone Number';
+                document.getElementById('locationTitle').innerText = 'Location';
+                document.getElementById('locationDetail1').innerText = 'Gulshan Avenue, Dhaka';
+                document.getElementById('locationDetail2').innerText = 'World Link Tower';
+                document.getElementById('houseTitle').innerText = 'House Number';
+                document.getElementById('houseDetail1').innerText = 'House 34, Road 12';
+                document.getElementById('houseDetail2').innerText = 'Banani, Dhaka';
+                document.getElementById('paymentSectionTitle').innerText = 'Payment Methods';
+                document.getElementById('supportText').innerText = '24/7 Support';
+                document.getElementById('locationValue').innerText = 'Gulshan, Dhaka';
+                document.getElementById('countryText').innerText = 'Bangladesh';
+                document.getElementById('houseValue').innerText = 'House 34, Road 12';
+                document.getElementById('areaText').innerText = 'Banani, Dhaka';
+                document.getElementById('countriesTitle').innerText = '🌎 Explore 30+ Countries';
+                document.getElementById('promptTitle').innerText = '🤖 Travel Assistant';
+                document.getElementById('promptDesc').innerText = 'Ask me anything about tours, packages, or payments!';
+                document.getElementById('sendBtnText').innerText = 'Send';
+                document.getElementById('rateTitle').innerText = 'Rate Your Experience';
+                document.getElementById('rateDesc').innerText = 'Everyone can give a rating';
+                document.getElementById('submitBtn').innerText = 'Submit Rating';
+                document.getElementById('ratingCount').innerText = 'Based on 2,438 ratings';
+                document.getElementById('callBtn').innerText = 'Call Now';
+                document.getElementById('locationBtn').innerText = 'Get Direction';
+                document.getElementById('houseBtn').innerText = 'House Number';
+                document.getElementById('paymentBtn').innerText = 'Payment';
+                document.getElementById('houseCardTitle').innerText = 'House Number Directory';
+                document.getElementById('houseAddress').innerText = 'Main Office: House 34, Road 12, Banani, Dhaka';
+                document.getElementById('copyBtn').innerText = 'Copy House Number';
+                document.getElementById('rightsText').innerText = 'All rights reserved.';
+                document.getElementById('footerContact').innerHTML = '📞 +880 1718-834110 | 🏠 House 34, Road 12, Banani, Dhaka';
             }
-        }
-        
-        // Rating System
+            
+            loadCountries();
+        };
+
+        // Prompt function
+        window.sendPrompt = function() {
+            const input = document.getElementById('promptInput');
+            const question = input.value.trim();
+            const chatMessages = document.getElementById('chatMessages');
+            
+            if(question === '') return;
+            
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message';
+            userMsg.style.background = '#ffb347';
+            userMsg.style.color = '#003b5c';
+            userMsg.innerHTML = `<strong>${currentLang === 'en' ? 'You:' : 'আপনি:'}</strong> ${question}`;
+            chatMessages.appendChild(userMsg);
+            
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-message';
+                botMsg.style.background = 'rgba(255,255,255,0.3)';
+                let response;
+                
+                if(question.toLowerCase().includes('price') || question.toLowerCase().includes('cost') || question.includes('মূল্য')) {
+                    response = currentLang === 'en' ? 
+                        'Our packages start from $449. Which country are you interested in?' : 
+                        'আমাদের প্যাকেজ শুরু $৪৪৯ থেকে। আপনি কোন দেশে আগ্রহী?';
+                } else if(question.toLowerCase().includes('payment') || question.includes('পেমেন্ট')) {
+                    response = currentLang === 'en' ?
+                        'We accept Visa, Mastercard, PayPal, bKash, and cash. You can also pay in installments!' :
+                        'আমরা ভিসা, মাস্টারকার্ড, পেপ্যাল, বিকাশ এবং নগদ গ্রহণ করি। আপনি কিস্তিতেও পেমেন্ট করতে পারেন!';
+                } else {
+                    response = currentLang === 'en' ?
+                        'Thanks for your question! Please call us at +880 1718-834110 for detailed information.' :
+                        'আপনার প্রশ্নের জন্য ধন্যবাদ! বিস্তারিত জানতে +৮৮০ ১৭১৮-৮৩৪১১০ নম্বরে কল করুন।';
+                }
+                
+                botMsg.innerHTML = `<strong>🤖 ${currentLang === 'en' ? 'Assistant:' : 'অ্যাসিস্ট্যান্ট:'}</strong> ${response}`;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+            
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        // Rating system
         let totalRating = 4.7;
         let ratingCount = 2438;
         
@@ -902,7 +951,6 @@
             }
             
             const userRating = parseInt(selected.value);
-            
             const currentSum = totalRating * ratingCount;
             ratingCount++;
             const newAvg = (currentSum + userRating) / ratingCount;
@@ -924,72 +972,25 @@
             messageEl.style.color = 'green';
             
             document.querySelectorAll('input[name="userRating"]').forEach(r => r.checked = false);
-        }
-        
+        };
+
         // Copy house number
         window.copyHouseNumber = function() {
             const houseText = 'House 34, Road 12, Banani, Dhaka';
             navigator.clipboard.writeText(houseText).then(() => {
                 alert(currentLang === 'en' ? 'House number copied to clipboard!' : 'হাউস নাম্বার কপি হয়েছে!');
             });
-        }
-        
-        // Prompt/Chat Function
-        window.sendPrompt = function() {
-            const input = document.getElementById('promptInput');
-            const question = input.value.trim();
-            const chatMessages = document.getElementById('chatMessages');
-            
-            if(question === '') return;
-            
-            // Add user message
-            const userMsg = document.createElement('div');
-            userMsg.className = 'chat-message';
-            userMsg.style.background = '#ffb347';
-            userMsg.style.color = '#003b5c';
-            userMsg.innerHTML = `<strong>${currentLang === 'en' ? 'You:' : 'আপনি:'}</strong> ${question}`;
-            chatMessages.appendChild(userMsg);
-            
-            // Simulate bot response
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.className = 'chat-message';
-                botMsg.style.background = 'rgba(255,255,255,0.3)';
-                let response;
-                
-                if(question.toLowerCase().includes('price') || question.toLowerCase().includes('cost') || question.includes('মূল্য')) {
-                    response = currentLang === 'en' ? 
-                        'Our packages start from BDT 7,500. Which destination are you interested in?' : 
-                        'আমাদের প্যাকেজ শুরু ৭,৫০০ টাকা থেকে। আপনি কোন গন্তব্যে আগ্রহী?';
-                } else if(question.toLowerCase().includes('payment') || question.includes('পেমেন্ট')) {
-                    response = currentLang === 'en' ?
-                        'We accept Visa, Mastercard, PayPal, bKash, and cash. You can also pay in installments!' :
-                        'আমরা ভিসা, মাস্টারকার্ড, পেপ্যাল, বিকাশ এবং নগদ গ্রহণ করি। আপনি কিস্তিতেও পেমেন্ট করতে পারেন!';
-                } else if(question.toLowerCase().includes('sajek') || question.includes('কক্স')) {
-                    response = currentLang === 'en' ?
-                        'Great choice! Click on the images above to see package details.' :
-                        'চমৎকার পছন্দ! বিস্তারিত জানতে উপরের ছবিতে ক্লিক করুন।';
-                } else {
-                    response = currentLang === 'en' ?
-                        'Thanks for your question! Our team will get back to you soon. You can also call us at +880 1718-834110' :
-                        'আপনার প্রশ্নের জন্য ধন্যবাদ! আমাদের টিম শীঘ্রই যোগাযোগ করবে। আপনি +৮৮০ ১৭১৮-৮৩৪১১০ নম্বরেও কল করতে পারেন।';
-                }
-                
-                botMsg.innerHTML = `<strong>🤖 ${currentLang === 'en' ? 'Assistant:' : 'অ্যাসিস্ট্যান্ট:'}</strong> ${response}`;
-                chatMessages.appendChild(botMsg);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 500);
-            
-            input.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
+        };
+
         // Enter key for prompt
         document.getElementById('promptInput').addEventListener('keypress', function(e) {
             if(e.key === 'Enter') {
                 sendPrompt();
             }
         });
+
+        // Initialize
+        loadCountries();
     </script>
 </body>
     </html>
