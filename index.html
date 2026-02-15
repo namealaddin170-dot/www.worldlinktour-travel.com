@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>World Link Tour & Travels | বিশ্বস্ত ভ্রমণ সঙ্গী</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- AOS লাইব্রেরি (নতুন) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -524,7 +522,7 @@
       .hero-content h1 { font-size: 2.5rem; }
     }
 
-    /* পপ-আপ স্টাইল */
+    /* ===== নতুন পপ-আপ স্টাইল (আপনার দেওয়া) ===== */
     .popup-overlay {
       position: fixed;
       top: 0;
@@ -556,42 +554,9 @@
       cursor: pointer;
       color: #0b3b5c;
     }
-
-    /* কাউন্টডাউন টাইমার স্ট্রিপ (নতুন) */
-    .timer-strip {
-      background: #ff7e5f;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* গ্যালারি গ্রিড (নতুন) */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 10px;
-      height: 150px;
-      object-fit: cover;
-      transition: 0.3s;
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
   </style>
 </head>
 <body>
-
-  <!-- টাইমার স্ট্রিপ (নতুন) -->
-  <div class="timer-strip">
-    ⏳ স্পেশাল অফার শেষ হতে বাকি: <span id="timer"></span>
-  </div>
 
   <!-- ফ্লোটিং কন্টাক্ট বাটন -->
   <div class="floating-contact">
@@ -629,7 +594,7 @@
   <!-- হিরো সেকশন -->
   <section class="hero" id="home">
     <div class="container hero-grid">
-      <div class="hero-content" data-aos="fade-right">
+      <div class="hero-content">
         <h1>Explore beyond <span>horizons</span> with World Link</h1>
         <p>Curated journeys, local expertise, and memories that last a lifetime. Your adventure starts here.</p>
         <div class="hero-buttons">
@@ -637,12 +602,12 @@
           <button class="btn-outline"><i class="fas fa-play"></i> ভিডিও দেখুন</button>
         </div>
       </div>
-      <div class="hero-image" data-aos="fade-left"></div>
+      <div class="hero-image"></div>
     </div>
   </section>
 
   <!-- সার্চ প্যানেল -->
-  <div class="container" data-aos="zoom-in">
+  <div class="container">
     <div class="search-panel">
       <div class="search-item">
         <label><i class="fas fa-map-marker-alt"></i> গন্তব্য</label>
@@ -669,15 +634,15 @@
     </div>
   </div>
 
-  <!-- জনপ্রিয় ট্যুর -->
+  <!-- জনপ্রিয় ট্যুর - প্রতিটি কার্ডে বুকিং বাটন (স্ক্রোল) -->
   <section class="section" id="tours">
     <div class="container">
-      <div class="section-title" data-aos="fade-up">
+      <div class="section-title">
         <h2>জনপ্রিয় <span>ট্যুর</span></h2>
         <p>আমাদের ভ্রমণ পিপাসু কাস্টমারদের পছন্দের গন্তব্য</p>
       </div>
       <div class="card-grid">
-        <div class="tour-card" data-aos="flip-left">
+        <div class="tour-card">
           <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
             <span class="card-badge">🔥 ৬টি স্পট বাকি</span>
           </div>
@@ -688,7 +653,7 @@
             <button class="card-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">বুকিং করুন →</button>
           </div>
         </div>
-        <div class="tour-card" data-aos="flip-left" data-aos-delay="100">
+        <div class="tour-card">
           <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
             <span class="card-badge">🌟 বেস্ট সেলার</span>
           </div>
@@ -699,7 +664,7 @@
             <button class="card-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">বুকিং করুন →</button>
           </div>
         </div>
-        <div class="tour-card" data-aos="flip-left" data-aos-delay="200">
+        <div class="tour-card">
           <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
             <span class="card-badge">🆕 নতুন</span>
           </div>
@@ -714,33 +679,20 @@
     </div>
   </section>
 
-  <!-- গ্যালারি সেকশন (নতুন) -->
-  <section class="container section">
-    <div class="section-title" data-aos="fade-up">
-      <h2>ভ্রমণ <span>গ্যালারি</span></h2>
-    </div>
-    <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400" alt="Beach" data-aos="zoom-in">
-      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400" alt="City" data-aos="zoom-in" data-aos-delay="50">
-      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400" alt="Mountain" data-aos="zoom-in" data-aos-delay="100">
-      <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400" alt="Lake" data-aos="zoom-in" data-aos-delay="150">
-    </div>
-  </section>
-
   <!-- কেন আমাদের বেছে নেবেন -->
   <div class="container features">
     <div class="feature-grid">
-      <div class="feature-item" data-aos="fade-up">
+      <div class="feature-item">
         <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
         <h4>নিরাপদ ভ্রমণ</h4>
         <p>২৪/৭ সহায়তা ও ভ্রমণ বীমা</p>
       </div>
-      <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="feature-item">
         <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
         <h4>স্থানীয় বিশেষজ্ঞ</h4>
         <p>গাইড যারা গন্তব্যে বেড়ে উঠেছেন</p>
       </div>
-      <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="feature-item">
         <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
         <h4>নমনীয় প্ল্যান</h4>
         <p>বিনামূল্যে বাতিল ও পুনঃনির্ধারণ</p>
@@ -748,15 +700,15 @@
     </div>
   </div>
 
-  <!-- বুকিং সেকশন -->
+  <!-- বুকিং সেকশন (আপনার দেওয়া কোড + আপডেটেড স্ক্রিপ্ট) -->
   <section id="booking" class="section" style="background: #ffffff;">
     <div class="container">
-      <div class="section-title" data-aos="fade-up">
+      <div class="section-title">
         <h2>আপনার ভ্রমণ <span>বুক করুন</span></h2>
         <p>নিচের ফর্মটি পূরণ করুন, আমরা খুব শীঘ্রই আপনার সাথে যোগাযোগ করব।</p>
       </div>
 
-      <div style="max-width: 600px; margin: 0 auto; background: #eaf4fc; padding: 2.5rem; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" data-aos="fade-up">
+      <div style="max-width: 600px; margin: 0 auto; background: #eaf4fc; padding: 2.5rem; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
         <form id="travelBookingForm">
           <div style="margin-bottom: 1.5rem;">
             <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">আপনার নাম</label>
@@ -793,24 +745,24 @@
   <!-- কন্টাক্ট সেকশন + ম্যাপ -->
   <section id="contact" class="section">
     <div class="container">
-      <div class="section-title" data-aos="fade-up">
+      <div class="section-title">
         <h2>আমাদের সাথে <span>যোগাযোগ করুন</span></h2>
         <p>সরাসরি আমাদের অফিসে আসতে পারেন অথবা ফোন করুন</p>
       </div>
       
       <div class="contact-grid">
-        <div class="contact-item" data-aos="flip-up">
+        <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
           <h5>ঠিকানা</h5>
           <p>বাড়ি নং-১২, রোড নং-০৫, ধানমন্ডি, ঢাকা-১২০৫</p>
           <a href="https://goo.gl/maps/example" target="_blank" style="color: #f4a261; font-weight: 600; text-decoration: none;">ম্যাপে দেখুন</a>
         </div>
-        <div class="contact-item" data-aos="flip-up" data-aos-delay="100">
+        <div class="contact-item">
           <i class="fas fa-phone-volume"></i>
           <h5>সরাসরি কল</h5>
           <p>+৮৮০ ১৭XX-XXXXXX<br>+৮৮০ ১৮XX-XXXXXX</p>
         </div>
-        <div class="contact-item" data-aos="flip-up" data-aos-delay="200">
+        <div class="contact-item">
           <i class="fas fa-headset"></i>
           <h5>২৪/৭ সহায়তা</h5>
           <p>info@worldlink.com<br>support@worldlink.com</p>
@@ -818,7 +770,7 @@
       </div>
 
       <!-- গুগল ম্যাপ (এম্বেড) -->
-      <div class="map-container" data-aos="zoom-in">
+      <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.1701923053473!2d90.37935571543135!3d23.74129929491753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b33cffc3fb%3A0x4a967f5d75754f9d!2sDhanmondi%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1625500000000!5m2!1sen!2sbd" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
@@ -827,11 +779,11 @@
   <!-- কাস্টমার রিভিউ সেকশন -->
   <section class="section" style="background: #eaf4fc;">
     <div class="container" style="text-align: center;">
-      <div class="section-title" data-aos="fade-up">
+      <div class="section-title">
         <h2>আমাদের কাস্টমারদের <span>মতামত</span></h2>
       </div>
       
-      <div class="review-stat" data-aos="fade-up">
+      <div class="review-stat">
         <span style="font-size: 4rem; font-weight: 800; color: #0b3b5c;">4.9</span>
         <div>
           <div class="stars">
@@ -842,18 +794,18 @@
       </div>
       
       <div class="card-grid" style="margin-top: 2rem;">
-          <div class="review-box" data-aos="fade-right">
+          <div class="review-box">
               <p>"দারুণ সার্ভিস! তাদের সুন্দরবন ট্যুর প্যাকেজটি আমাদের জীবনের সেরা অভিজ্ঞতা ছিল।"</p>
               <h5 style="margin-top: 10px; color: #0b3b5c;">- হাসান আলী</h5>
           </div>
-          <div class="review-box" data-aos="fade-left">
+          <div class="review-box">
               <p>"খুবই কম খরচে সেরা মানের হোটেল এবং যাতায়াতের ব্যবস্থা করে দিয়েছে ওয়ার্ল্ড লিঙ্ক।"</p>
               <h5 style="margin-top: 10px; color: #0b3b5c;">- সুমি আক্তার</h5>
           </div>
       </div>
 
       <br>
-      <button class="btn-primary" onclick="window.open('https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID', '_blank')" data-aos="zoom-in">একটি রিভিউ দিন</button>
+      <button class="btn-primary" onclick="window.open('https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID', '_blank')">একটি রিভিউ দিন</button>
     </div>
   </section>
 
@@ -890,7 +842,7 @@
     </div>
   </footer>
 
-  <!-- পপ-আপ HTML -->
+  <!-- পপ-আপ HTML (আপনার দেওয়া) -->
   <div class="popup-overlay" id="discountPopup">
     <div class="popup-content">
       <span class="close-popup" onclick="closePopup()">&times;</span>
@@ -901,12 +853,6 @@
     </div>
   </div>
 
-  <!-- AOS স্ক্রিপ্ট (নতুন) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
-
   <!-- মোবাইল মেনু টগল স্ক্রিপ্ট -->
   <script>
     function toggleMenu() {
@@ -915,20 +861,7 @@
     }
   </script>
 
-  <!-- টাইমার স্ক্রিপ্ট (নতুন) -->
-  <script>
-    // ৫ ঘণ্টার একটি ডাইনামিক টাইমার
-    let time = 5 * 60 * 60; 
-    setInterval(() => {
-      let h = Math.floor(time / 3600);
-      let m = Math.floor((time % 3600) / 60);
-      let s = time % 60;
-      document.getElementById("timer").innerHTML = `${h}ঘণ্টা ${m}মিনিট ${s}সেকেন্ড`;
-      if (time > 0) time--;
-    }, 1000);
-  </script>
-
-  <!-- বুকিং ফর্ম স্ক্রিপ্ট -->
+  <!-- বুকিং ফর্ম স্ক্রিপ্ট (আপনার দেওয়া) -->
   <script>
     document.getElementById('travelBookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -950,7 +883,8 @@
       alert("আপনার তথ্য জমা হয়েছে! আপনাকে সরাসরি আমাদের হোয়াটসঅ্যাপে নিয়ে যাওয়া হচ্ছে।");
     });
 
-    // পপ-আপ জাভাস্ক্রিপ্ট
+    // পপ-আপ জাভাস্ক্রিপ্ট (আপনার দেওয়া)
+    // ৫ সেকেন্ড পর পপ-আপ দেখাবে
     setTimeout(() => {
       document.getElementById('discountPopup').style.display = 'flex';
     }, 5000);
@@ -965,4 +899,21 @@
     }
   </script>
 </body>
-                                                                                                                   </html>
+</html>
+<div class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="#tours">Tours</a>
+  <a href="portfolio.html">My Portfolio</a> <a href="admin.html">Admin Panel</a> </div>
+  <div class="sidebar">
+    <h2><i class="fas fa-globe-asia"></i> World Link</h2>
+    <a href="index.html" class="nav-item"><i class="fas fa-home"></i> মেইন সাইট</a> <a href="#" class="nav-item active"><i class="fas fa-tachometer-alt"></i> ড্যাশবোর্ড</a>
+    <a href="#" class="nav-item"><i class="fas fa-suitcase"></i> ট্যুর প্যাকেজ</a>
+    <a href="portfolio.html" class="nav-item"><i class="fas fa-user"></i> পোর্টফোলিও</a>
+    <a href="index.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> লগ আউট</a>
+  </div>
+  <div class="project-info">
+  <span class="badge"><i class="fas fa-plane"></i> Travel Agency</span>
+  <h3>World Link Tour & Travels</h3>
+  <p>হোয়াটসঅ্যাপ বুকিং সহ সম্পূর্ণ ওয়েবসাইট।</p>
+  <a href="index.html" class="btn"><i class="fas fa-external-link-alt"></i> লাইভ ডেমো দেখুন</a>
+  </div>
