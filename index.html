@@ -917,3 +917,29 @@
   <p>হোয়াটসঅ্যাপ বুকিং সহ সম্পূর্ণ ওয়েবসাইট।</p>
   <a href="index.html" class="btn"><i class="fas fa-external-link-alt"></i> লাইভ ডেমো দেখুন</a>
   </div>
+<div style="margin-top: 20px; padding: 15px; border: 1px dashed #0b3b5c; border-radius: 10px; background: #f9f9f9;">
+  <h4 style="color: #0b3b5c; margin-bottom: 10px;">💳 পেমেন্ট করুন:</h4>
+  <p style="font-size: 0.9rem;">নিচের যেকোনো নম্বরে **বুকিং মানি (৳৫০০)** সেন্ড মানি করুন:</p>
+  
+  <div style="display: flex; gap: 10px; margin: 10px 0;">
+    <div style="background: #e2136e; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">বিকাশ: 017XXXXXXXX</div>
+    <div style="background: #f7941d; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">নগদ: 018XXXXXXXX</div>
+  </div>
+
+  <label style="font-weight: bold; display: block; margin-top: 10px;">ট্রানজেকশন আইডি (TrxID)</label>
+  <input type="text" id="trxid" placeholder="যেমন: 8N7K5L2W" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+</div>
+document.getElementById('travelBookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let name = document.getElementById('name').value;
+    let trxId = document.getElementById('trxid').value; // নতুন ট্রানজেকশন আইডি
+
+    if(trxId === "") {
+        alert("দয়া করে পেমেন্টের ট্রানজেকশন আইডি দিন!");
+        return;
+    }
+
+    let message = `নতুন বুকিং রিকোয়েস্ট!%0Aনাম: ${name}%0Aপেমেন্ট TrxID: ${trxId}`;
+    window.open(`https://wa.me/8801700000000?text=${message}`, '_blank');
+});
