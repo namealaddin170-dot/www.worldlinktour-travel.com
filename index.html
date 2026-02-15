@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Link Tour & Travel - 30+ Countries</title>
+    <title>World Link Tour & Travel - WhatsApp Booking</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -97,6 +97,35 @@
             border-radius: 50px;
             font-weight: bold;
             font-size: 1.2rem;
+        }
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 999;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
         /* Company Description */
         .company-description {
@@ -327,6 +356,26 @@
             align-items: center;
             gap: 8px;
         }
+        .whatsapp-booking {
+            background: #25D366;
+            color: white;
+            padding: 1.2rem;
+            border-radius: 50px;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .whatsapp-booking:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+        }
         .modal-btn {
             background: #003b5c;
             color: white;
@@ -507,6 +556,14 @@
             background: #003b5c;
             color: white;
         }
+        .whatsapp-btn {
+            background: #25D366;
+            border-color: #128C7E;
+            color: white;
+        }
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
         /* Footer */
         .footer {
             background: #002b40;
@@ -536,6 +593,11 @@
         </div>
     </div>
 
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
         <!-- Hero Section -->
@@ -550,7 +612,7 @@
         <!-- Company Description -->
         <div class="company-description">
             <h3 id="companyTitle">🌍 World Link Tour & Travel</h3>
-            <p id="companyDesc">Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable.</p>
+            <p id="companyDesc">Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable. Book directly via WhatsApp for instant confirmation!</p>
         </div>
 
         <!-- Features -->
@@ -673,7 +735,7 @@
             <button class="action-btn" onclick="alert('Calling: +880 1718-834110')"><i class="fa-solid fa-phone"></i> <span class="btnText" id="callBtn">Call Now</span></button>
             <button class="action-btn" onclick="alert('Location: Gulshan Avenue, Dhaka')"><i class="fa-solid fa-location-dot"></i> <span class="btnText" id="locationBtn">Get Direction</span></button>
             <button class="action-btn" onclick="alert('House Number: House 34, Road 12, Banani')"><i class="fa-solid fa-house"></i> <span class="btnText" id="houseBtn">House Number</span></button>
-            <button class="action-btn" onclick="document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'})"><i class="fa-regular fa-credit-card"></i> <span class="btnText" id="paymentBtn">Payment</span></button>
+            <button class="action-btn whatsapp-btn" onclick="openWhatsApp()"><i class="fa-brands fa-whatsapp"></i> <span class="btnText" id="whatsappBtn">WhatsApp Booking</span></button>
         </div>
 
         <!-- House Number Card -->
@@ -692,6 +754,9 @@
     </div>
 
     <script>
+        // WhatsApp Number
+        const whatsappNumber = "8801718834110"; // Without + sign
+        
         // Current language
         let currentLang = 'en';
         
@@ -730,6 +795,20 @@
             { name: 'South Korea', nameBn: 'দক্ষিণ কোরিয়া', flag: '🇰🇷', capital: 'Seoul', capitalBn: 'সিউল', currency: 'KRW', currencyBn: 'ওয়ান', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Gyeongbokgung', popularBn: 'গিয়ংবকগুং', price: 'From $999', priceBn: 'থেকে $৯৯৯', img: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=500' },
             { name: 'China', nameBn: 'চীন', flag: '🇨🇳', capital: 'Beijing', capitalBn: 'বেইজিং', currency: 'CNY', currencyBn: 'ইউয়ান', bestTime: 'Apr-Oct', bestTimeBn: 'এপ্রিল-অক্টোবর', popular: 'Great Wall', popularBn: 'চীনের প্রাচীর', price: 'From $899', priceBn: 'থেকে $৮৯৯', img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=500' }
         ];
+
+        // WhatsApp Functions
+        window.openWhatsApp = function(message = '') {
+            let text = message || (currentLang === 'en' ? 'Hello! I want to book a tour package.' : 'হ্যালো! আমি একটি ট্যুর প্যাকেজ বুক করতে চাই।');
+            let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        };
+
+        window.bookViaWhatsApp = function(countryName) {
+            let message = currentLang === 'en' 
+                ? `Hello! I'm interested in booking the ${countryName} tour package. Please provide details.`
+                : `হ্যালো! আমি ${countryName} ট্যুর প্যাকেজ বুক করতে আগ্রহী। বিস্তারিত জানতে চাই।`;
+            openWhatsApp(message);
+        };
 
         // Load countries into grid
         function loadCountries() {
@@ -777,8 +856,11 @@
                         <span><i class="fa-regular fa-money-bill-1"></i> ${currentLang === 'en' ? 'Cash' : 'নগদ'}</span>
                     </div>
                 </div>
-                <div style="margin-top: 2rem;">
-                    <button class="modal-btn" onclick="bookNow('${country.name}')"><i class="fa-regular fa-credit-card"></i> ${currentLang === 'en' ? 'Book Now' : 'বুক করুন'}</button>
+                <div class="whatsapp-booking" onclick="bookViaWhatsApp('${currentLang === 'en' ? country.name : country.nameBn}')">
+                    <i class="fa-brands fa-whatsapp"></i> 
+                    ${currentLang === 'en' ? 'Book via WhatsApp' : 'হোয়াটসঅ্যাপে বুক করুন'}
+                </div>
+                <div style="margin-top: 1rem;">
                     <button class="modal-btn close-modal-btn" onclick="closeModal()"><i class="fa-regular fa-circle-xmark"></i> ${currentLang === 'en' ? 'Close' : 'বন্ধ করুন'}</button>
                 </div>
             `;
@@ -788,11 +870,6 @@
 
         window.closeModal = function() {
             document.getElementById('packageModal').style.display = 'none';
-        };
-
-        window.bookNow = function(countryName) {
-            alert(currentLang === 'en' ? `Thank you for booking ${countryName}! (Demo)` : `${countryName} বুকিংয়ের জন্য ধন্যবাদ! (ডেমো)`);
-            closeModal();
         };
 
         // Language Toggle
@@ -808,7 +885,7 @@
                 document.getElementById('heroText').innerText = 'ওয়ার্ল্ড লিংকের সাথে বিশ্ব অভিজ্ঞতা';
                 document.getElementById('reviewCount').innerText = '(১২.৭হাজার+ রিভিউ)';
                 document.getElementById('companyTitle').innerText = '🌍 ওয়ার্ল্ড লিংক ট্যুর এন্ড ট্রাভেল';
-                document.getElementById('companyDesc').innerText = '২০০৮ সাল থেকে ওয়ার্ল্ড লিংক বিশ্বব্যাপী অস্মরণীয় ভ্রমণ অভিজ্ঞতা প্রদান করে আসছে। আমরা কাস্টমাইজড ট্যুর প্যাকেজ, গ্রুপ ট্রাভেল এবং অ্যাডভেঞ্চার ট্যুরিজমে বিশেষজ্ঞ। ৩০+ দেশ এবং ১০০+ গন্তব্য নিয়ে আমরা প্রতিটি ভ্রমণ স্মরণীয় করে তুলি।';
+                document.getElementById('companyDesc').innerText = '২০০৮ সাল থেকে ওয়ার্ল্ড লিংক বিশ্বব্যাপী অস্মরণীয় ভ্রমণ অভিজ্ঞতা প্রদান করে আসছে। আমরা কাস্টমাইজড ট্যুর প্যাকেজ, গ্রুপ ট্রাভেল এবং অ্যাডভেঞ্চার ট্যুরিজমে বিশেষজ্ঞ। ৩০+ দেশ এবং ১০০+ গন্তব্য নিয়ে আমরা প্রতিটি ভ্রমণ স্মরণীয় করে তুলি। সরাসরি হোয়াটসঅ্যাপে বুক করুন তাৎক্ষণিক কনফার্মেশনের জন্য!';
                 document.getElementById('paymentTitle').innerText = 'পেমেন্ট অপশন';
                 document.getElementById('paymentDetail1').innerText = 'ভিসা · মাস্টারকার্ড · পেপ্যাল';
                 document.getElementById('paymentDetail2').innerText = 'ক্রিপ্টো · ব্যাংক ট্রান্সফার';
@@ -836,7 +913,7 @@
                 document.getElementById('callBtn').innerText = 'কল করুন';
                 document.getElementById('locationBtn').innerText = 'দিকনির্দেশ';
                 document.getElementById('houseBtn').innerText = 'হাউস নাম্বার';
-                document.getElementById('paymentBtn').innerText = 'পেমেন্ট';
+                document.getElementById('whatsappBtn').innerText = 'হোয়াটসঅ্যাপ বুকিং';
                 document.getElementById('houseCardTitle').innerText = 'হাউস নাম্বার ডিরেক্টরি';
                 document.getElementById('houseAddress').innerText = 'মেইন অফিস: বাড়ি ৩৪, রোড ১২, বনানী, ঢাকা';
                 document.getElementById('copyBtn').innerText = 'হাউস নাম্বার কপি';
@@ -853,7 +930,7 @@
                 document.getElementById('heroText').innerText = 'Experience the world with World Link';
                 document.getElementById('reviewCount').innerText = '(12.7k+ reviews)';
                 document.getElementById('companyTitle').innerText = '🌍 World Link Tour & Travel';
-                document.getElementById('companyDesc').innerText = 'Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable.';
+                document.getElementById('companyDesc').innerText = 'Since 2008, World Link has been providing unforgettable travel experiences across the globe. We specialize in customized tour packages, group travel, and adventure tourism. With 30+ countries and 100+ destinations, we make every journey memorable. Book directly via WhatsApp for instant confirmation!';
                 document.getElementById('paymentTitle').innerText = 'Payment Options';
                 document.getElementById('paymentDetail1').innerText = 'Visa · Mastercard · PayPal';
                 document.getElementById('paymentDetail2').innerText = 'Crypto · Bank Transfer';
@@ -881,7 +958,7 @@
                 document.getElementById('callBtn').innerText = 'Call Now';
                 document.getElementById('locationBtn').innerText = 'Get Direction';
                 document.getElementById('houseBtn').innerText = 'House Number';
-                document.getElementById('paymentBtn').innerText = 'Payment';
+                document.getElementById('whatsappBtn').innerText = 'WhatsApp Booking';
                 document.getElementById('houseCardTitle').innerText = 'House Number Directory';
                 document.getElementById('houseAddress').innerText = 'Main Office: House 34, Road 12, Banani, Dhaka';
                 document.getElementById('copyBtn').innerText = 'Copy House Number';
@@ -915,16 +992,20 @@
                 
                 if(question.toLowerCase().includes('price') || question.toLowerCase().includes('cost') || question.includes('মূল্য')) {
                     response = currentLang === 'en' ? 
-                        'Our packages start from $449. Which country are you interested in?' : 
-                        'আমাদের প্যাকেজ শুরু $৪৪৯ থেকে। আপনি কোন দেশে আগ্রহী?';
+                        'Our packages start from $449. Which country are you interested in? You can book via WhatsApp!' : 
+                        'আমাদের প্যাকেজ শুরু $৪৪৯ থেকে। আপনি কোন দেশে আগ্রহী? হোয়াটসঅ্যাপে বুক করতে পারেন!';
                 } else if(question.toLowerCase().includes('payment') || question.includes('পেমেন্ট')) {
                     response = currentLang === 'en' ?
                         'We accept Visa, Mastercard, PayPal, bKash, and cash. You can also pay in installments!' :
                         'আমরা ভিসা, মাস্টারকার্ড, পেপ্যাল, বিকাশ এবং নগদ গ্রহণ করি। আপনি কিস্তিতেও পেমেন্ট করতে পারেন!';
+                } else if(question.toLowerCase().includes('whatsapp') || question.includes('হোয়াটসঅ্যাপ')) {
+                    response = currentLang === 'en' ?
+                        'You can book directly on WhatsApp! Click the WhatsApp button or floating icon to start booking.' :
+                        'আপনি সরাসরি হোয়াটসঅ্যাপে বুক করতে পারেন! হোয়াটসঅ্যাপ বাটন বা ফ্লোটিং আইকনে ক্লিক করুন।';
                 } else {
                     response = currentLang === 'en' ?
-                        'Thanks for your question! Please call us at +880 1718-834110 for detailed information.' :
-                        'আপনার প্রশ্নের জন্য ধন্যবাদ! বিস্তারিত জানতে +৮৮০ ১৭১৮-৮৩৪১১০ নম্বরে কল করুন।';
+                        'Thanks for your question! You can book via WhatsApp for instant confirmation or call us at +880 1718-834110.' :
+                        'আপনার প্রশ্নের জন্য ধন্যবাদ! তাৎক্ষণিক কনফার্মেশনের জন্য হোয়াটসঅ্যাপে বুক করুন অথবা +৮৮০ ১৭১৮-৮৩৪১১০ নম্বরে কল করুন।';
                 }
                 
                 botMsg.innerHTML = `<strong>🤖 ${currentLang === 'en' ? 'Assistant:' : 'অ্যাসিস্ট্যান্ট:'}</strong> ${response}`;
@@ -988,6 +1069,14 @@
                 sendPrompt();
             }
         });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('packageModal');
+            if(event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
 
         // Initialize
         loadCountries();
