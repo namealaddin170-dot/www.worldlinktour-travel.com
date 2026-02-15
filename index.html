@@ -3,411 +3,966 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Link | অ্যাডমিন প্যানেল</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>World Link Tour & Travels | বিশ্বস্ত ভ্রমণ সঙ্গী</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS লাইব্রেরি (নতুন) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    :root { 
-      --primary: #0b3b5c; 
-      --accent: #f4a261; 
-      --bg: #f4f7f6; 
-      --danger: #ff7e5f;
-      --text-light: #5f6c7a;
-    }
-    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
 
-    body { 
-      font-family: 'Segoe UI', 'Hind Siliguri', sans-serif; 
-      background: var(--bg); 
-      margin: 0; 
-      display: flex; 
+    body {
+      background-color: #fafcff;
       color: #1e2b37;
-    }
-    
-    /* Sidebar */
-    .sidebar { 
-      width: 270px; 
-      background: var(--primary); 
-      min-height: 100vh; 
-      color: white; 
-      padding: 25px 15px; 
-      position: fixed; 
-      left: 0;
-      top: 0;
-      bottom: 0;
-      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-      overflow-y: auto;
-      z-index: 100;
-      transition: 0.3s;
+      line-height: 1.5;
     }
 
-    .sidebar h2 { 
-      font-size: 1.6rem; 
-      margin-bottom: 30px; 
-      border-bottom: 2px solid rgba(244, 162, 97, 0.3); 
-      padding-bottom: 15px; 
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
-    .sidebar h2 i {
-      color: var(--accent);
-    }
-
-    .nav-item { 
-      padding: 14px 16px; 
-      color: #ecf0f1; 
-      text-decoration: none; 
-      display: block; 
-      border-radius: 12px; 
-      margin-bottom: 6px; 
-      transition: all 0.25s; 
-      font-weight: 500;
-      border-left: 3px solid transparent;
-    }
-
-    .nav-item i { 
-      width: 28px; 
-      display: inline-block; 
-      font-size: 1.2rem;
-      color: var(--accent);
-    }
-
-    .nav-item:hover, .active { 
-      background: rgba(244, 162, 97, 0.15); 
-      color: white; 
-      border-left-color: var(--accent);
-    }
-
-    .active {
-      background: rgba(244, 162, 97, 0.2);
-      font-weight: 600;
-    }
-
-    .logout {
-      margin-top: 50px;
-      color: var(--danger) !important;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 25px;
-    }
-
-    .logout i {
-      color: var(--danger);
-    }
-
-    /* Main Content */
-    .main-content { 
-      margin-left: 270px; 
-      padding: 30px 35px; 
-      width: calc(100% - 270px); 
-      min-height: 100vh;
-      background: #f8fafc;
-    }
-
-    .header { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      margin-bottom: 30px; 
+    /* HEADER & NAVIGATION */
+    .navbar {
       background: white;
-      padding: 18px 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 8px 20px rgba(0, 20, 30, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.8rem 0;
     }
 
-    .header h1 {
-      font-size: 1.8rem;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .date-badge {
-      background: var(--bg); 
-      padding: 10px 20px; 
-      border-radius: 40px; 
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02); 
-      font-weight: 500;
-      color: var(--primary);
-      border: 1px solid #e2eef5;
-    }
-
-    .date-badge i {
-      color: var(--accent);
-      margin-right: 8px;
-    }
-
-    /* Stats */
-    .stats-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); 
-      gap: 22px; 
-      margin-bottom: 35px; 
-    }
-
-    .stat-card { 
-      background: white; 
-      padding: 22px 20px; 
-      border-radius: 18px; 
-      box-shadow: 0 8px 18px rgba(0,0,0,0.02); 
-      border-left: 6px solid var(--accent); 
-      transition: 0.2s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.05);
-    }
-
-    .stat-card h3 { 
-      margin: 0; 
-      color: var(--text-light); 
-      font-size: 0.95rem; 
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .stat-card p { 
-      margin: 10px 0 0; 
-      font-size: 2.2rem; 
-      font-weight: 700; 
-      color: var(--primary); 
-    }
-
-    /* Form */
-    .form-container { 
-      background: white; 
-      padding: 28px 30px; 
-      border-radius: 22px; 
-      box-shadow: 0 12px 30px rgba(0,0,0,0.03); 
-      border: 1px solid #ecf3f8;
-    }
-
-    .form-container h3 {
+    .nav-container {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: var(--primary);
-      font-size: 1.6rem;
-      margin-bottom: 25px;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
-    .form-container h3 i {
-      color: var(--accent);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .form-group { 
-      margin-bottom: 20px; 
-    }
-
-    label { 
-      display: block; 
-      margin-bottom: 8px; 
-      font-weight: 600; 
-      color: var(--primary);
-      font-size: 0.95rem;
-    }
-
-    input, select, textarea { 
-      width: 100%; 
-      padding: 12px 15px; 
-      border: 1.5px solid #e0eef7; 
-      border-radius: 14px; 
-      outline: none; 
-      font-family: inherit;
-      font-size: 1rem;
-      transition: 0.2s;
-      background: #fbfeff;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.15);
-    }
-
-    .btn-save { 
-      background: var(--primary); 
-      color: white; 
-      border: none; 
-      padding: 14px 30px; 
-      border-radius: 40px; 
-      cursor: pointer; 
-      font-weight: 700; 
-      font-size: 1.1rem;
-      transition: 0.2s;
-      display: inline-flex;
+    .logo {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 8px 16px rgba(11, 59, 92, 0.2);
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0b3b5c;
     }
 
-    .btn-save:hover { 
-      background: var(--accent); 
-      color: var(--primary); 
+    .logo i {
+      color: #f4a261;
+      font-size: 2.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b37;
+      transition: 0.2s;
+      font-size: 1.1rem;
+    }
+
+    .nav-links a:hover {
+      color: #f4a261;
+    }
+
+    .book-btn {
+      background: #0b3b5c;
+      color: white !important;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 8px rgba(11, 59, 92, 0.2);
+    }
+
+    .book-btn:hover {
+      background: #f4a261;
+      color: #0b3b5c !important;
       transform: scale(1.02);
     }
 
-    /* টেবিল / বুকিং লিস্ট (সংক্ষিপ্ত) */
-    .table-preview {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 35px;
-      border: 1px solid #e9f0f5;
+    /* ফ্লোটিং বাটন */
+    .floating-contact {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .table-preview h4 {
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin-bottom: 15px;
+    .float-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       display: flex;
-      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn { background-color: #25d366; }
+    .phone-btn { background-color: #0b3b5c; }
+    .float-btn:hover { transform: scale(1.1); }
+
+    /* হিরো / হেডার */
+    .hero {
+      background: linear-gradient(105deg, #ffffff 0%, #eaf4fc 100%);
+      padding: 3rem 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
       align-items: center;
     }
 
-    table {
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #0b3b5c;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 span {
+      color: #f4a261;
+      border-bottom: 4px solid #f4a261;
+      display: inline-block;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+
+    .hero-image {
+      background: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=1420&q=80') center/cover no-repeat;
+      border-radius: 30px 30px 30px 120px;
+      min-height: 380px;
+      box-shadow: 0 25px 40px -10px rgba(0,0,0,0.2);
+    }
+
+    /* বাটন */
+    .btn-primary {
+      background: #0b3b5c;
+      color: white;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 16px rgba(11, 59, 92, 0.15);
+    }
+    .btn-primary:hover {
+      background: #f4a261;
+      color: #0b3b5c;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0b3b5c;
+      color: #0b3b5c;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: #0b3b5c;
+      color: white;
+    }
+
+    /* সার্চ প্যানেল */
+    .search-panel {
+      background: white;
+      border-radius: 60px 60px 60px 20px;
+      box-shadow: 0 20px 40px -10px rgba(0,40,60,0.15);
+      padding: 2rem 2rem;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+    .search-item {
+      flex: 1 1 180px;
+    }
+    .search-item label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0b3b5c;
+      margin-bottom: 0.3rem;
+    }
+    .search-item input, .search-item select {
       width: 100%;
-      border-collapse: collapse;
+      padding: 0.8rem 1rem;
+      border: 1px solid #d9e2e9;
+      border-radius: 40px;
+      font-size: 1rem;
+      background: white;
+      outline: none;
+    }
+    .search-item input:focus, .search-item select:focus {
+      border-color: #f4a261;
+      box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2);
+    }
+    .search-btn {
+      background: #f4a261;
+      border: none;
+      border-radius: 50px;
+      padding: 0.9rem 2.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0b3b5c;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .search-btn:hover {
+      background: #0b3b5c;
+      color: white;
     }
 
-    th {
-      text-align: left;
-      padding: 12px 10px;
-      background: #eef5f9;
-      color: var(--primary);
+    /* সেকশন */
+    .section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      font-size: 2.6rem;
+      color: #0b3b5c;
+      font-weight: 700;
+    }
+    .section-title h2 span {
+      color: #f4a261;
+    }
+    .section-title p {
+      color: #3e5a6b;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    /* কার্ড গ্রিড */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+    .tour-card {
+      background: white;
+      border-radius: 30px 30px 30px 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 30, 40, 0.06);
+      transition: 0.25s;
+    }
+    .tour-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px rgba(11, 59, 92, 0.12);
+    }
+    .card-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #f4a261;
+      color: #0b3b5c;
+      font-weight: 700;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+    .card-content {
+      padding: 1.8rem 1.5rem 2rem;
+    }
+    .card-content h3 {
+      font-size: 1.6rem;
+      color: #0b3b5c;
+    }
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      color: #56748a;
+      margin: 0.8rem 0 1.2rem;
+    }
+    .card-meta i {
+      color: #f4a261;
+      margin-right: 4px;
+    }
+    .card-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0b3b5c;
+      margin-bottom: 1.2rem;
+    }
+    .card-price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #56748a;
+    }
+    .card-btn {
+      background: transparent;
+      border: 2px solid #0b3b5c;
+      color: #0b3b5c;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
       font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.2s;
+    }
+    .card-btn:hover {
+      background: #0b3b5c;
+      color: white;
     }
 
-    td {
-      padding: 12px 10px;
-      border-bottom: 1px solid #deecf5;
+    /* কন্টাক্ট গ্রিড */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
     }
-
-    .status-badge {
-      background: #d9f0e1;
-      color: #0f6e3f;
-      padding: 5px 12px;
+    .contact-item {
+      background: white;
+      padding: 2rem 1rem;
       border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+    .contact-item i {
+      font-size: 2rem;
+      color: #f4a261;
+      margin-bottom: 1rem;
+    }
+    .contact-item h5 {
+      color: #0b3b5c;
+      font-size: 1.5rem;
     }
 
-    /* রেস্পন্সিভ */
+    /* ম্যাপ */
+    .map-container {
+      margin-top: 3rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* রিভিউ বক্স */
+    .review-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      border-left: 5px solid #f4a261;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .review-stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .stars { color: #f4a261; font-size: 1.8rem; }
+
+    /* ফিচার */
+    .features {
+      background: #e6f2f9;
+      border-radius: 80px 0 80px 0;
+      margin: 2rem 0;
+      padding: 4rem 2rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: #f4a261;
+      background: white;
+      width: 90px;
+      height: 90px;
+      line-height: 90px;
+      border-radius: 30px 10px 30px 10px;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 12px 16px -8px rgba(0,0,0,0.05);
+    }
+    .feature-item h4 {
+      font-size: 1.5rem;
+      color: #0b3b5c;
+    }
+
+    /* ফুটার */
+    .footer {
+      background: #0b1f2b;
+      color: #d0e0eb;
+      padding: 3rem 0 1.5rem;
+      border-radius: 60px 60px 0 0;
+      margin-top: 3rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+    }
+    .footer-logo i {
+      color: #f4a261;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.5rem;
+    }
+    .social-links a { color: #d0e0eb; }
+    .social-links a:hover { color: #f4a261; }
+    .footer-col h5 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li a {
+      color: #b0cbd9;
+      text-decoration: none;
+    }
+    .footer-bottom {
+      border-top: 1px solid #1f4055;
+      padding-top: 2rem;
+      text-align: center;
+      color: #96b2c3;
+    }
+
+    /* মোবাইল মেনু */
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      color: #0b3b5c;
+      cursor: pointer;
+    }
+
     @media (max-width: 900px) {
-      .sidebar { width: 220px; }
-      .main-content { margin-left: 220px; width: calc(100% - 220px); padding: 20px; }
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        gap: 1rem;
+      }
+      .nav-links.active { display: flex; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-image {
+        min-height: 300px;
+        order: -1;
+      }
+      .search-panel {
+        border-radius: 30px;
+        margin-top: 2rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    @media (max-width: 700px) {
-      body { flex-direction: column; }
-      .sidebar { width: 100%; min-height: auto; position: relative; }
-      .main-content { margin-left: 0; width: 100%; }
-      .form-grid { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-content h1 { font-size: 2.5rem; }
+    }
+
+    /* পপ-আপ স্টাইল */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .popup-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      max-width: 400px;
+      border: 4px solid #f4a261;
+    }
+    .popup-content h2 { color: #0b3b5c; margin-bottom: 10px; }
+    .popup-content p { font-size: 1.1rem; margin-bottom: 20px; }
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #0b3b5c;
+    }
+
+    /* কাউন্টডাউন টাইমার স্ট্রিপ (নতুন) */
+    .timer-strip {
+      background: #ff7e5f;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* গ্যালারি গ্রিড (নতুন) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      height: 150px;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
 
-  <!-- সাইডবার (অ্যাডমিন মেনু) -->
-  <div class="sidebar">
-    <h2><i class="fas fa-globe-asia"></i> World Link</h2>
-    <a href="#" class="nav-item active"><i class="fas fa-tachometer-alt"></i> ড্যাশবোর্ড</a>
-    <a href="#" class="nav-item"><i class="fas fa-suitcase"></i> ট্যুর প্যাকেজ</a>
-    <a href="#" class="nav-item"><i class="fas fa-calendar-check"></i> বুকিং লিস্ট</a>
-    <a href="#" class="nav-item"><i class="fas fa-users"></i> গ্রাহক</a>
-    <a href="#" class="nav-item"><i class="fas fa-chart-line"></i> রিপোর্ট</a>
-    <a href="#" class="nav-item"><i class="fas fa-cog"></i> সেটিংস</a>
-    <a href="#" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> লগ আউট</a>
+  <!-- টাইমার স্ট্রিপ (নতুন) -->
+  <div class="timer-strip">
+    ⏳ স্পেশাল অফার শেষ হতে বাকি: <span id="timer"></span>
   </div>
 
-  <!-- মূল কন্টেন্ট এরিয়া -->
-  <div class="main-content">
-    <div class="header">
-      <h1><i class="fas fa-user-shield" style="color: var(--accent); margin-right: 10px;"></i> স্বাগতম, অ্যাডমিন!</h1>
-      <div class="date-badge">
-        <i class="fas fa-calendar-alt"></i> ১৫ ফেব্রুয়ারি, ২০২৬
-      </div>
-    </div>
+  <!-- ফ্লোটিং কন্টাক্ট বাটন -->
+  <div class="floating-contact">
+    <a href="https://wa.me/8801700000000" class="float-btn whatsapp-btn" target="_blank" title="হোয়াটসঅ্যাপ করুন">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+8801700000000" class="float-btn phone-btn" title="কল করুন">
+      <i class="fas fa-phone-alt"></i>
+    </a>
+  </div>
 
-    <!-- স্ট্যাটিস্টিকস কার্ড -->
-    <div class="stats-grid">
-      <div class="stat-card"><h3>📦 মোট বুকিং</h3><p>১২৪</p></div>
-      <div class="stat-card"><h3>🌟 অ্যাক্টিভ প্যাকেজ</h3><p>০৮</p></div>
-      <div class="stat-card"><h3>👥 আজকের ভিজিটর</h3><p>৪৫০</p></div>
-      <div class="stat-card"><h3>💰 আজকের আয়</h3><p>৳ ১,২৪,৫০০</p></div>
+  <!-- নেভিগেশন বার -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <i class="fas fa-globe-asia"></i>
+        <span>World Link</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#tours">Tours</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#contact">Contact</a>
+        <a href="#booking">Booking</a>
+      </div>
+      <div class="menu-btn" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <button class="book-btn" onclick="window.location.href='tel:+8801700000000'">
+        <i class="fas fa-phone-alt"></i> কল করুন
+      </button>
     </div>
+  </nav>
 
-    <!-- ফর্ম: নতুন ট্যুর প্যাকেজ যুক্ত করুন -->
-    <div class="form-container">
-      <h3><i class="fas fa-plus-circle"></i> নতুন ট্যুর প্যাকেজ যুক্ত করুন</h3>
-      <div class="form-grid">
-        <div class="form-group">
-          <label>প্যাকেজের নাম</label>
-          <input type="text" placeholder="যেমন: সাজেক ভ্যালি ট্যুর">
-        </div>
-        <div class="form-group">
-          <label>দাম (টাকা)</label>
-          <input type="number" placeholder="৫০০০">
+  <!-- হিরো সেকশন -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content" data-aos="fade-right">
+        <h1>Explore beyond <span>horizons</span> with World Link</h1>
+        <p>Curated journeys, local expertise, and memories that last a lifetime. Your adventure starts here.</p>
+        <div class="hero-buttons">
+          <button class="btn-primary"><i class="fas fa-compass"></i> এক্সপ্লোর করুন</button>
+          <button class="btn-outline"><i class="fas fa-play"></i> ভিডিও দেখুন</button>
         </div>
       </div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label>সময়কাল (দিন)</label>
-          <input type="text" placeholder="৩ দিন ২ রাত">
-        </div>
-        <div class="form-group">
-          <label>ক্যাটাগরি</label>
-          <select>
-            <option>অ্যাডভেঞ্চার</option>
-            <option>পরিবার</option>
-            <option>রোমান্টিক</option>
-            <option>গ্রুপ ট্যুর</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>প্যাকেজ ডেসক্রিপশন</label>
-        <textarea style="height: 90px;" placeholder="বিস্তারিত লিখুন..."></textarea>
-      </div>
-      <div class="form-group">
-        <label>কভার ফটো লিঙ্ক (URL)</label>
-        <input type="text" placeholder="https://example.com/image.jpg">
-      </div>
-      <button class="btn-save" onclick="alert('✅ প্যাকেজ সফলভাবে পাবলিশ হয়েছে!')"><i class="fas fa-cloud-upload-alt"></i> পাবলিশ করুন</button>
+      <div class="hero-image" data-aos="fade-left"></div>
     </div>
+  </section>
 
-    <!-- সাম্প্রতিক বুকিং লিস্ট (প্রিভিউ) -->
-    <div class="table-preview">
-      <h4><i class="fas fa-list"></i> সর্বশেষ বুকিং সমূহ</h4>
-      <div style="overflow-x: auto;">
-        <table>
-          <thead>
-            <tr><th>নাম</th><th>প্যাকেজ</th><th>তারিখ</th><th>স্ট্যাটাস</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>হাসান আলী</td><td>সুন্দরবন</td><td>২০ মার্চ</td><td><span class="status-badge">কনফার্মড</span></td></tr>
-            <tr><td>সুমি আক্তার</td><td>কক্সবাজার</td><td>১৮ মার্চ</td><td><span class="status-badge">পেন্ডিং</span></td></tr>
-            <tr><td>রাজিব হোসেন</td><td>সাজেক</td><td>২৫ মার্চ</td><td><span class="status-badge">কনফার্মড</span></td></tr>
-          </tbody>
-        </table>
+  <!-- সার্চ প্যানেল -->
+  <div class="container" data-aos="zoom-in">
+    <div class="search-panel">
+      <div class="search-item">
+        <label><i class="fas fa-map-marker-alt"></i> গন্তব্য</label>
+        <input type="text" placeholder="কোথায় যাবেন?" value="সেন্ট মার্টিন">
       </div>
+      <div class="search-item">
+        <label><i class="fas fa-calendar-alt"></i> চেক ইন</label>
+        <input type="date" value="2025-12-01">
+      </div>
+      <div class="search-item">
+        <label><i class="fas fa-calendar-alt"></i> চেক আউট</label>
+        <input type="date" value="2025-12-10">
+      </div>
+      <div class="search-item">
+        <label><i class="fas fa-user"></i> ভ্রমণকারী</label>
+        <select>
+          <option>২ জন</option>
+          <option>১ জন</option>
+          <option>৩ জন</option>
+          <option>৪+ জন</option>
+        </select>
+      </div>
+      <button class="search-btn"><i class="fas fa-search"></i> খুঁজুন</button>
     </div>
   </div>
 
-  <!-- ছোট স্ক্রিপ্ট (নোটিফিকেশন) -->
+  <!-- জনপ্রিয় ট্যুর -->
+  <section class="section" id="tours">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>জনপ্রিয় <span>ট্যুর</span></h2>
+        <p>আমাদের ভ্রমণ পিপাসু কাস্টমারদের পছন্দের গন্তব্য</p>
+      </div>
+      <div class="card-grid">
+        <div class="tour-card" data-aos="flip-left">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">🔥 ৬টি স্পট বাকি</span>
+          </div>
+          <div class="card-content">
+            <h3>Greek Island Hopper</h3>
+            <div class="card-meta"><span><i class="fas fa-clock"></i> ৮ দিন</span><span><i class="fas fa-users"></i> সর্বোচ্চ ১২</span></div>
+            <div class="card-price">$২,৪৯০ <small>/প্রতি</small></div>
+            <button class="card-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">বুকিং করুন →</button>
+          </div>
+        </div>
+        <div class="tour-card" data-aos="flip-left" data-aos-delay="100">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">🌟 বেস্ট সেলার</span>
+          </div>
+          <div class="card-content">
+            <h3>Majestic Thailand</h3>
+            <div class="card-meta"><span><i class="fas fa-clock"></i> ১০ দিন</span><span><i class="fas fa-users"></i> সর্বোচ্চ ১৬</span></div>
+            <div class="card-price">$১,৮৯০ <small>/প্রতি</small></div>
+            <button class="card-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">বুকিং করুন →</button>
+          </div>
+        </div>
+        <div class="tour-card" data-aos="flip-left" data-aos-delay="200">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">🆕 নতুন</span>
+          </div>
+          <div class="card-content">
+            <h3>Italian Escape</h3>
+            <div class="card-meta"><span><i class="fas fa-clock"></i> ১২ দিন</span><span><i class="fas fa-users"></i> সর্বোচ্চ ১০</span></div>
+            <div class="card-price">$৩,২৫০ <small>/প্রতি</small></div>
+            <button class="card-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">বুকিং করুন →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- গ্যালারি সেকশন (নতুন) -->
+  <section class="container section">
+    <div class="section-title" data-aos="fade-up">
+      <h2>ভ্রমণ <span>গ্যালারি</span></h2>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400" alt="Beach" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400" alt="City" data-aos="zoom-in" data-aos-delay="50">
+      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400" alt="Mountain" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400" alt="Lake" data-aos="zoom-in" data-aos-delay="150">
+    </div>
+  </section>
+
+  <!-- কেন আমাদের বেছে নেবেন -->
+  <div class="container features">
+    <div class="feature-grid">
+      <div class="feature-item" data-aos="fade-up">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>নিরাপদ ভ্রমণ</h4>
+        <p>২৪/৭ সহায়তা ও ভ্রমণ বীমা</p>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h4>স্থানীয় বিশেষজ্ঞ</h4>
+        <p>গাইড যারা গন্তব্যে বেড়ে উঠেছেন</p>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h4>নমনীয় প্ল্যান</h4>
+        <p>বিনামূল্যে বাতিল ও পুনঃনির্ধারণ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- বুকিং সেকশন -->
+  <section id="booking" class="section" style="background: #ffffff;">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>আপনার ভ্রমণ <span>বুক করুন</span></h2>
+        <p>নিচের ফর্মটি পূরণ করুন, আমরা খুব শীঘ্রই আপনার সাথে যোগাযোগ করব।</p>
+      </div>
+
+      <div style="max-width: 600px; margin: 0 auto; background: #eaf4fc; padding: 2.5rem; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" data-aos="fade-up">
+        <form id="travelBookingForm">
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">আপনার নাম</label>
+            <input type="text" id="name" placeholder="নাম লিখুন" required style="width: 100%; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid #ccc; outline: none;">
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">ফোন নম্বর</label>
+            <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required style="width: 100%; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid #ccc; outline: none;">
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">গন্তব্য (কোথায় যেতে চান?)</label>
+            <select id="destination" style="width: 100%; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid #ccc; outline: none; background: white;">
+              <option value="Sundarban">সুন্দরবন</option>
+              <option value="Thailand">থাইল্যান্ড</option>
+              <option value="Greece">গ্রিস</option>
+              <option value="Italy">ইতালি</option>
+              <option value="Other">অন্যান্য</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">ভ্রমণের তারিখ</label>
+            <input type="date" id="travelDate" required style="width: 100%; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid #ccc; outline: none;">
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; border-radius: 10px; padding: 1rem;">বুকিং রিকোয়েস্ট পাঠান</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- কন্টাক্ট সেকশন + ম্যাপ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>আমাদের সাথে <span>যোগাযোগ করুন</span></h2>
+        <p>সরাসরি আমাদের অফিসে আসতে পারেন অথবা ফোন করুন</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-item" data-aos="flip-up">
+          <i class="fas fa-map-marker-alt"></i>
+          <h5>ঠিকানা</h5>
+          <p>বাড়ি নং-১২, রোড নং-০৫, ধানমন্ডি, ঢাকা-১২০৫</p>
+          <a href="https://goo.gl/maps/example" target="_blank" style="color: #f4a261; font-weight: 600; text-decoration: none;">ম্যাপে দেখুন</a>
+        </div>
+        <div class="contact-item" data-aos="flip-up" data-aos-delay="100">
+          <i class="fas fa-phone-volume"></i>
+          <h5>সরাসরি কল</h5>
+          <p>+৮৮০ ১৭XX-XXXXXX<br>+৮৮০ ১৮XX-XXXXXX</p>
+        </div>
+        <div class="contact-item" data-aos="flip-up" data-aos-delay="200">
+          <i class="fas fa-headset"></i>
+          <h5>২৪/৭ সহায়তা</h5>
+          <p>info@worldlink.com<br>support@worldlink.com</p>
+        </div>
+      </div>
+
+      <!-- গুগল ম্যাপ (এম্বেড) -->
+      <div class="map-container" data-aos="zoom-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.1701923053473!2d90.37935571543135!3d23.74129929491753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b33cffc3fb%3A0x4a967f5d75754f9d!2sDhanmondi%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1625500000000!5m2!1sen!2sbd" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- কাস্টমার রিভিউ সেকশন -->
+  <section class="section" style="background: #eaf4fc;">
+    <div class="container" style="text-align: center;">
+      <div class="section-title" data-aos="fade-up">
+        <h2>আমাদের কাস্টমারদের <span>মতামত</span></h2>
+      </div>
+      
+      <div class="review-stat" data-aos="fade-up">
+        <span style="font-size: 4rem; font-weight: 800; color: #0b3b5c;">4.9</span>
+        <div>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>৫০০+ কাস্টমার আমাদের ওপর আস্থা রেখেছেন</p>
+        </div>
+      </div>
+      
+      <div class="card-grid" style="margin-top: 2rem;">
+          <div class="review-box" data-aos="fade-right">
+              <p>"দারুণ সার্ভিস! তাদের সুন্দরবন ট্যুর প্যাকেজটি আমাদের জীবনের সেরা অভিজ্ঞতা ছিল।"</p>
+              <h5 style="margin-top: 10px; color: #0b3b5c;">- হাসান আলী</h5>
+          </div>
+          <div class="review-box" data-aos="fade-left">
+              <p>"খুবই কম খরচে সেরা মানের হোটেল এবং যাতায়াতের ব্যবস্থা করে দিয়েছে ওয়ার্ল্ড লিঙ্ক।"</p>
+              <h5 style="margin-top: 10px; color: #0b3b5c;">- সুমি আক্তার</h5>
+          </div>
+      </div>
+
+      <br>
+      <button class="btn-primary" onclick="window.open('https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID', '_blank')" data-aos="zoom-in">একটি রিভিউ দিন</button>
+    </div>
+  </section>
+
+  <!-- ফুটার -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <i class="fas fa-globe-asia"></i>
+          <span>World Link</span>
+        </div>
+        <p>আপনার বিশ্বস্ত ভ্রমণ সঙ্গী। আমরা স্বপ্নকে ভ্রমণে রূপান্তরিত করি।</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>এক্সপ্লোর</h5>
+        <ul><li><a href="#">সকল ট্যুর</a></li><li><a href="#">গন্তব্য</a></li><li><a href="#">ব্লগ</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>সাপোর্ট</h5>
+        <ul><li><a href="#">যোগাযোগ</a></li><li><a href="#">প্রাইভেসি</a></li><li><a href="#">টার্মস</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>অফিস</h5>
+        <ul><li><i class="fas fa-map-pin"></i> ধানমন্ডি, ঢাকা</li><li><i class="fas fa-phone"></i> +৮৮০ ১৭০০০০০০০০</li></ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© ২০২৫ World Link Tour & Travels - সর্বস্বত্ব সংরক্ষিত</p>
+    </div>
+  </footer>
+
+  <!-- পপ-আপ HTML -->
+  <div class="popup-overlay" id="discountPopup">
+    <div class="popup-content">
+      <span class="close-popup" onclick="closePopup()">&times;</span>
+      <i class="fas fa-gift" style="font-size: 3rem; color: #f4a261; margin-bottom: 15px;"></i>
+      <h2>স্পেশাল অফার!</h2>
+      <p>আজই বুকিং করলে পাচ্ছেন সকল ট্যুর প্যাকেজে <b>১০% ডিসকাউন্ট</b>।</p>
+      <button class="btn-primary" onclick="scrollToBooking()">অফারটি নিন</button>
+    </div>
+  </div>
+
+  <!-- AOS স্ক্রিপ্ট (নতুন) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // কোনো কার্যকারিতা যোগ না করে শুধু কনসোল মেসেজ
-    console.log('World Link Admin Panel Loaded');
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+  <!-- মোবাইল মেনু টগল স্ক্রিপ্ট -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
+
+  <!-- টাইমার স্ক্রিপ্ট (নতুন) -->
+  <script>
+    // ৫ ঘণ্টার একটি ডাইনামিক টাইমার
+    let time = 5 * 60 * 60; 
+    setInterval(() => {
+      let h = Math.floor(time / 3600);
+      let m = Math.floor((time % 3600) / 60);
+      let s = time % 60;
+      document.getElementById("timer").innerHTML = `${h}ঘণ্টা ${m}মিনিট ${s}সেকেন্ড`;
+      if (time > 0) time--;
+    }, 1000);
+  </script>
+
+  <!-- বুকিং ফর্ম স্ক্রিপ্ট -->
+  <script>
+    document.getElementById('travelBookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const destination = document.getElementById('destination').value;
+      const date = document.getElementById('travelDate').value;
+      
+      // নম্বরটি আপনার নিজের নম্বর দিয়ে বদলে নিন (যেমন: 8801712345678)
+      const myNumber = "8801700000000"; 
+
+      // সাজানো মেসেজ
+      const message = `হ্যালো *World Link*,%0Aআমি একটি ট্যুর বুক করতে চাই।%0A%0A*নাম:* ${name}%0A*ফোন:* ${phone}%0A*গন্তব্য:* ${destination}%0A*তারিখ:* ${date}%0A%0Aধন্যবাদ!`;
+
+      const waLink = `https://wa.me/${myNumber}?text=${message}`;
+      
+      window.open(waLink, '_blank');
+      alert("আপনার তথ্য জমা হয়েছে! আপনাকে সরাসরি আমাদের হোয়াটসঅ্যাপে নিয়ে যাওয়া হচ্ছে।");
+    });
+
+    // পপ-আপ জাভাস্ক্রিপ্ট
+    setTimeout(() => {
+      document.getElementById('discountPopup').style.display = 'flex';
+    }, 5000);
+
+    function closePopup() {
+      document.getElementById('discountPopup').style.display = 'none';
+    }
+
+    function scrollToBooking() {
+      closePopup();
+      document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+    }
   </script>
 </body>
-          </html>
+                                                                                                                   </html>
